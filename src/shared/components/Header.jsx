@@ -14,11 +14,13 @@ import {
   ListItemText,
 } from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const navItems = ['Home', 'Properties', 'Mortgage', 'Investment', 'About'];
 
@@ -89,6 +91,7 @@ const Header = () => {
       <Box sx={{ p: 3, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
         <Button
           fullWidth
+          onClick={() => navigate('/register')}
           sx={{
             color: 'white',
             fontWeight: 500,
@@ -179,6 +182,7 @@ const Header = () => {
           <Box sx={{ display: 'flex',  alignItems: 'center' }}>
             {!isMobile && (
               <Button
+                onClick={() => navigate('/register')}
                 sx={{
                   color: 'text.primary',
                   fontWeight: 500,
