@@ -18,13 +18,14 @@ const HeroContent = () => {
     <Box
       sx={{
         width: '100%',
-        pr: isMobile ? 0 : { md: 4, lg: 6, xl: 8 },
+        pr: isMobile ? 0 : { md: 2, lg: 6, xl: 8, xxl: 12 },
         textAlign: isMobile ? 'center' : 'left',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        minHeight: '70vh',
-        pl: { xs: 2, md: 4, lg: 6, xl: 8 },
+        minHeight: { xs: 'auto', sm: '60vh', md: '70vh' },
+        pl: { xs: 1, sm: 2, md: 3, lg: 6, xl: 8, xxl: 12 },
+        py: { xs: 2, sm: 3, md: 4 },
       }}
     >
       {/* Tagline */}
@@ -33,9 +34,9 @@ const HeroContent = () => {
         sx={{
           color: '#DFC14C',
           fontWeight: 400,
-          fontSize: '1rem',
+          fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1rem' },
           letterSpacing: 0,
-          mb: 2,
+          mb: { xs: 1, sm: 2 },
           display: 'block',
           fontFamily: '"Inter", sans-serif',
         }}
@@ -49,8 +50,8 @@ const HeroContent = () => {
         sx={{
           color: 'text.primary',
           fontWeight: 700,
-          mb: 3,
-          fontSize: isMobile ? '2.5rem' : '3.5rem',
+          mb: { xs: 2, sm: 3 },
+          fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.8rem', lg: '3.2rem', xl: '3.5rem', xxl: '4rem' },
           lineHeight: 1.2,
         }}
       >
@@ -64,9 +65,9 @@ const HeroContent = () => {
         variant="body1"
         sx={{
           color: 'text.primary',
-          fontSize: '1rem',
+          fontSize: { xs: '0.9rem', sm: '0.95rem', md: '1rem', xxl: '1.1rem' },
           lineHeight: 1.6,
-          mb: 4,
+          mb: { xs: 3, sm: 4 },
           opacity: 0.9,
           fontFamily: '"Poppins", sans-serif',
         }}
@@ -79,9 +80,9 @@ const HeroContent = () => {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
-          gap: 2,
-          mb: 4,
+          flexDirection: { xs: 'column', sm: 'row' },
+          gap: { xs: 1.5, sm: 2 },
+          mb: { xs: 3, sm: 4 },
         }}
       >
         <Button
@@ -91,9 +92,9 @@ const HeroContent = () => {
             backgroundColor: '#DFC14C',
             color: '#153C65',
             fontWeight: 400,
-            fontSize: '1.1rem',
-            py: 1.5,
-            px: 4,
+            fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
+            py: { xs: 1, sm: 1.25, md: 1.5 },
+            px: { xs: 3, sm: 3.5, md: 4 },
             borderRadius: 2,
             fontFamily: '"Poppins", sans-serif',
             '&:hover': {
@@ -115,9 +116,9 @@ const HeroContent = () => {
             borderColor: 'text.primary',
             borderWidth: 1,
             fontWeight: 400,
-            fontSize: '1.1rem',
-            py: 1.5,
-            px: 4,
+            fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
+            py: { xs: 1, sm: 1.25, md: 1.5 },
+            px: { xs: 3, sm: 3.5, md: 4 },
             borderRadius: 2,
             fontFamily: '"Poppins", sans-serif',
             '&:hover': {
@@ -134,12 +135,12 @@ const HeroContent = () => {
              </Box>
 
        {/* Feature Highlights */}
-       <Box sx={{ mt: 8 }}>
+       <Box sx={{ mt: { xs: 4, sm: 6, md: 8 } }}>
          <Box
            sx={{
              display: 'flex',
              flexDirection: { xs: 'column', sm: 'row' },
-             gap: 4,
+             gap: { xs: 2, sm: 3, md: 4 },
            }}
          >
            {[
@@ -161,8 +162,9 @@ const HeroContent = () => {
                sx={{
                  display: 'flex',
                  alignItems: 'center',
-                 gap: 1.5,
+                 gap: { xs: 1, sm: 1.5 },
                  flex: { xs: '1', sm: '0 1 auto' },
+                 justifyContent: { xs: 'center', sm: 'flex-start' },
                }}
              >
                {feature.icon}
@@ -171,7 +173,7 @@ const HeroContent = () => {
                  sx={{
                    color: 'text.primary',
                    fontWeight: 500,
-                   fontSize: '0.9rem',
+                   fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' },
                    fontFamily: '"Poppins", sans-serif',
                  }}
                >

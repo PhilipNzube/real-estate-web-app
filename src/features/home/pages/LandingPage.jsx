@@ -17,6 +17,7 @@ const LandingPage = () => {
         minHeight: '100vh',
         position: 'relative',
         overflow: 'hidden',
+        width: '100%',
       }}
     >
       {/* Background Image */}
@@ -60,9 +61,13 @@ const LandingPage = () => {
         sx={{
           position: 'relative',
           zIndex: 1,
-          pt: { xs: 2, sm: 4, md: 6, lg: 8 },
-          pb: { xs: 4, sm: 6, md: 8, lg: 12 },
-          px: { xs: 2, sm: 3, md: 4, lg: 6, xl: 8 },
+          pt: { xs: 1, sm: 2, md: 4, lg: 6 },
+          pb: { xs: 2, sm: 4, md: 6, lg: 8 },
+          px: { xs: 1, sm: 2, md: 3, lg: 6, xl: 8, xxl: 12 },
+          width: '100%',
+          overflowX: 'hidden',
+          maxWidth: { lg: '1400px', xl: '1800px', xxl: '2200px' },
+          mx: 'auto',
         }}
       >
         {/* Hero Section */}
@@ -70,17 +75,18 @@ const LandingPage = () => {
           sx={{
             display: 'flex',
             flexDirection: { xs: 'column', lg: 'row' },
-            minHeight: '100vh',
+            minHeight: { xs: 'auto', sm: '100vh' },
             position: 'relative',
             alignItems: 'center',
-            gap: 0,
+            gap: { xs: 2, sm: 3, md: 4 },
           }}
         >
           {/* Left Content - Takes up more space (70-75%) */}
           <Box
             sx={{
-              flex: { xs: '1', lg: '0 0 75%', xl: '0 0 80%' },
+              flex: { xs: '1', lg: '0 0 70%', xl: '0 0 75%', xxl: '0 0 78%' },
               width: '100%',
+              order: { xs: 1, lg: 1 },
             }}
           >
             <HeroContent />
@@ -89,14 +95,15 @@ const LandingPage = () => {
           {/* Right Content - Search Form (25-30%) */}
           <Box
             sx={{
-              flex: { xs: '1', lg: '0 0 25%', xl: '0 0 20%' },
+              flex: { xs: '1', lg: '0 0 30%', xl: '0 0 25%', xxl: '0 0 22%' },
               display: 'flex',
-              justifyContent: 'flex-end',
-              alignItems: 'flex-start',
+              justifyContent: { xs: 'center', lg: 'flex-end' },
+              alignItems: { xs: 'center', lg: 'flex-start' },
               height: '100%',
-              pt: { xs: 4, md: 6, lg: 8 },
-              pr: { xs: 2, md: 3, lg: 4 },
-              pl: { xs: 2, md: 0 },
+              pt: { xs: 2, sm: 3, md: 4, lg: 6 },
+              pr: { xs: 0, lg: 4, xl: 6, xxl: 8 },
+              pl: { xs: 0, lg: 2, xxl: 3 },
+              order: { xs: 2, lg: 2 },
             }}
           >
             <PropertySearchForm />

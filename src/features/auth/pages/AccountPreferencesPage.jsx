@@ -114,22 +114,23 @@ const AccountPreferencesPage = () => {
       width: '100%',
       minHeight: '100vh',
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      overflowX: 'hidden'
     }}>
       <Box sx={{ 
         flex: 1,
         width: '100%',
         maxWidth: { xs: '100%', sm: '95%', md: '90%', lg: '85%', xl: '80%' },
         mx: 'auto',
-        py: { xs: 2, sm: 3, md: 4, lg: 6 },
-        px: { xs: 2, sm: 3, md: 4 }
+        py: { xs: 1, sm: 2, md: 3, lg: 4 },
+        px: { xs: 1, sm: 2, md: 3, lg: 4 }
       }}>
         <Paper 
           elevation={0}
           sx={{ 
             backgroundColor: 'white',
             borderRadius: { xs: 2, sm: 3 },
-            p: { xs: 2, sm: 3, md: 4, lg: 5 },
+            p: { xs: 1.5, sm: 2, md: 3, lg: 4 },
             boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
             width: '100%',
             overflow: 'hidden'
@@ -141,8 +142,10 @@ const AccountPreferencesPage = () => {
           sx={{
             color: '#0A3A7D',
             fontWeight: 700,
-            mb: 2,
+            mb: { xs: 1.5, sm: 2 },
             fontFamily: '"Lora", sans-serif',
+            fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2rem', lg: '2.2rem' },
+            lineHeight: 1.2,
           }}
         >
           Set Your Preferences
@@ -152,8 +155,8 @@ const AccountPreferencesPage = () => {
           variant="body1"
           sx={{
             color: '#666',
-            mb: 4,
-            fontSize: '1rem',
+            mb: { xs: 3, sm: 4 },
+            fontSize: { xs: '0.9rem', sm: '1rem' },
             lineHeight: 1.6,
             fontFamily: '"Inter", sans-serif',
           }}
@@ -162,16 +165,24 @@ const AccountPreferencesPage = () => {
         </Typography>
 
         {/* Property Preferences Section */}
-        <Box sx={{ mb: 6 }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <HomeIcon sx={{ color: '#153C65', fontSize: 24 }} />
+        <Box sx={{ mb: { xs: 4, sm: 6 } }}>
+          <Box sx={{ 
+            display: 'flex', 
+            flexDirection: { xs: 'column', sm: 'row' },
+            justifyContent: 'space-between', 
+            alignItems: { xs: 'flex-start', sm: 'center' }, 
+            mb: { xs: 2, sm: 3 },
+            gap: { xs: 2, sm: 0 }
+          }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1, sm: 2 } }}>
+              <HomeIcon sx={{ color: '#153C65', fontSize: { xs: 20, sm: 24 } }} />
               <Typography
                 variant="h5"
                 sx={{
                   color: '#333B4D',
                   fontWeight: 700,
                   fontFamily: '"Lora", sans-serif',
+                  fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' },
                 }}
               >
                 Property Preferences
@@ -185,6 +196,7 @@ const AccountPreferencesPage = () => {
                 color: '#0A3A7D',
                 fontWeight: 600,
                 fontFamily: '"Poppins", sans-serif',
+                fontSize: { xs: '0.8rem', sm: '0.9rem' },
               }}
             />
           </Box>
@@ -193,8 +205,8 @@ const AccountPreferencesPage = () => {
             variant="body2"
             sx={{
               color: '#666',
-              mb: 3,
-              fontSize: '0.9rem',
+              mb: { xs: 2, sm: 3 },
+              fontSize: { xs: '0.85rem', sm: '0.9rem' },
               fontFamily: '"Inter", sans-serif',
             }}
           >
@@ -202,14 +214,15 @@ const AccountPreferencesPage = () => {
           </Typography>
 
           {/* Property Types */}
-          <Box sx={{ mb: 4 }}>
+          <Box sx={{ mb: { xs: 3, sm: 4 } }}>
             <Typography
               variant="subtitle1"
               sx={{
                 color: '#0A3A7D',
                 fontWeight: 400,
-                mb: 2,
+                mb: { xs: 1.5, sm: 2 },
                 fontFamily: '"Poppins", sans-serif',
+                fontSize: { xs: '0.9rem', sm: '1rem' },
               }}
             >
               Property Types (Select all that apply)
@@ -217,7 +230,7 @@ const AccountPreferencesPage = () => {
                          <Box sx={{ 
                display: 'flex', 
                flexWrap: 'wrap', 
-               gap: { xs: 1, sm: 2 },
+               gap: { xs: 0.5, sm: 1, md: 2 },
                justifyContent: { xs: 'center', sm: 'flex-start' }
              }}>
                {propertyTypes.map((type) => (
@@ -225,8 +238,8 @@ const AccountPreferencesPage = () => {
                    key={type.id}
                    onClick={() => handlePropertyTypeToggle(type.id)}
                    sx={{
-                     width: { xs: 100, sm: 110, md: 120 },
-                     height: { xs: 100, sm: 110, md: 120 },
+                     width: { xs: 80, sm: 100, md: 110, lg: 120 },
+                     height: { xs: 80, sm: 100, md: 110, lg: 120 },
                      cursor: 'pointer',
                      border: selectedPropertyTypes.includes(type.id) ? '2px solid #153C65' : '2px solid #e0e0e0',
                      borderRadius: 2,
@@ -239,7 +252,7 @@ const AccountPreferencesPage = () => {
                    }}
                  >
                   <CardContent sx={{ 
-                    p: 2, 
+                    p: { xs: 1, sm: 1.5, md: 2 }, 
                     textAlign: 'center',
                     display: 'flex',
                     flexDirection: 'column',
@@ -273,7 +286,7 @@ const AccountPreferencesPage = () => {
                       sx={{
                         color: '#153C65',
                         fontWeight: 500,
-                        fontSize: '0.8rem',
+                        fontSize: { xs: '0.7rem', sm: '0.75rem', md: '0.8rem' },
                         fontFamily: '"Poppins", sans-serif',
                       }}
                     >
@@ -286,19 +299,20 @@ const AccountPreferencesPage = () => {
           </Box>
 
           {/* Budget Range */}
-          <Box sx={{ mb: 4 }}>
+          <Box sx={{ mb: { xs: 3, sm: 4 } }}>
             <Typography
               variant="subtitle1"
               sx={{
                 color: '#0A3A7D',
                 fontWeight: 400,
-                mb: 2,
+                mb: { xs: 1.5, sm: 2 },
                 fontFamily: '"Poppins", sans-serif',
+                fontSize: { xs: '0.9rem', sm: '1rem' },
               }}
             >
               Budget Range
             </Typography>
-            <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: { xs: 1, sm: 2 }, mb: 2 }}>
               <TextField
                 value={formatCurrency(budgetRange[0])}
                 sx={{
@@ -364,14 +378,14 @@ const AccountPreferencesPage = () => {
                 },
               }}
             />
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1, flexWrap: 'wrap', gap: 0.5 }}>
               {['₦0', '₦30M', '₦60M', '₦90M', '₦120M', '₦150M'].map((label) => (
                 <Typography
                   key={label}
                   variant="caption"
                   sx={{
                     color: '#666',
-                    fontSize: '0.7rem',
+                    fontSize: { xs: '0.6rem', sm: '0.7rem' },
                     fontFamily: '"Inter", sans-serif',
                   }}
                 >
@@ -382,14 +396,15 @@ const AccountPreferencesPage = () => {
           </Box>
 
           {/* Preferred Location */}
-          <Box sx={{ mb: 4 }}>
+          <Box sx={{ mb: { xs: 3, sm: 4 } }}>
             <Typography
               variant="subtitle1"
               sx={{
                 color: '#0A3A7D',
                 fontWeight: 400,
-                mb: 2,
+                mb: { xs: 1.5, sm: 2 },
                 fontFamily: '"Poppins", sans-serif',
+                fontSize: { xs: '0.9rem', sm: '1rem' },
               }}
             >
               Preferred Location
@@ -472,18 +487,25 @@ const AccountPreferencesPage = () => {
         </Box>
 
         {/* Communication Preferences Section */}
-        <Box sx={{ mb: 6 }}>
+        <Box sx={{ mb: { xs: 4, sm: 6 } }}>
           <Card sx={{ backgroundColor: '#f8f9fa', borderRadius: 3 }}>
-            <CardContent sx={{ p: 4 }}>
-              <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between',  mb: 3 }}>
-                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 2 }}>
-                <NotificationsIcon sx={{ color: '#153C65', fontSize: 24 }} />
+            <CardContent sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
+              <Box sx={{ 
+                display: 'flex', 
+                flexDirection: { xs: 'column', sm: 'row' }, 
+                justifyContent: 'space-between',  
+                mb: { xs: 2, sm: 3 },
+                gap: { xs: 2, sm: 0 }
+              }}>
+                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: { xs: 1, sm: 2 } }}>
+                <NotificationsIcon sx={{ color: '#153C65', fontSize: { xs: 20, sm: 24 } }} />
                 <Typography
                   variant="h5"
                   sx={{
                     color: '#333B4D',
                     fontWeight: 700,
                     fontFamily: '"Lora", sans-serif',
+                    fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' },
                   }}
                 >
                   Communication Preferences
@@ -497,6 +519,7 @@ const AccountPreferencesPage = () => {
                     color: '#E94B7E',
                     fontWeight: 600,
                     fontFamily: '"Poppins", sans-serif',
+                    fontSize: { xs: '0.8rem', sm: '0.9rem' },
                   }}
                 />
               </Box>
@@ -505,8 +528,8 @@ const AccountPreferencesPage = () => {
                 variant="body2"
                 sx={{
                   color: '#666',
-                  mb: 3,
-                  fontSize: '0.9rem',
+                  mb: { xs: 2, sm: 3 },
+                  fontSize: { xs: '0.85rem', sm: '0.9rem' },
                   fontFamily: '"Inter", sans-serif',
                 }}
               >
@@ -515,10 +538,10 @@ const AccountPreferencesPage = () => {
 
               {/* Notification Settings */}
               <Box sx={{ 
-                mt: 4, 
+                mt: { xs: 3, sm: 4 }, 
                 backgroundColor: '#f8f9fa', 
                 borderRadius: 2, 
-                p: 3,
+                p: { xs: 2, sm: 3 },
                 border: '1px solid #e9ecef'
               }}>
                 <Typography
@@ -1048,11 +1071,11 @@ const AccountPreferencesPage = () => {
               sx={{
                 backgroundColor: '#FFC043',
                 color: '#0A3A7D',
-                px: { xs: 3, sm: 4 },
+                px: { xs: 2, sm: 3, md: 4 },
                 py: { xs: 1, sm: 1.5 },
                 borderRadius: 2,
                 fontWeight: 600,
-                fontSize: { xs: '0.9rem', sm: '1rem' },
+                fontSize: { xs: '0.85rem', sm: '0.9rem', md: '1rem' },
                 fontFamily: '"Poppins", sans-serif',
                 '&:hover': {
                   backgroundColor: '#D4B63C',
@@ -1061,7 +1084,7 @@ const AccountPreferencesPage = () => {
             >
               Complete Setup
             </Button>
-            <Divider sx={{ mt:4, mb: 2, color:'#E2EDFF', width: '100%' }} />
+            <Divider sx={{ mt: { xs: 3, sm: 4 }, mb: 2, color:'#E2EDFF', width: '100%' }} />
             <Box sx={{ display: 'flex', flexDirection: {xs: 'column', sm: 'row'},  justifyContent: 'space-between', width: '100%' }}>
           <Button
             startIcon={<ArrowBackIcon color='#596580'/>}

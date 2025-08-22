@@ -67,11 +67,11 @@ const PropertySearchForm = () => {
         borderRadius: 3,
         boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
         width: '100%',
-        maxWidth: { xs: 400, md: 350, lg: 320, xl: 300 },
-        minWidth: { xs: 280, md: 300 },
+        maxWidth: { xs: '95%', sm: 400, md: 350, lg: 320, xl: 300, xxl: 350 },
+        minWidth: { xs: 250, sm: 280, md: 300, xxl: 320 },
       }}
     >
-      <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+      <CardContent sx={{ p: { xs: 2, sm: 2.5, md: 3, lg: 4, xxl: 5 } }}>
         <Typography
           variant="h5"
           component="h2"
@@ -79,8 +79,8 @@ const PropertySearchForm = () => {
           sx={{
             color: '#153C65',
             fontWeight: 700,
-            mb: 1,
-            fontSize: { xs: '1.5rem', md: '1.75rem' },
+            mb: { xs: 0.5, sm: 1 },
+            fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.6rem', lg: '1.75rem', xxl: '2rem' },
             fontFamily: '"Poppins", sans-serif',
           }}
         >
@@ -91,9 +91,9 @@ const PropertySearchForm = () => {
           variant="body2"
           sx={{
             color: 'text.secondary',
-            mb: 3,
+            mb: { xs: 2, sm: 3 },
             opacity: 0.8,
-            fontSize: '0.9rem',
+            fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' },
             fontFamily: '"Poppins", sans-serif',
           }}
         >
@@ -240,12 +240,12 @@ const PropertySearchForm = () => {
             variant="contained"
             size="medium"
             sx={{
-              mt: 3,
-              mb: 2,
+              mt: { xs: 2, sm: 3 },
+              mb: { xs: 1, sm: 2 },
               backgroundColor: '#153C65',
               color: 'white',
-              py: 1,
-              fontSize: '1rem',
+              py: { xs: 0.75, sm: 1 },
+              fontSize: { xs: '0.9rem', sm: '0.95rem', md: '1rem' },
               fontWeight: 600,
               fontFamily: '"Poppins", sans-serif',
               '&:hover': {
