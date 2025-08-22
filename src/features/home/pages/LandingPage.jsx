@@ -8,7 +8,6 @@ import HeroContent from '../../../shared/components/HeroContent';
 import PropertySearchForm from '../../../shared/components/PropertySearchForm';
 import SocialMediaIcons from '../../../shared/components/SocialMediaIcons';
 import BgImage from '../../../assets/images/Bg.png';
-import BgOverlay from '../../../assets/images/Bg_overlay.png';
 
 const LandingPage = () => {
 
@@ -36,7 +35,7 @@ const LandingPage = () => {
         }}
       />
 
-      {/* Blue Overlay Image */}
+      {/* Custom Gradient Overlay */}
       <Box
         sx={{
           position: 'absolute',
@@ -44,17 +43,8 @@ const LandingPage = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          // Option 1: Use your overlay image
-          backgroundImage: `url(${BgOverlay})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          // Option 2: Use CSS overlay instead (uncomment below and comment out backgroundImage above)
-          backgroundColor: 'rgba(25, 118, 210, 0.7)', // Blue overlay
+          background: 'linear-gradient(135deg, #153C65E5 0%, #153C65B2 100%)',
           zIndex: 1,
-          opacity: 0.8, // Adjust this value to make overlay lighter/darker
-          // Debug: Add a border to see the overlay area
-          // border: '2px solid red',
         }}
       />
 

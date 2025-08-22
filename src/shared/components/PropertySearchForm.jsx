@@ -77,10 +77,11 @@ const PropertySearchForm = () => {
           component="h2"
           gutterBottom
           sx={{
-            color: 'text.secondary',
+            color: '#153C65',
             fontWeight: 700,
             mb: 1,
             fontSize: { xs: '1.5rem', md: '1.75rem' },
+            fontFamily: '"Poppins", sans-serif',
           }}
         >
           Find Your Dream Home
@@ -93,6 +94,7 @@ const PropertySearchForm = () => {
             mb: 3,
             opacity: 0.8,
             fontSize: '0.9rem',
+            fontFamily: '"Poppins", sans-serif',
           }}
         >
           Customize your property search
@@ -125,13 +127,17 @@ const PropertySearchForm = () => {
 
           {/* Property Type Field */}
           <FormControl fullWidth margin="dense" size="small">
-            <InputLabel>Property Type</InputLabel>
+            <InputLabel sx={{ color: 'rgba(0,0,0,0.6)' }}>Property Type</InputLabel>
             <Select
               value={formData.propertyType}
               label="Property Type"
               onChange={handleChange('propertyType')}
               sx={{
                 backgroundColor: 'white',
+                color: 'black',
+                '& .MuiSelect-select': {
+                  color: 'black',
+                },
                 '& .MuiOutlinedInput-notchedOutline': {
                   borderColor: 'rgba(0,0,0,0.1)',
                 },
@@ -144,7 +150,11 @@ const PropertySearchForm = () => {
               }}
             >
               {propertyTypes.map((type) => (
-                <MenuItem key={type} value={type}>
+                <MenuItem 
+                  key={type} 
+                  value={type}
+                  sx={{ color: 'black' }}
+                >
                   {type}
                 </MenuItem>
               ))}
@@ -153,13 +163,17 @@ const PropertySearchForm = () => {
 
           {/* Budget Range Field */}
           <FormControl fullWidth margin="dense" size="small">
-            <InputLabel>Budget Range</InputLabel>
+            <InputLabel sx={{ color: 'rgba(0,0,0,0.6)' }}>Budget Range</InputLabel>
             <Select
               value={formData.budgetRange}
               label="Budget Range"
               onChange={handleChange('budgetRange')}
               sx={{
                 backgroundColor: 'white',
+                color: 'black',
+                '& .MuiSelect-select': {
+                  color: 'black',
+                },
                 '& .MuiOutlinedInput-notchedOutline': {
                   borderColor: 'rgba(0,0,0,0.1)',
                 },
@@ -172,7 +186,11 @@ const PropertySearchForm = () => {
               }}
             >
               {budgetRanges.map((range) => (
-                <MenuItem key={range} value={range}>
+                <MenuItem 
+                  key={range} 
+                  value={range}
+                  sx={{ color: 'black' }}
+                >
                   {range}
                 </MenuItem>
               ))}
@@ -181,13 +199,17 @@ const PropertySearchForm = () => {
 
           {/* Bedrooms Field */}
           <FormControl fullWidth margin="dense" size="small">
-            <InputLabel>Bedrooms</InputLabel>
+            <InputLabel sx={{ color: 'rgba(0,0,0,0.6)' }}>Bedrooms</InputLabel>
             <Select
               value={formData.bedrooms}
               label="Bedrooms"
               onChange={handleChange('bedrooms')}
               sx={{
                 backgroundColor: 'white',
+                color: 'black',
+                '& .MuiSelect-select': {
+                  color: 'black',
+                },
                 '& .MuiOutlinedInput-notchedOutline': {
                   borderColor: 'rgba(0,0,0,0.1)',
                 },
@@ -200,7 +222,11 @@ const PropertySearchForm = () => {
               }}
             >
               {bedroomOptions.map((option) => (
-                <MenuItem key={option} value={option}>
+                <MenuItem 
+                  key={option} 
+                  value={option}
+                  sx={{ color: 'black' }}
+                >
                   {option}
                 </MenuItem>
               ))}
@@ -216,11 +242,12 @@ const PropertySearchForm = () => {
             sx={{
               mt: 3,
               mb: 2,
-              backgroundColor: 'primary.main',
+              backgroundColor: '#153C65',
               color: 'white',
               py: 1,
               fontSize: '1rem',
               fontWeight: 600,
+              fontFamily: '"Poppins", sans-serif',
               '&:hover': {
                 backgroundColor: 'primary.dark',
               },

@@ -6,11 +6,9 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import {
-  Verified as VerifiedIcon,
-  Security as SecurityIcon,
-  HeadsetMic as SupportIcon,
-} from '@mui/icons-material';
+import VerifiedListingsIcon from './icons/VerifiedListingsIcon';
+import SecureTransactionsIcon from './icons/SecureTransactionsIcon';
+import SupportServicesIcon from './icons/SupportServicesIcon';
 
 const HeroContent = () => {
   const theme = useTheme();
@@ -33,12 +31,13 @@ const HeroContent = () => {
       <Typography
         variant="overline"
         sx={{
-          color: 'secondary.main',
-          fontWeight: 700,
+          color: '#DFC14C',
+          fontWeight: 400,
           fontSize: '1rem',
-          letterSpacing: 2,
+          letterSpacing: 0,
           mb: 2,
           display: 'block',
+          fontFamily: '"Inter", sans-serif',
         }}
       >
         PREMIUM REAL ESTATE
@@ -65,10 +64,11 @@ const HeroContent = () => {
         variant="body1"
         sx={{
           color: 'text.primary',
-          fontSize: '1.1rem',
+          fontSize: '1rem',
           lineHeight: 1.6,
           mb: 4,
           opacity: 0.9,
+          fontFamily: '"Poppins", sans-serif',
         }}
       >
         Discover the finest properties across Nigeria with our trusted platform 
@@ -88,13 +88,14 @@ const HeroContent = () => {
           variant="contained"
           size="large"
           sx={{
-            backgroundColor: 'secondary.main',
-            color: 'text.secondary',
-            fontWeight: 600,
+            backgroundColor: '#DFC14C',
+            color: '#153C65',
+            fontWeight: 400,
             fontSize: '1.1rem',
             py: 1.5,
             px: 4,
             borderRadius: 2,
+            fontFamily: '"Poppins", sans-serif',
             '&:hover': {
               backgroundColor: 'secondary.dark',
               transform: 'translateY(-2px)',
@@ -112,12 +113,13 @@ const HeroContent = () => {
           sx={{
             color: 'text.primary',
             borderColor: 'text.primary',
-            borderWidth: 2,
-            fontWeight: 600,
+            borderWidth: 1,
+            fontWeight: 400,
             fontSize: '1.1rem',
             py: 1.5,
             px: 4,
             borderRadius: 2,
+            fontFamily: '"Poppins", sans-serif',
             '&:hover': {
               backgroundColor: 'rgba(255,255,255,0.1)',
               borderColor: 'text.primary',
@@ -138,20 +140,19 @@ const HeroContent = () => {
              display: 'flex',
              flexDirection: { xs: 'column', sm: 'row' },
              gap: 4,
-             justifyContent: 'space-between',
            }}
          >
            {[
              {
-               icon: <VerifiedIcon sx={{ fontSize: 28, color: 'secondary.main' }} />,
+               icon: <VerifiedListingsIcon style={{ width: 28, height: 28 }} />,
                title: 'Verified Listings',
              },
              {
-               icon: <SecurityIcon sx={{ fontSize: 28, color: 'secondary.main' }} />,
+               icon: <SecureTransactionsIcon style={{ width: 28, height: 28 }} />,
                title: 'Secure Transactions',
              },
              {
-               icon: <SupportIcon sx={{ fontSize: 28, color: 'secondary.main' }} />,
+               icon: <SupportServicesIcon style={{ width: 28, height: 28 }} />,
                title: '24/7 Support',
              },
            ].map((feature, index) => (
@@ -171,6 +172,7 @@ const HeroContent = () => {
                    color: 'text.primary',
                    fontWeight: 500,
                    fontSize: '0.9rem',
+                   fontFamily: '"Poppins", sans-serif',
                  }}
                >
                  {feature.title}

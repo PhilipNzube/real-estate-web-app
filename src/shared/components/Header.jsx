@@ -70,6 +70,7 @@ const Header = () => {
               color: 'text.primary',
               fontWeight: 700,
               fontSize: '1.5rem',
+              fontFamily: '"Lora", serif',
             }}
           >
             Naija Luxury Homes
@@ -77,7 +78,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           {!isMobile && (
-            <Box sx={{ display: 'flex', gap: { md: 2, lg: 3 }, alignItems: 'center' }}>
+            <Box sx={{ display: 'flex',  alignItems: 'center' }}>
               {navItems.map((item) => (
                 <Button
                   key={item}
@@ -86,6 +87,7 @@ const Header = () => {
                     fontWeight: 500,
                     fontSize: { md: '0.9rem', lg: '1rem' },
                     px: { md: 1, lg: 2 },
+                    fontFamily: '"Poppins", sans-serif',
                     '&:hover': {
                       backgroundColor: 'rgba(255,255,255,0.1)',
                     },
@@ -98,13 +100,14 @@ const Header = () => {
           )}
 
           {/* User Actions */}
-          <Box sx={{ display: 'flex', gap: { xs: 1, md: 2 }, alignItems: 'center' }}>
+          <Box sx={{ display: 'flex',  alignItems: 'center' }}>
             {!isMobile && (
               <Button
                 sx={{
                   color: 'text.primary',
                   fontWeight: 500,
                   fontSize: { md: '0.9rem', lg: '1rem' },
+                  fontFamily: '"Poppins", sans-serif',
                   '&:hover': {
                     backgroundColor: 'rgba(255,255,255,0.1)',
                   },
@@ -116,13 +119,15 @@ const Header = () => {
             <Button
               variant="contained"
               sx={{
-                backgroundColor: 'primary.main',
+                backgroundColor: '#FFFFFF26',
                 color: 'white',
-                borderRadius: '20px',
+                borderRadius: '30px',
+                border: '1px solid #FFFFFF4D',
                 px: { xs: 2, md: 2, lg: 3 },
                 fontSize: { xs: '0.8rem', md: '0.9rem', lg: '1rem' },
+                fontFamily: '"Poppins", sans-serif',
                 '&:hover': {
-                  backgroundColor: 'primary.dark',
+                  backgroundColor: '#153C65',
                 },
               }}
             >
