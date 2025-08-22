@@ -29,7 +29,8 @@ import {
   Favorite as FavoriteIcon,
   QuestionAnswer as QuestionAnswerIcon,
   TrendingUp as TrendingUpIcon,
-  Help as HelpIcon
+  Help as HelpIcon,
+  ArrowForward as ArrowForwardIcon
 } from '@mui/icons-material';
 import NLHLogo from '../../../shared/components/icons/NLHLogo';
 
@@ -141,9 +142,10 @@ const AccountWelcomePage = () => {
     <Box sx={{ 
       minHeight: '100vh', 
       backgroundColor: '#f0f4f8',
-      width: '100%',
+      width: '100vw',
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      overflowX: 'hidden'
     }}>
       {/* Header */}
       <Box sx={{ 
@@ -152,6 +154,7 @@ const AccountWelcomePage = () => {
         width: '100%'
       }}>
         <Box sx={{ 
+          width: '100%',
           maxWidth: 'lg',
           mx: 'auto',
           px: { xs: 2, sm: 3, md: 4 }
@@ -246,7 +249,8 @@ const AccountWelcomePage = () => {
         maxWidth: 'lg',
         mx: 'auto',
         px: { xs: 2, sm: 3, md: 4 },
-        py: { xs: 3, sm: 4, md: 6 }
+        py: { xs: 3, sm: 4, md: 6 },
+        overflowX: 'hidden'
       }}>
         {/* Success Message */}
         <Box sx={{ textAlign: 'center', mb: 6 }}>
@@ -308,7 +312,7 @@ const AccountWelcomePage = () => {
           sx={{
             backgroundColor: '#153C65',
             borderRadius: 3,
-            p: 4,
+            p: { xs: 3, sm: 4 },
             mb: 6,
             color: 'white',
           }}
@@ -319,6 +323,7 @@ const AccountWelcomePage = () => {
               fontWeight: 700,
               mb: 1,
               fontFamily: '"Poppins", sans-serif',
+              fontSize: { xs: '1.3rem', sm: '1.5rem' },
             }}
           >
             Account Details
@@ -329,166 +334,185 @@ const AccountWelcomePage = () => {
               color: '#90caf9',
               mb: 4,
               fontFamily: '"Inter", sans-serif',
+              fontSize: { xs: '0.9rem', sm: '1rem' },
             }}
           >
             Your account is now active and ready to use
           </Typography>
 
-                     <Grid container spacing={{ xs: 2, sm: 4 }}>
-             {/* User Profile Card */}
-             <Grid item xs={12} sm={6}>
-              <Card sx={{ backgroundColor: 'white', borderRadius: 3 }}>
-                <CardContent sx={{ p: 3 }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                    <Box
-                      sx={{
-                        width: 60,
-                        height: 60,
-                        backgroundColor: '#e3f2fd',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        mr: 3,
-                      }}
-                    >
-                      <PersonIcon sx={{ fontSize: 30, color: '#153C65' }} />
-                    </Box>
-                    <Box sx={{ flex: 1 }}>
-                      <Typography
-                        variant="h6"
-                        sx={{
-                          color: '#153C65',
-                          fontWeight: 700,
-                          mb: 1,
-                          fontFamily: '"Poppins", sans-serif',
-                        }}
-                      >
-                        {userData.name}
-                      </Typography>
-                      <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                        <EmailIcon sx={{ fontSize: 16, color: '#666', mr: 1 }} />
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: '#666',
-                            fontFamily: '"Inter", sans-serif',
-                          }}
-                        >
-                          {userData.email}
-                        </Typography>
-                      </Box>
-                      <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-                        <Chip
-                          icon={<PersonIcon />}
-                          label={userData.accountType}
-                          size="small"
-                          sx={{
-                            backgroundColor: '#e3f2fd',
-                            color: '#1565c0',
-                            fontWeight: 600,
-                            fontFamily: '"Poppins", sans-serif',
-                          }}
-                        />
-                        <Chip
-                          icon={<CheckIcon />}
-                          label="✔ Verified"
-                          size="small"
-                          sx={{
-                            backgroundColor: '#e8f5e8',
-                            color: '#2e7d32',
-                            fontWeight: 600,
-                            fontFamily: '"Poppins", sans-serif',
-                          }}
-                        />
-                      </Box>
-                    </Box>
-                  </Box>
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <LocationIcon sx={{ fontSize: 16, color: '#666', mr: 1 }} />
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: '#666',
-                        fontFamily: '"Inter", sans-serif',
-                      }}
-                    >
-                      {userData.location}
-                    </Typography>
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
-
-                         {/* Account Statistics */}
-             <Grid item xs={12} sm={6}>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Box sx={{ 
+            display: 'flex', 
+            flexDirection: { xs: 'column', md: 'row' }, 
+            gap: { xs: 3, md: 4 },
+            alignItems: { xs: 'stretch', md: 'center' }
+          }}>
+            {/* User Profile Info */}
+            <Box sx={{ 
+              flex: 1,
+              display: 'flex',
+              alignItems: 'center',
+              gap: 3
+            }}>
+              <Box
+                sx={{
+                  width: { xs: 50, sm: 60 },
+                  height: { xs: 50, sm: 60 },
+                  backgroundColor: '#e3f2fd',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                }}
+              >
+                <PersonIcon sx={{ fontSize: { xs: 25, sm: 30 }, color: '#153C65' }} />
+              </Box>
+              <Box sx={{ flex: 1 }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: 'white',
+                    fontWeight: 700,
+                    mb: 1,
+                    fontFamily: '"Poppins", sans-serif',
+                    fontSize: { xs: '1.1rem', sm: '1.3rem' },
+                  }}
+                >
+                  {userData.name}
+                </Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <EmailIcon sx={{ fontSize: 16, color: '#90caf9', mr: 1 }} />
                   <Typography
-                    variant="h4"
-                    sx={{
-                      color: 'white',
-                      fontWeight: 700,
-                      fontFamily: '"Poppins", sans-serif',
-                    }}
-                  >
-                    {userData.savedProperties}
-                  </Typography>
-                  <Typography
-                    variant="body1"
+                    variant="body2"
                     sx={{
                       color: '#90caf9',
                       fontFamily: '"Inter", sans-serif',
+                      fontSize: { xs: '0.85rem', sm: '0.9rem' },
                     }}
                   >
-                    Saved Properties
+                    {userData.email}
                   </Typography>
                 </Box>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <Typography
-                    variant="h4"
+                <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 2 }}>
+                  <Chip
+                    icon={<PersonIcon />}
+                    label={userData.accountType}
+                    size="small"
                     sx={{
-                      color: 'white',
-                      fontWeight: 700,
+                      backgroundColor: '#e3f2fd',
+                      color: '#1565c0',
+                      fontWeight: 600,
                       fontFamily: '"Poppins", sans-serif',
+                      fontSize: { xs: '0.7rem', sm: '0.8rem' },
                     }}
-                  >
-                    {userData.inquiries}
-                  </Typography>
-                  <Typography
-                    variant="body1"
+                  />
+                  <Chip
+                    icon={<CheckIcon />}
+                    label="Verified"
+                    size="small"
                     sx={{
-                      color: '#90caf9',
-                      fontFamily: '"Inter", sans-serif',
+                      backgroundColor: '#e8f5e8',
+                      color: '#2e7d32',
+                      fontWeight: 600,
+                      fontFamily: '"Poppins", sans-serif',
+                      fontSize: { xs: '0.7rem', sm: '0.8rem' },
                     }}
-                  >
-                    Inquiries
-                  </Typography>
+                  />
                 </Box>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <LocationIcon sx={{ fontSize: 16, color: '#90caf9', mr: 1 }} />
                   <Typography
-                    variant="h4"
-                    sx={{
-                      color: 'white',
-                      fontWeight: 700,
-                      fontFamily: '"Poppins", sans-serif',
-                    }}
-                  >
-                    {userData.propertyAlerts}
-                  </Typography>
-                  <Typography
-                    variant="body1"
+                    variant="body2"
                     sx={{
                       color: '#90caf9',
                       fontFamily: '"Inter", sans-serif',
+                      fontSize: { xs: '0.85rem', sm: '0.9rem' },
                     }}
                   >
-                    Property Alerts
+                    {userData.location}
                   </Typography>
                 </Box>
               </Box>
-            </Grid>
-          </Grid>
+            </Box>
+
+            {/* Account Statistics */}
+            <Box sx={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: { xs: 2, sm: 3 },
+              minWidth: { xs: 'auto', md: '200px' }
+            }}>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Typography
+                  variant="h4"
+                  sx={{
+                    color: 'white',
+                    fontWeight: 700,
+                    fontFamily: '"Poppins", sans-serif',
+                    fontSize: { xs: '1.8rem', sm: '2.2rem' },
+                  }}
+                >
+                  {userData.savedProperties}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: '#90caf9',
+                    fontFamily: '"Inter", sans-serif',
+                    fontSize: { xs: '0.85rem', sm: '0.9rem' },
+                  }}
+                >
+                  Saved Properties
+                </Typography>
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Typography
+                  variant="h4"
+                  sx={{
+                    color: 'white',
+                    fontWeight: 700,
+                    fontFamily: '"Poppins", sans-serif',
+                    fontSize: { xs: '1.8rem', sm: '2.2rem' },
+                  }}
+                >
+                  {userData.inquiries}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: '#90caf9',
+                    fontFamily: '"Inter", sans-serif',
+                    fontSize: { xs: '0.85rem', sm: '0.9rem' },
+                  }}
+                >
+                  Inquiries
+                </Typography>
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Typography
+                  variant="h4"
+                  sx={{
+                    color: 'white',
+                    fontWeight: 700,
+                    fontFamily: '"Poppins", sans-serif',
+                    fontSize: { xs: '1.8rem', sm: '2.2rem' },
+                  }}
+                >
+                  {userData.propertyAlerts}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: '#90caf9',
+                    fontFamily: '"Inter", sans-serif',
+                    fontSize: { xs: '0.85rem', sm: '0.9rem' },
+                  }}
+                >
+                  Property Alerts
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
         </Paper>
 
         {/* What's Next Section */}
@@ -500,276 +524,306 @@ const AccountWelcomePage = () => {
               fontWeight: 700,
               mb: 4,
               fontFamily: '"Lora", serif',
+              textAlign: 'center',
+              fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem' },
             }}
           >
             What's Next?
           </Typography>
           
-                     <Grid container spacing={{ xs: 2, sm: 3 }}>
-             {nextSteps.map((step) => (
-               <Grid item xs={12} sm={6} md={4} key={step.id}>
-                <Card
-                  sx={{
-                    height: '100%',
-                    borderRadius: 3,
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
-                    },
-                  }}
-                >
-                  <CardContent sx={{ p: 4, position: 'relative' }}>
-                    {/* Step Number */}
-                    <Box
-                      sx={{
-                        position: 'absolute',
-                        top: 16,
-                        right: 16,
-                        width: 32,
-                        height: 32,
-                        borderRadius: '50%',
-                        backgroundColor: '#e3f2fd',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#1565c0',
-                        fontWeight: 700,
-                        fontSize: '0.9rem',
-                        fontFamily: '"Poppins", sans-serif',
-                      }}
-                    >
-                      {step.id}
+          <Box sx={{ 
+            display: 'flex', 
+            flexDirection: { xs: 'column', lg: 'row' },
+            gap: { xs: 3, sm: 4 },
+            justifyContent: 'center'
+          }}>
+            {nextSteps.map((step) => (
+              <Card
+                key={step.id}
+                sx={{
+                  flex: 1,
+                  maxWidth: { xs: '100%', lg: '350px' },
+                  borderRadius: 3,
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
+                  },
+                }}
+              >
+                <CardContent sx={{ p: { xs: 3, sm: 4 }, position: 'relative' }}>
+                  {/* Step Number */}
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: { xs: 12, sm: 16 },
+                      right: { xs: 12, sm: 16 },
+                      width: { xs: 28, sm: 32 },
+                      height: { xs: 28, sm: 32 },
+                      borderRadius: '50%',
+                      backgroundColor: '#e3f2fd',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#1565c0',
+                      fontWeight: 700,
+                      fontSize: { xs: '0.8rem', sm: '0.9rem' },
+                      fontFamily: '"Poppins", sans-serif',
+                    }}
+                  >
+                    {step.id}
+                  </Box>
+
+                  {/* Icon */}
+                  <Box
+                    sx={{
+                      width: { xs: 70, sm: 80 },
+                      height: { xs: 70, sm: 80 },
+                      borderRadius: '50%',
+                      backgroundColor: step.buttonColor,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      mb: 3,
+                      border: `2px dashed ${step.iconColor}`,
+                    }}
+                  >
+                    <Box sx={{ 
+                      color: step.iconColor,
+                      fontSize: { xs: 30, sm: 35 }
+                    }}>
+                      {step.icon}
                     </Box>
+                  </Box>
 
-                    {/* Icon */}
-                    <Box
-                      sx={{
-                        width: 80,
-                        height: 80,
-                        borderRadius: '50%',
+                  {/* Content */}
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      color: '#153C65',
+                      fontWeight: 700,
+                      mb: 2,
+                      fontFamily: '"Poppins", sans-serif',
+                      fontSize: { xs: '1.1rem', sm: '1.3rem' },
+                    }}
+                  >
+                    {step.title}
+                  </Typography>
+                  
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: '#666',
+                      mb: 3,
+                      lineHeight: 1.6,
+                      fontFamily: '"Inter", sans-serif',
+                      fontSize: { xs: '0.9rem', sm: '1rem' },
+                    }}
+                  >
+                    {step.description}
+                  </Typography>
+
+                  <Button
+                    variant="contained"
+                    onClick={step.onClick}
+                    sx={{
+                      backgroundColor: step.buttonColor,
+                      color: step.iconColor,
+                      borderRadius: 2,
+                      px: { xs: 2, sm: 3 },
+                      py: { xs: 1, sm: 1.5 },
+                      fontWeight: 600,
+                      fontFamily: '"Poppins", sans-serif',
+                      fontSize: { xs: '0.85rem', sm: '0.9rem' },
+                      '&:hover': {
                         backgroundColor: step.buttonColor,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        mb: 3,
-                        border: `2px dashed ${step.iconColor}`,
-                      }}
-                    >
-                      <Box sx={{ color: step.iconColor }}>
-                        {step.icon}
-                      </Box>
-                    </Box>
-
-                    {/* Content */}
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        color: '#153C65',
-                        fontWeight: 700,
-                        mb: 2,
-                        fontFamily: '"Poppins", sans-serif',
-                      }}
-                    >
-                      {step.title}
-                    </Typography>
-                    
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: '#666',
-                        mb: 3,
-                        lineHeight: 1.6,
-                        fontFamily: '"Inter", sans-serif',
-                      }}
-                    >
-                      {step.description}
-                    </Typography>
-
-                    <Button
-                      variant="contained"
-                      onClick={step.onClick}
-                      sx={{
-                        backgroundColor: step.buttonColor,
-                        color: step.iconColor,
-                        borderRadius: 2,
-                        px: 3,
-                        py: 1.5,
-                        fontWeight: 600,
-                        fontFamily: '"Poppins", sans-serif',
-                        '&:hover': {
-                          backgroundColor: step.buttonColor,
-                          opacity: 0.9,
-                        },
-                      }}
-                    >
-                      {step.buttonText}
-                    </Button>
-                  </CardContent>
-                </Card>
-              </Grid>
+                        opacity: 0.9,
+                      },
+                    }}
+                  >
+                    {step.buttonText}
+                  </Button>
+                </CardContent>
+              </Card>
             ))}
-          </Grid>
+          </Box>
         </Box>
 
         {/* Properties You Might Like Section */}
         <Box sx={{ mb: 6 }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
-            <Typography
-              variant="h4"
-              sx={{
-                color: '#153C65',
-                fontWeight: 700,
-                fontFamily: '"Lora", serif',
-              }}
-            >
-              Properties You Might Like
-            </Typography>
+          <Box sx={{ 
+            display: 'flex', 
+            flexDirection: { xs: 'column', sm: 'row' },
+            justifyContent: 'space-between', 
+            alignItems: { xs: 'flex-start', sm: 'center' }, 
+            mb: 4,
+            gap: { xs: 2, sm: 0 }
+          }}>
+            <Box>
+              <Typography
+                variant="h4"
+                sx={{
+                  color: '#153C65',
+                  fontWeight: 700,
+                  fontFamily: '"Lora", serif',
+                  fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem' },
+                  textAlign: { xs: 'center', sm: 'left' },
+                }}
+              >
+                Properties You Might Like
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: '#666',
+                  fontFamily: '"Inter", sans-serif',
+                  fontSize: { xs: '0.9rem', sm: '1rem' },
+                  textAlign: { xs: 'center', sm: 'left' },
+                }}
+              >
+                Based on your preferences
+              </Typography>
+            </Box>
             <Button
               onClick={handleViewAllRecommendations}
+              endIcon={<ArrowForwardIcon />}
               sx={{
                 color: '#153C65',
                 fontFamily: '"Poppins", sans-serif',
                 fontWeight: 600,
+                fontSize: { xs: '0.85rem', sm: '0.9rem' },
                 '&:hover': {
                   backgroundColor: 'rgba(21, 60, 101, 0.1)',
                 },
               }}
             >
-              View all recommendations →
+              View all recommendations
             </Button>
           </Box>
-          
-          <Typography
-            variant="body1"
-            sx={{
-              color: '#666',
-              mb: 4,
-              fontFamily: '"Inter", sans-serif',
-            }}
-          >
-            Based on your preferences
-          </Typography>
 
-                     <Grid container spacing={{ xs: 2, sm: 3 }}>
-             {recommendedProperties.map((property) => (
-               <Grid item xs={12} sm={6} md={4} key={property.id}>
-                <Card
+          <Box sx={{ 
+            display: 'flex', 
+            flexDirection: { xs: 'column', lg: 'row' },
+            gap: { xs: 3, sm: 4 },
+            justifyContent: 'center'
+          }}>
+            {recommendedProperties.map((property) => (
+              <Card
+                key={property.id}
+                sx={{
+                  flex: 1,
+                  maxWidth: { xs: '100%', lg: '350px' },
+                  borderRadius: 3,
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
+                  },
+                }}
+              >
+                {/* Property Image Placeholder */}
+                <Box
                   sx={{
-                    borderRadius: 3,
-                    overflow: 'hidden',
-                    transition: 'all 0.3s ease',
-                    cursor: 'pointer',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
-                    },
+                    height: { xs: 180, sm: 200 },
+                    backgroundColor: '#f0f4f8',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    position: 'relative',
                   }}
                 >
-                  {/* Property Image Placeholder */}
+                  <HomeIcon sx={{ fontSize: { xs: 50, sm: 60 }, color: '#ccc' }} />
+                  
+                  {/* Price Overlay */}
                   <Box
                     sx={{
-                      height: 200,
-                      backgroundColor: '#f0f4f8',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      position: 'relative',
+                      position: 'absolute',
+                      bottom: 8,
+                      left: 8,
+                      backgroundColor: 'rgba(21, 60, 101, 0.9)',
+                      color: 'white',
+                      px: { xs: 1.5, sm: 2 },
+                      py: { xs: 0.75, sm: 1 },
+                      borderRadius: 2,
+                      fontWeight: 600,
+                      fontFamily: '"Poppins", sans-serif',
+                      fontSize: { xs: '0.85rem', sm: '0.9rem' },
                     }}
                   >
-                    <HomeIcon sx={{ fontSize: 60, color: '#ccc' }} />
+                    {property.price}
+                  </Box>
+                </Box>
+
+                <CardContent sx={{ p: { xs: 2.5, sm: 3 } }}>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      color: '#153C65',
+                      fontWeight: 700,
+                      mb: 1,
+                      fontFamily: '"Poppins", sans-serif',
+                      fontSize: { xs: '1rem', sm: '1.1rem' },
+                    }}
+                  >
+                    {property.title}
+                  </Typography>
+                  
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                    <LocationIcon sx={{ fontSize: 16, color: '#666', mr: 1 }} />
                     <Typography
                       variant="body2"
                       sx={{
-                        color: '#999',
-                        position: 'absolute',
-                        bottom: 8,
-                        left: 8,
+                        color: '#666',
                         fontFamily: '"Inter", sans-serif',
+                        fontSize: { xs: '0.85rem', sm: '0.9rem' },
                       }}
                     >
-                      Image placeholder
+                      {property.location}
                     </Typography>
-                    
-                    {/* Price Overlay */}
-                    <Box
-                      sx={{
-                        position: 'absolute',
-                        bottom: 8,
-                        left: 8,
-                        backgroundColor: 'rgba(21, 60, 101, 0.9)',
-                        color: 'white',
-                        px: 2,
-                        py: 1,
-                        borderRadius: 2,
-                        fontWeight: 600,
-                        fontFamily: '"Poppins", sans-serif',
-                      }}
-                    >
-                      {property.price}
-                    </Box>
                   </Box>
 
-                  <CardContent sx={{ p: 3 }}>
+                  <Box sx={{ 
+                    display: 'flex', 
+                    gap: { xs: 1.5, sm: 2 },
+                    flexWrap: 'wrap'
+                  }}>
                     <Typography
-                      variant="h6"
+                      variant="body2"
                       sx={{
-                        color: '#153C65',
-                        fontWeight: 700,
-                        mb: 1,
-                        fontFamily: '"Poppins", sans-serif',
+                        color: '#666',
+                        fontFamily: '"Inter", sans-serif',
+                        fontSize: { xs: '0.8rem', sm: '0.85rem' },
                       }}
                     >
-                      {property.title}
+                      {property.bedrooms} Bedrooms
                     </Typography>
-                    
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                      <LocationIcon sx={{ fontSize: 16, color: '#666', mr: 1 }} />
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: '#666',
-                          fontFamily: '"Inter", sans-serif',
-                        }}
-                      >
-                        {property.location}
-                      </Typography>
-                    </Box>
-
-                    <Box sx={{ display: 'flex', gap: 2 }}>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: '#666',
-                          fontFamily: '"Inter", sans-serif',
-                        }}
-                      >
-                        {property.bedrooms} Bedrooms
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: '#666',
-                          fontFamily: '"Inter", sans-serif',
-                        }}
-                      >
-                        {property.bathrooms} Bathrooms
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: '#666',
-                          fontFamily: '"Inter", sans-serif',
-                        }}
-                      >
-                        {property.area} Area
-                      </Typography>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: '#666',
+                        fontFamily: '"Inter", sans-serif',
+                        fontSize: { xs: '0.8rem', sm: '0.85rem' },
+                      }}
+                    >
+                      {property.bathrooms} Bathrooms
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: '#666',
+                        fontFamily: '"Inter", sans-serif',
+                        fontSize: { xs: '0.8rem', sm: '0.85rem' },
+                      }}
+                    >
+                      {property.area} Area
+                    </Typography>
+                  </Box>
+                </CardContent>
+              </Card>
             ))}
-          </Grid>
+          </Box>
         </Box>
 
         {/* Ready to Explore Section */}
@@ -778,7 +832,7 @@ const AccountWelcomePage = () => {
           sx={{
             backgroundColor: 'white',
             borderRadius: 3,
-            p: 5,
+            p: { xs: 4, sm: 5 },
             mb: 6,
             position: 'relative',
             overflow: 'hidden',
@@ -792,7 +846,7 @@ const AccountWelcomePage = () => {
               left: 0,
               right: 0,
               height: 4,
-              background: 'linear-gradient(90deg, #153C65 0%, #DFC14C 100%)',
+              background: 'linear-gradient(90deg, #153C65 0%, #FFC043 100%)',
             }}
           />
 
@@ -804,6 +858,7 @@ const AccountWelcomePage = () => {
                 fontWeight: 700,
                 mb: 3,
                 fontFamily: '"Lora", serif',
+                fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem' },
               }}
             >
               Ready to Explore?
@@ -818,6 +873,7 @@ const AccountWelcomePage = () => {
                 mx: 'auto',
                 lineHeight: 1.6,
                 fontFamily: '"Inter", sans-serif',
+                fontSize: { xs: '0.95rem', sm: '1rem' },
               }}
             >
               Your personalized dashboard is now ready. Start exploring properties, save your favorites, and connect with agents.
@@ -828,13 +884,13 @@ const AccountWelcomePage = () => {
               startIcon={<DashboardIcon />}
               onClick={handleGoToDashboard}
               sx={{
-                backgroundColor: '#DFC14C',
+                backgroundColor: '#FFC043',
                 color: '#153C65',
-                px: 4,
-                py: 2,
+                px: { xs: 3, sm: 4 },
+                py: { xs: 1.5, sm: 2 },
                 borderRadius: 2,
                 fontWeight: 600,
-                fontSize: '1.1rem',
+                fontSize: { xs: '1rem', sm: '1.1rem' },
                 fontFamily: '"Poppins", sans-serif',
                 mb: 3,
                 '&:hover': {
@@ -850,6 +906,7 @@ const AccountWelcomePage = () => {
               sx={{
                 color: '#666',
                 fontFamily: '"Inter", sans-serif',
+                fontSize: { xs: '0.85rem', sm: '0.9rem' },
               }}
             >
               Need help getting started?{' '}
@@ -861,6 +918,7 @@ const AccountWelcomePage = () => {
                   minWidth: 'auto',
                   fontFamily: '"Inter", sans-serif',
                   textDecoration: 'underline',
+                  fontSize: { xs: '0.85rem', sm: '0.9rem' },
                   '&:hover': {
                     backgroundColor: 'transparent',
                     textDecoration: 'underline',
@@ -888,7 +946,7 @@ const AccountWelcomePage = () => {
         }}>
           <Box sx={{ textAlign: 'center' }}>
             {/* Social Media Icons */}
-            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mb: 3 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', gap: { xs: 1.5, sm: 2 }, mb: 3 }}>
               {[
                 { icon: <FacebookIcon />, label: 'Facebook' },
                 { icon: <TwitterIcon />, label: 'Twitter' },
@@ -898,8 +956,8 @@ const AccountWelcomePage = () => {
                 <Box
                   key={social.label}
                   sx={{
-                    width: 40,
-                    height: 40,
+                    width: { xs: 35, sm: 40 },
+                    height: { xs: 35, sm: 40 },
                     borderRadius: '50%',
                     backgroundColor: '#153C65',
                     display: 'flex',
@@ -925,6 +983,7 @@ const AccountWelcomePage = () => {
               sx={{
                 color: '#666',
                 fontFamily: '"Inter", sans-serif',
+                fontSize: { xs: '0.8rem', sm: '0.85rem' },
               }}
             >
               © 2025 Real Estate Market. All rights reserved.

@@ -112,20 +112,29 @@ const AccountPreferencesPage = () => {
   return (
     <Box sx={{ 
       width: '100%',
-      maxWidth: { xs: '100%', sm: '90%', md: '80%', lg: '70%' },
-      mx: 'auto',
-      py: { xs: 2, sm: 3, md: 4, lg: 6 }
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column'
     }}>
-      <Paper 
-        elevation={0}
-        sx={{ 
-          backgroundColor: 'white',
-          borderRadius: { xs: 2, sm: 3 },
-          p: { xs: 3, sm: 4, md: 5 },
-          boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-          width: '100%',
-        }}
-      >
+      <Box sx={{ 
+        flex: 1,
+        width: '100%',
+        maxWidth: { xs: '100%', sm: '95%', md: '90%', lg: '85%', xl: '80%' },
+        mx: 'auto',
+        py: { xs: 2, sm: 3, md: 4, lg: 6 },
+        px: { xs: 2, sm: 3, md: 4 }
+      }}>
+        <Paper 
+          elevation={0}
+          sx={{ 
+            backgroundColor: 'white',
+            borderRadius: { xs: 2, sm: 3 },
+            p: { xs: 2, sm: 3, md: 4, lg: 5 },
+            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+            width: '100%',
+            overflow: 'hidden'
+          }}
+        >
         {/* Page Title */}
         <Typography
           variant="h4"
@@ -1096,7 +1105,8 @@ const AccountPreferencesPage = () => {
           </Box>
         </Box>
       </Paper>
-    </Box>
+        </Box>
+      </Box>
   );
 };
 

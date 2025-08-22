@@ -34,7 +34,7 @@ const Header = () => {
       display: 'flex',
       flexDirection: 'column',
       background: 'linear-gradient(135deg, #153C65E5 0%, #153C65B2 100%)',
-      overflow: 'hidden',
+      overflow: 'auto',
     }}>
       {/* Header */}
       <Box sx={{ 
@@ -56,7 +56,7 @@ const Header = () => {
       </Box>
 
       {/* Navigation Items */}
-      <List sx={{ flex: 1, pt: 2, overflow: 'hidden' }}>
+      <List sx={{ flex: 1, pt: 2, overflow: 'auto' }}>
         {navItems.map((item) => (
           <ListItem 
             key={item} 
@@ -249,7 +249,7 @@ const Header = () => {
             backgroundColor: 'transparent',
             boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
             backdropFilter: 'blur(10px)',
-            overflow: 'hidden',
+            overflow: 'auto',
           },
         }}
       >
