@@ -45,6 +45,8 @@ import {
   Business as BusinessIcon,
   Build as BuildIcon,
   Terrain as TerrainIcon,
+  LocalOffer as LocalOfferIcon,
+  Article as ArticleIcon,
 } from '@mui/icons-material';
 
 const AccountPreferencesPage = () => {
@@ -128,10 +130,10 @@ const AccountPreferencesPage = () => {
         <Typography
           variant="h4"
           sx={{
-            color: '#153C65',
+            color: '#0A3A7D',
             fontWeight: 700,
             mb: 2,
-            fontFamily: '"Poppins", sans-serif',
+            fontFamily: '"Lora", sans-serif',
           }}
         >
           Set Your Preferences
@@ -158,20 +160,20 @@ const AccountPreferencesPage = () => {
               <Typography
                 variant="h5"
                 sx={{
-                  color: '#153C65',
+                  color: '#333B4D',
                   fontWeight: 700,
-                  fontFamily: '"Poppins", sans-serif',
+                  fontFamily: '"Lora", sans-serif',
                 }}
               >
                 Property Preferences
               </Typography>
             </Box>
             <Chip
-              icon={<FilterIcon />}
+              icon={<FilterIcon color='#0A3A7D' />}
               label="Optional"
               sx={{
-                backgroundColor: '#e3f2fd',
-                color: '#1565c0',
+                backgroundColor: '#E6EDFF',
+                color: '#0A3A7D',
                 fontWeight: 600,
                 fontFamily: '"Poppins", sans-serif',
               }}
@@ -195,8 +197,8 @@ const AccountPreferencesPage = () => {
             <Typography
               variant="subtitle1"
               sx={{
-                color: '#153C65',
-                fontWeight: 600,
+                color: '#0A3A7D',
+                fontWeight: 400,
                 mb: 2,
                 fontFamily: '"Poppins", sans-serif',
               }}
@@ -279,8 +281,8 @@ const AccountPreferencesPage = () => {
             <Typography
               variant="subtitle1"
               sx={{
-                color: '#153C65',
-                fontWeight: 600,
+                color: '#0A3A7D',
+                fontWeight: 400,
                 mb: 2,
                 fontFamily: '"Poppins", sans-serif',
               }}
@@ -375,8 +377,8 @@ const AccountPreferencesPage = () => {
             <Typography
               variant="subtitle1"
               sx={{
-                color: '#153C65',
-                fontWeight: 600,
+                color: '#0A3A7D',
+                fontWeight: 400,
                 mb: 2,
                 fontFamily: '"Poppins", sans-serif',
               }}
@@ -414,8 +416,8 @@ const AccountPreferencesPage = () => {
             <Typography
               variant="subtitle1"
               sx={{
-                color: '#153C65',
-                fontWeight: 600,
+                color: '#0A3A7D',
+                fontWeight: 400,
                 mb: 2,
                 fontFamily: '"Poppins", sans-serif',
               }}
@@ -464,24 +466,26 @@ const AccountPreferencesPage = () => {
         <Box sx={{ mb: 6 }}>
           <Card sx={{ backgroundColor: '#f8f9fa', borderRadius: 3 }}>
             <CardContent sx={{ p: 4 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
+              <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between',  mb: 3 }}>
+                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 2 }}>
                 <NotificationsIcon sx={{ color: '#153C65', fontSize: 24 }} />
                 <Typography
                   variant="h5"
                   sx={{
-                    color: '#495057',
+                    color: '#333B4D',
                     fontWeight: 700,
-                    fontFamily: '"Poppins", sans-serif',
+                    fontFamily: '"Lora", sans-serif',
                   }}
                 >
                   Communication Preferences
                 </Typography>
+                </Box>
                 <Chip
-                  icon={<WarningIcon />}
+                  icon={<WarningIcon color='#E94B7E' />}
                   label="Required"
                   sx={{
-                    backgroundColor: '#ffebee',
-                    color: '#d32f2f',
+                    backgroundColor: '#FFE6ED',
+                    color: '#E94B7E',
                     fontWeight: 600,
                     fontFamily: '"Poppins", sans-serif',
                   }}
@@ -500,43 +504,136 @@ const AccountPreferencesPage = () => {
                 Customize how and when you receive notifications
               </Typography>
 
-              <Button
-                sx={{
-                  color: '#1565c0',
-                  textDecoration: 'underline',
-                  fontFamily: '"Poppins", sans-serif',
-                  p: 0,
-                  minWidth: 'auto',
-                  '&:hover': {
-                    backgroundColor: 'transparent',
-                    textDecoration: 'underline',
-                  },
-                }}
-              >
-                Notification Settings
-              </Button>
-
-              {/* Investment Opportunities */}
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 3, mb: 2 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <TrendingUpIcon sx={{ color: '#153C65' }} />
-                  <Typography sx={{ fontFamily: '"Inter", sans-serif' }}>
-                    Investment Opportunities
-                  </Typography>
-                </Box>
-                <Switch
-                  checked={investmentOpportunities}
-                  onChange={(e) => setInvestmentOpportunities(e.target.checked)}
+              {/* Notification Settings */}
+              <Box sx={{ 
+                mt: 4, 
+                backgroundColor: '#f8f9fa', 
+                borderRadius: 2, 
+                p: 3,
+                border: '1px solid #e9ecef'
+              }}>
+                <Typography
+                  variant="h6"
                   sx={{
-                    '& .MuiSwitch-switchBase.Mui-checked': {
-                      color: '#153C65',
-                    },
-                    '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-                      backgroundColor: '#153C65',
-                    },
+                    color: '#153C65',
+                    fontWeight: 600,
+                    mb: 3,
+                    fontFamily: '"Poppins", sans-serif',
                   }}
-                />
+                >
+                  Notification Settings
+                </Typography>
+
+                {/* New Property Alerts */}
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: 2 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <NotificationsIcon sx={{ color: '#153C65', fontSize: 20 }} />
+                    <Typography sx={{ 
+                      fontFamily: '"Inter", sans-serif',
+                      color: '#153C65',
+                      fontWeight: 500
+                    }}>
+                      New Property Alerts
+                    </Typography>
+                  </Box>
+                  <Switch
+                    checked={newPropertyAlerts}
+                    onChange={(e) => setNewPropertyAlerts(e.target.checked)}
+                    sx={{
+                      '& .MuiSwitch-switchBase.Mui-checked': {
+                        color: '#153C65',
+                      },
+                      '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                        backgroundColor: '#153C65',
+                      },
+                    }}
+                  />
+                </Box>
+                <Divider sx={{ borderColor: '#e9ecef' }} />
+
+                {/* Price Change Notifications */}
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: 2 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <LocalOfferIcon sx={{ color: '#153C65', fontSize: 20 }} />
+                    <Typography sx={{ 
+                      fontFamily: '"Inter", sans-serif',
+                      color: '#153C65',
+                      fontWeight: 500
+                    }}>
+                      Price Change Notifications
+                    </Typography>
+                  </Box>
+                  <Switch
+                    checked={priceChangeNotifications}
+                    onChange={(e) => setPriceChangeNotifications(e.target.checked)}
+                    sx={{
+                      '& .MuiSwitch-switchBase.Mui-checked': {
+                        color: '#153C65',
+                      },
+                      '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                        backgroundColor: '#153C65',
+                      },
+                    }}
+                  />
+                </Box>
+                <Divider sx={{ borderColor: '#e9ecef' }} />
+
+                {/* Market Updates & News */}
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: 2 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <ArticleIcon sx={{ color: '#153C65', fontSize: 20 }} />
+                    <Typography sx={{ 
+                      fontFamily: '"Inter", sans-serif',
+                      color: '#153C65',
+                      fontWeight: 500
+                    }}>
+                      Market Updates & News
+                    </Typography>
+                  </Box>
+                  <Switch
+                    checked={marketUpdates}
+                    onChange={(e) => setMarketUpdates(e.target.checked)}
+                    sx={{
+                      '& .MuiSwitch-switchBase.Mui-checked': {
+                        color: '#153C65',
+                      },
+                      '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                        backgroundColor: '#153C65',
+                      },
+                    }}
+                  />
+                </Box>
+                <Divider sx={{ borderColor: '#e9ecef' }} />
+
+                {/* Investment Opportunities */}
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: 2 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <TrendingUpIcon sx={{ color: '#153C65', fontSize: 20 }} />
+                    <Typography sx={{ 
+                      fontFamily: '"Inter", sans-serif',
+                      color: '#153C65',
+                      fontWeight: 500
+                    }}>
+                      Investment Opportunities
+                    </Typography>
+                  </Box>
+                  <Switch
+                    checked={investmentOpportunities}
+                    onChange={(e) => setInvestmentOpportunities(e.target.checked)}
+                    sx={{
+                      '& .MuiSwitch-switchBase.Mui-checked': {
+                        color: '#153C65',
+                      },
+                      '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                        backgroundColor: '#153C65',
+                      },
+                    }}
+                  />
+                </Box>
               </Box>
+            </CardContent>
+          </Card>
+        </Box>
 
               {/* Preferred Language */}
               <Box sx={{ mb: 3 }}>
@@ -657,87 +754,6 @@ const AccountPreferencesPage = () => {
                   ))}
                 </Box>
               </Box>
-
-              {/* Notification Settings */}
-              <Box sx={{ mt: 4 }}>
-                <Typography
-                  variant="subtitle1"
-                  sx={{
-                    color: '#153C65',
-                    fontWeight: 600,
-                    mb: 2,
-                    fontFamily: '"Poppins", sans-serif',
-                  }}
-                >
-                  Notification Settings
-                </Typography>
-                
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <NotificationsIcon sx={{ color: '#153C65' }} />
-                    <Typography sx={{ fontFamily: '"Inter", sans-serif' }}>
-                      New Property Alerts
-                    </Typography>
-                  </Box>
-                  <Switch
-                    checked={newPropertyAlerts}
-                    onChange={(e) => setNewPropertyAlerts(e.target.checked)}
-                    sx={{
-                      '& .MuiSwitch-switchBase.Mui-checked': {
-                        color: '#153C65',
-                      },
-                      '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-                        backgroundColor: '#153C65',
-                      },
-                    }}
-                  />
-                </Box>
-
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <MoneyIcon sx={{ color: '#153C65' }} />
-                    <Typography sx={{ fontFamily: '"Inter", sans-serif' }}>
-                      Price Change Notifications
-                    </Typography>
-                  </Box>
-                  <Switch
-                    checked={priceChangeNotifications}
-                    onChange={(e) => setPriceChangeNotifications(e.target.checked)}
-                    sx={{
-                      '& .MuiSwitch-switchBase.Mui-checked': {
-                        color: '#153C65',
-                      },
-                      '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-                        backgroundColor: '#153C65',
-                      },
-                    }}
-                  />
-                </Box>
-
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <TrendingUpIcon sx={{ color: '#153C65' }} />
-                    <Typography sx={{ fontFamily: '"Inter", sans-serif' }}>
-                      Market Updates & News
-                    </Typography>
-                  </Box>
-                  <Switch
-                    checked={marketUpdates}
-                    onChange={(e) => setMarketUpdates(e.target.checked)}
-                    sx={{
-                      '& .MuiSwitch-switchBase.Mui-checked': {
-                        color: '#153C65',
-                      },
-                      '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-                        backgroundColor: '#153C65',
-                      },
-                    }}
-                  />
-                </Box>
-              </Box>
-            </CardContent>
-          </Card>
-        </Box>
 
         {/* Profile Visibility Section */}
         <Box sx={{ mb: 6 }}>
@@ -880,6 +896,141 @@ const AccountPreferencesPage = () => {
            flexDirection: 'column',
            alignItems: 'center',
          }}>
+          {/* Completion Icon */}
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            mb: 3
+          }}>
+            <Box sx={{
+              width: 80,
+              height: 80,
+              borderRadius: '50%',
+              backgroundColor: '#FFC043',
+              border: '2px dotted #FFC043',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative'
+            }}>
+              <CheckIcon sx={{ 
+                fontSize: 40, 
+                color: '#153C65',
+                fontWeight: 'bold'
+              }} />
+            </Box>
+          </Box>
+
+          {/* Main Heading */}
+          <Typography
+            variant="h4"
+            sx={{
+              color: '#153C65',
+              fontWeight: 700,
+              mb: 2,
+              fontFamily: '"Poppins", sans-serif',
+              textAlign: 'center'
+            }}
+          >
+            You're Almost There!
+          </Typography>
+
+          {/* Description */}
+          <Typography
+            variant="body1"
+            sx={{
+              color: '#666',
+              mb: 4,
+              fontSize: '1rem',
+              lineHeight: 1.6,
+              fontFamily: '"Inter", sans-serif',
+              textAlign: 'center',
+              maxWidth: '500px'
+            }}
+          >
+            Just one more step to complete your AfricaEstate account setup. Once finished, you'll gain full access to personalized property recommendations tailored to your preferences.
+          </Typography>
+
+          {/* Progress Indicator */}
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: 2, 
+            mb: 4,
+            justifyContent: 'center'
+          }}>
+            {/* Step 1 - Completed */}
+            <Box sx={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: 1 
+            }}>
+              <Box sx={{
+                width: 32,
+                height: 32,
+                borderRadius: '50%',
+                backgroundColor: '#153C65',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                fontWeight: 600,
+                fontSize: '0.9rem'
+              }}>
+                1
+              </Box>
+              <Box sx={{
+                width: 40,
+                height: 2,
+                backgroundColor: '#153C65'
+              }} />
+            </Box>
+
+            {/* Step 2 - Completed */}
+            <Box sx={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: 1 
+            }}>
+              <Box sx={{
+                width: 32,
+                height: 32,
+                borderRadius: '50%',
+                backgroundColor: '#153C65',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                fontWeight: 600,
+                fontSize: '0.9rem'
+              }}>
+                2
+              </Box>
+              <Box sx={{
+                width: 40,
+                height: 2,
+                backgroundColor: '#e0e0e0'
+              }} />
+            </Box>
+
+            {/* Step 3 - Current */}
+            <Box sx={{
+              width: 32,
+              height: 32,
+              borderRadius: '50%',
+              backgroundColor: '#FFC043',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#153C65',
+              fontWeight: 600,
+              fontSize: '0.9rem'
+            }}>
+              3
+            </Box>
+          </Box>
+
           <Button
               variant="contained"
               endIcon={<ArrowIcon />}
@@ -888,11 +1039,11 @@ const AccountPreferencesPage = () => {
               sx={{
                 backgroundColor: '#FFC043',
                 color: '#0A3A7D',
-                px: 4,
-                py: 1.5,
+                px: { xs: 3, sm: 4 },
+                py: { xs: 1, sm: 1.5 },
                 borderRadius: 2,
                 fontWeight: 600,
-                fontSize: '1rem',
+                fontSize: { xs: '0.9rem', sm: '1rem' },
                 fontFamily: '"Poppins", sans-serif',
                 '&:hover': {
                   backgroundColor: '#D4B63C',
@@ -902,13 +1053,16 @@ const AccountPreferencesPage = () => {
               Complete Setup
             </Button>
             <Divider sx={{ mt:4, mb: 2, color:'#E2EDFF', width: '100%' }} />
-            <Box sx={{ display: 'flex', flexDirection: 'row',  justifyContent: 'space-between', width: '100%' }}>
+            <Box sx={{ display: 'flex', flexDirection: {xs: 'column', sm: 'row'},  justifyContent: 'space-between', width: '100%' }}>
           <Button
-            startIcon={<ArrowBackIcon />}
+            startIcon={<ArrowBackIcon color='#596580'/>}
             onClick={handleBack}
             sx={{
-              color: '#666',
+              color: '#596580',
               fontFamily: '"Poppins", sans-serif',
+              px: { xs: 2, sm: 3 },
+              py: { xs: 0.75, sm: 1 },
+              fontSize: { xs: '0.8rem', sm: '1rem' },
               '&:hover': {
                 backgroundColor: 'rgba(102, 102, 102, 0.1)',
               },
@@ -928,6 +1082,9 @@ const AccountPreferencesPage = () => {
                  sx={{
                    color: '#0A3A7D',
                 fontFamily: '"Poppins", sans-serif',
+                px: { xs: 2, sm: 3 },
+                py: { xs: 0.75, sm: 1 },
+                fontSize: { xs: '0.8rem', sm: '1rem' },
                 '&:hover': {
                   backgroundColor: 'rgba(102, 102, 102, 0.1)',
                 },

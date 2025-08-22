@@ -650,7 +650,7 @@ const AccountVerificationPage = () => {
                  Continue to Preferences
                </Button>
             <Divider sx={{ mt:4, mb: 2, color:'#E2EDFF', width: '100%' }} />
-            <Box sx={{ display: 'flex', flexDirection: 'row',  justifyContent: 'space-between', width: '100%' }}>
+            <Box sx={{ display: 'flex', flexDirection: {xs: 'column', sm: 'row'},  justifyContent: 'space-between', width: '100%' }}>
              <Button
                startIcon={<ArrowBackIcon color='#596580'/>}
                onClick={handleBack}
