@@ -10,4 +10,12 @@ export default defineConfig({
     },
   },
   assetsInclude: ["**/*.svg"],
+  server: {
+    port: 5173,
+    host: true,
+  },
+  preview: {
+    port: 5173,
+    host: true,
+  },
 });
