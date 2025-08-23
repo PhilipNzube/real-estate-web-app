@@ -34,21 +34,27 @@ const Header = () => {
       display: 'flex',
       flexDirection: 'column',
       background: 'linear-gradient(135deg, #153C65E5 0%, #153C65B2 100%)',
-      overflow: 'auto',
+      overflow: 'hidden',
     }}>
       {/* Header */}
       <Box sx={{ 
-        p: 3, 
+        p: { xs: 2, sm: 3 }, 
         borderBottom: '1px solid rgba(255,255,255,0.1)',
-        textAlign: 'center'
+        textAlign: 'center',
+        flexShrink: 0,
       }}>
         <Typography 
           variant="h6" 
+          onClick={() => navigate('/')}
           sx={{ 
             color: 'white',
             fontWeight: 700,
-            fontSize: '1.3rem',
+            fontSize: { xs: '1.1rem', sm: '1.3rem' },
             fontFamily: '"Lora", serif',
+            cursor: 'pointer',
+            '&:hover': {
+              opacity: 0.8,
+            },
           }}
         >
           Naija Luxury Homes
@@ -56,7 +62,12 @@ const Header = () => {
       </Box>
 
       {/* Navigation Items */}
-      <List sx={{ flex: 1, pt: 2, overflow: 'auto' }}>
+      <List sx={{ 
+        flex: 1, 
+        pt: { xs: 1, sm: 2 }, 
+        overflow: 'auto',
+        minHeight: 0,
+      }}>
         {navItems.map((item) => (
           <ListItem 
             key={item} 
@@ -73,12 +84,12 @@ const Header = () => {
             <ListItemText 
               primary={item} 
               sx={{ 
-                py: 1.5,
-                px: 2,
+                py: { xs: 1, sm: 1.5 },
+                px: { xs: 1.5, sm: 2 },
                 '& .MuiListItemText-primary': {
                   color: 'white',
                   fontWeight: 500,
-                  fontSize: '1rem',
+                  fontSize: { xs: '0.9rem', sm: '1rem' },
                   fontFamily: '"Poppins", sans-serif',
                 }
               }}
@@ -88,17 +99,21 @@ const Header = () => {
       </List>
 
       {/* Action Buttons */}
-      <Box sx={{ p: 3, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+      <Box sx={{ 
+        p: { xs: 2, sm: 3 }, 
+        borderTop: '1px solid rgba(255,255,255,0.1)',
+        flexShrink: 0,
+      }}>
         <Button
           fullWidth
           onClick={() => navigate('/register')}
           sx={{
             color: 'white',
             fontWeight: 500,
-            fontSize: '1rem',
+            fontSize: { xs: '0.9rem', sm: '1rem' },
             fontFamily: '"Poppins", sans-serif',
-            mb: 2,
-            py: 1.5,
+            mb: { xs: 1.5, sm: 2 },
+            py: { xs: 1, sm: 1.5 },
             borderRadius: 2,
             '&:hover': {
               backgroundColor: 'rgba(255,255,255,0.1)',
@@ -114,10 +129,10 @@ const Header = () => {
             backgroundColor: 'white',
             color: '#153C65',
             borderRadius: '30px',
-            fontSize: '1rem',
+            fontSize: { xs: '0.9rem', sm: '1rem' },
             fontWeight: 600,
             fontFamily: '"Poppins", sans-serif',
-            py: 1.5,
+            py: { xs: 1, sm: 1.5 },
             '&:hover': {
               backgroundColor: 'rgba(255,255,255,0.9)',
             },
@@ -145,11 +160,16 @@ const Header = () => {
           <Typography 
             variant="h6" 
             component="div" 
+            onClick={() => navigate('/')}
             sx={{ 
               color: 'text.primary',
               fontWeight: 700,
               fontSize: '1.5rem',
               fontFamily: '"Lora", serif',
+              cursor: 'pointer',
+              '&:hover': {
+                opacity: 0.8,
+              },
             }}
           >
             Naija Luxury Homes
@@ -244,12 +264,12 @@ const Header = () => {
           display: { xs: 'block', md: 'none' },
           '& .MuiDrawer-paper': { 
             boxSizing: 'border-box', 
-            width: 280,
+            width: { xs: '100%', sm: 280 },
             height: '100vh',
             backgroundColor: 'transparent',
             boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
             backdropFilter: 'blur(10px)',
-            overflow: 'auto',
+            overflow: 'hidden',
           },
         }}
       >

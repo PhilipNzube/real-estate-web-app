@@ -7,9 +7,12 @@ import {
   Toolbar,
 } from '@mui/material';
 import { Help as HelpIcon } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import NLHLogo from '../../../shared/components/icons/NLHLogo';
 
 const AccountSetupHeader = () => {
+  const navigate = useNavigate();
+  
   return (
     <AppBar 
       position="static" 
@@ -26,7 +29,17 @@ const AccountSetupHeader = () => {
         minHeight: { xs: 64, sm: 70, md: 80 }
       }}>
                             {/* Logo */}
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Box 
+                      sx={{ 
+                        display: 'flex', 
+                        alignItems: 'center',
+                        cursor: 'pointer',
+                        '&:hover': {
+                          opacity: 0.8,
+                        },
+                      }}
+                      onClick={() => navigate('/')}
+                    >
                       <Box
                         sx={{
                           width: { xs: 32, sm: 36, md: 40 },

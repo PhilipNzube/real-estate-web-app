@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Box,
-  Container,
 } from '@mui/material';
 import Header from '../../../shared/components/Header';
 import HeroContent from '../../../shared/components/HeroContent';
@@ -56,8 +55,7 @@ const LandingPage = () => {
       <Header />
 
       {/* Main Content */}
-      <Container
-        maxWidth={false}
+      <Box
         sx={{
           position: 'relative',
           zIndex: 1,
@@ -66,8 +64,8 @@ const LandingPage = () => {
           px: { xs: 1, sm: 2, md: 3, lg: 6, xl: 8, xxl: 12 },
           width: '100%',
           overflowX: 'hidden',
-          maxWidth: { lg: '1400px', xl: '1800px', xxl: '2200px' },
-          mx: 'auto',
+          // maxWidth: { lg: '1400px', xl: '1800px', xxl: '2200px' },
+          // mx: 'auto',
         }}
       >
         {/* Hero Section */}
@@ -109,7 +107,7 @@ const LandingPage = () => {
             <PropertySearchForm />
           </Box>
         </Box>
-      </Container>
+      </Box>
     </Box>
   );
 };

@@ -8,6 +8,7 @@ import CompleteAccountSetupPage from "../../features/auth/pages/CompleteAccountS
 import AccountVerificationPage from "../../features/auth/pages/AccountVerificationPage";
 import AccountPreferencesPage from "../../features/auth/pages/AccountPreferencesPage";
 import AccountWelcomePage from "../../features/auth/pages/AccountWelcomePage";
+import NotFoundPage from "../../shared/components/NotFoundPage";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
         element: <AccountWelcomePage />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ]);
 
