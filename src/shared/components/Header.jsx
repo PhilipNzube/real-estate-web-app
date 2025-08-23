@@ -61,48 +61,55 @@ const Header = () => {
         </Typography>
       </Box>
 
-      {/* Navigation Items */}
-      <List sx={{ 
+      {/* Navigation Items - Scrollable */}
+      <Box sx={{ 
         flex: 1, 
-        pt: { xs: 1, sm: 2 }, 
         overflow: 'auto',
         minHeight: 0,
       }}>
-        {navItems.map((item) => (
-          <ListItem 
-            key={item} 
-            disablePadding
-            sx={{
-              mx: 2,
-              mb: 1,
-              borderRadius: 2,
-              '&:hover': {
-                backgroundColor: 'rgba(255,255,255,0.1)',
-              },
-            }}
-          >
-            <ListItemText 
-              primary={item} 
-              sx={{ 
-                py: { xs: 1, sm: 1.5 },
-                px: { xs: 1.5, sm: 2 },
-                '& .MuiListItemText-primary': {
-                  color: 'white',
-                  fontWeight: 500,
-                  fontSize: { xs: '0.9rem', sm: '1rem' },
-                  fontFamily: '"Poppins", sans-serif',
-                }
+        <List sx={{ 
+          pt: { xs: 1, sm: 2 },
+          pb: { xs: 2, sm: 3 },
+        }}>
+          {navItems.map((item) => (
+            <ListItem 
+              key={item} 
+              disablePadding
+              sx={{
+                mx: 2,
+                mb: 1,
+                borderRadius: 2,
+                '&:hover': {
+                  backgroundColor: 'rgba(255,255,255,0.1)',
+                },
               }}
-            />
-          </ListItem>
-        ))}
-      </List>
+            >
+              <ListItemText 
+                primary={item} 
+                sx={{ 
+                  py: { xs: 1, sm: 1.5 },
+                  px: { xs: 1.5, sm: 2 },
+                  '& .MuiListItemText-primary': {
+                    color: 'white',
+                    fontWeight: 500,
+                    fontSize: { xs: '0.9rem', sm: '1rem' },
+                    fontFamily: '"Poppins", sans-serif',
+                  }
+                }}
+              />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
 
-      {/* Action Buttons */}
+      {/* Action Buttons - Fixed at Bottom */}
       <Box sx={{ 
         p: { xs: 2, sm: 3 }, 
         borderTop: '1px solid rgba(255,255,255,0.1)',
         flexShrink: 0,
+        backgroundColor: 'rgba(21, 60, 101, 0.95)',
+        position: 'sticky',
+        bottom: 0,
       }}>
         <Button
           fullWidth

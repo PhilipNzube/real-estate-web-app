@@ -18,14 +18,15 @@ const HeroContent = () => {
     <Box
       sx={{
         width: '100%',
-        pr: isMobile ? 0 : { md: 2, lg: 6, xl: 8, xxl: 12 },
+        pr: isMobile ? 0 : { md: 2, lg: 4, xl: 6, xxl: 8 },
         textAlign: isMobile ? 'center' : 'left',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         minHeight: { xs: 'auto', sm: '60vh', md: '70vh' },
-        pl: { xs: 1, sm: 2, md: 3, lg: 6, xl: 8, xxl: 12 },
+        pl: { xs: 1, sm: 2, md: 3, lg: 4, xl: 6, xxl: 8 },
         py: { xs: 2, sm: 3, md: 4 },
+        overflow: 'hidden',
       }}
     >
       {/* Tagline */}

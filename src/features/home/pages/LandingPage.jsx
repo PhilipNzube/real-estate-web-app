@@ -59,13 +59,12 @@ const LandingPage = () => {
         sx={{
           position: 'relative',
           zIndex: 1,
-          pt: { xs: 1, sm: 2, md: 4, lg: 6 },
-          pb: { xs: 2, sm: 4, md: 6, lg: 8 },
-          px: { xs: 1, sm: 2, md: 3, lg: 6, xl: 8, xxl: 12 },
+          pt: { xs: 8, sm: 10, md: 12, lg: 14 },
+          pb: { xs: 4, sm: 6, md: 8, lg: 10 },
+          px: { xs: 2, sm: 3, md: 4, lg: 6, xl: 8, xxl: 10 },
           width: '100%',
           overflowX: 'hidden',
-          // maxWidth: { lg: '1400px', xl: '1800px', xxl: '2200px' },
-          // mx: 'auto',
+          minHeight: 'calc(100vh - 80px)',
         }}
       >
         {/* Hero Section */}
@@ -73,10 +72,11 @@ const LandingPage = () => {
           sx={{
             display: 'flex',
             flexDirection: { xs: 'column', lg: 'row' },
-            minHeight: { xs: 'auto', sm: '100vh' },
+            minHeight: { xs: 'auto', sm: 'calc(100vh - 120px)' },
             position: 'relative',
-            alignItems: 'center',
-            gap: { xs: 2, sm: 3, md: 4 },
+            alignItems: { xs: 'stretch', lg: 'center' },
+            gap: { xs: 3, sm: 4, md: 5, lg: 6 },
+            maxWidth: '100%',
           }}
         >
           {/* Left Content - Takes up more space (70-75%) */}
@@ -85,6 +85,7 @@ const LandingPage = () => {
               flex: { xs: '1', lg: '0 0 70%', xl: '0 0 75%', xxl: '0 0 78%' },
               width: '100%',
               order: { xs: 1, lg: 1 },
+              minWidth: 0, // Prevents flex item from overflowing
             }}
           >
             <HeroContent />
@@ -99,9 +100,10 @@ const LandingPage = () => {
               alignItems: { xs: 'center', lg: 'flex-start' },
               height: '100%',
               pt: { xs: 2, sm: 3, md: 4, lg: 6 },
-              pr: { xs: 0, lg: 4, xl: 6, xxl: 8 },
-              pl: { xs: 0, lg: 2, xxl: 3 },
+              pr: { xs: 0, lg: 3, xl: 4, xxl: 5 },
+              pl: { xs: 0, lg: 2, xl: 3, xxl: 4 },
               order: { xs: 2, lg: 2 },
+              minWidth: 0, // Prevents flex item from overflowing
             }}
           >
             <PropertySearchForm />

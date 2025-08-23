@@ -67,8 +67,9 @@ const PropertySearchForm = () => {
         borderRadius: 3,
         boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
         width: '100%',
-        maxWidth: { xs: '95%', sm: 400, md: 350, lg: 320, xl: 300, xxl: 350 },
-        minWidth: { xs: 250, sm: 280, md: 300, xxl: 320 },
+        maxWidth: { xs: '95%', sm: 380, md: 340, lg: 300, xl: 280, xxl: 320 },
+        minWidth: { xs: 250, sm: 260, md: 280, xxl: 300 },
+        overflow: 'hidden',
       }}
     >
       <CardContent sx={{ p: { xs: 2, sm: 2.5, md: 3, lg: 4, xxl: 5 } }}>
