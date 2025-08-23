@@ -109,7 +109,7 @@ const ErrorFallback = ({ error }) => {
               lineHeight: 1.2,
             }}
           >
-            Oops! Something went wrong
+            Something went wrong
           </Typography>
 
           {/* Error Message */}
@@ -123,7 +123,7 @@ const ErrorFallback = ({ error }) => {
               fontSize: { xs: '0.9rem', sm: '1rem' },
             }}
           >
-            We're sorry, but something unexpected happened. Our team has been notified and we're working to fix this issue.
+            We encountered an unexpected error. Please try refreshing the page or contact support if the problem persists.
           </Typography>
 
           {/* Development Error Details */}
@@ -212,7 +212,7 @@ const ErrorFallback = ({ error }) => {
               fontFamily: '"Inter", sans-serif',
             }}
           >
-            If this problem persists, please contact our support team.
+            Need help? Contact our support team at support@naijaluxuryhomes.com
           </Typography>
         </Box>
       </Container>

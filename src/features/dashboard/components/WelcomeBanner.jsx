@@ -1,0 +1,96 @@
+import React from 'react';
+import { Box, Typography, Paper } from '@mui/material';
+
+const WelcomeBanner = () => {
+  const stats = [
+    { value: '5', label: 'Saved Properties' },
+    { value: '3', label: 'Property Alerts' },
+    { value: '2', label: 'Pending Inquiries' },
+  ];
+
+  return (
+    <Paper
+      sx={{
+        background: 'linear-gradient(135deg, #153C65 0%, #0A3A7D 100%)',
+        color: 'white',
+        p: { xs: 3, sm: 4, md: 5 },
+        borderRadius: 3,
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Welcome Text */}
+      <Box sx={{ mb: 4 }}>
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: 700,
+            mb: 2,
+            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+            fontFamily: '"Lora", serif',
+          }}
+        >
+          Good Afternoon, Oluwaseun!
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            fontSize: { xs: '0.9rem', sm: '1rem' },
+            lineHeight: 1.6,
+            opacity: 0.9,
+            fontFamily: '"Inter", sans-serif',
+            maxWidth: '600px',
+          }}
+        >
+          Welcome to your dashboard. Track your property journey, manage saved listings, 
+          and explore new opportunities in the African real estate market.
+        </Typography>
+      </Box>
+
+      {/* Statistics */}
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row' },
+          gap: { xs: 2, sm: 4 },
+        }}
+      >
+        {stats.map((stat, index) => (
+          <Box
+            key={index}
+            sx={{
+              textAlign: { xs: 'center', sm: 'left' },
+              flex: 1,
+            }}
+          >
+            <Typography
+              variant="h3"
+              sx={{
+                fontWeight: 700,
+                fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+                color: '#DFC14C',
+                fontFamily: '"Lora", serif',
+                mb: 0.5,
+              }}
+            >
+              {stat.value}
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: { xs: '0.8rem', sm: '0.9rem' },
+                opacity: 0.8,
+                fontFamily: '"Poppins", sans-serif',
+                fontWeight: 500,
+              }}
+            >
+              {stat.label}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
+    </Paper>
+  );
+};
+
+export default WelcomeBanner;

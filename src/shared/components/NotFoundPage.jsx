@@ -93,7 +93,7 @@ const NotFoundPage = () => {
               fontSize: { xs: '1rem', sm: '1.1rem' },
             }}
           >
-            The page you're looking for doesn't exist or has been moved.
+            The page you're looking for doesn't exist or has been moved to a new location.
           </Typography>
 
           {/* Additional Info */}

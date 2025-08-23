@@ -8,6 +8,8 @@ import CompleteAccountSetupPage from "../../features/auth/pages/CompleteAccountS
 import AccountVerificationPage from "../../features/auth/pages/AccountVerificationPage";
 import AccountPreferencesPage from "../../features/auth/pages/AccountPreferencesPage";
 import AccountWelcomePage from "../../features/auth/pages/AccountWelcomePage";
+import DashboardPage from "../../features/dashboard/pages/DashboardPage";
+import DashboardHomePage from "../../features/dashboard/pages/DashboardHomePage";
 import NotFoundPage from "../../shared/components/NotFoundPage";
 
 export const router = createBrowserRouter([
@@ -48,6 +50,16 @@ export const router = createBrowserRouter([
       {
         path: "welcome",
         element: <AccountWelcomePage />,
+      },
+      {
+        path: "dashboard",
+        element: <DashboardPage />,
+        children: [
+          {
+            index: true,
+            element: <DashboardHomePage />,
+          },
+        ],
       },
     ],
   },
