@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Typography, Grid, Card, CardMedia, CardContent, Chip, IconButton } from '@mui/material';
-import { Favorite as FavoriteIcon, Share as ShareIcon, ArrowForward as ArrowForwardIcon } from '@mui/icons-material';
+import { Box, Typography, Grid, Card, CardMedia, CardContent, Chip, IconButton, Divider } from '@mui/material';
+import { Favorite as FavoriteIcon, Share as ShareIcon, ArrowForward as ArrowForwardIcon, LocationOn as LocationIcon } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
 const RecommendedProperties = () => {
@@ -16,7 +16,7 @@ const RecommendedProperties = () => {
       bathrooms: '2',
       area: '210m²',
       tag: 'Hot Deal',
-      image: '/api/placeholder/400/250',
+      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=250&fit=crop',
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ const RecommendedProperties = () => {
       bathrooms: '3',
       area: '350m²',
       tag: 'Exclusive',
-      image: '/api/placeholder/400/250',
+      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=250&fit=crop',
     },
     {
       id: 3,
@@ -38,7 +38,7 @@ const RecommendedProperties = () => {
       bathrooms: '2',
       area: '180m²',
       tag: 'Premium',
-      image: '/api/placeholder/400/250',
+      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop',
     },
   ];
 
@@ -83,35 +83,61 @@ const RecommendedProperties = () => {
       </Box>
 
       {/* Property Cards */}
-      <Grid container spacing={3}>
+      <Box sx={{ 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        gap: { xs: 1.5, sm: 2, md: 3 },
+        width: '100%',
+        overflow: 'hidden',
+        maxWidth: '100%',
+        boxSizing: 'border-box',
+        justifyContent: 'flex-start'
+      }}>
         {properties.map((property) => (
-          <Grid item xs={12} md={4} key={property.id}>
+                      <Box sx={{ 
+              width: { xs: '100%', sm: 'calc(50% - 8px)', md: 'calc(33.333% - 12px)' },
+              minWidth: { xs: '100%', sm: 260, md: 300 },
+              maxWidth: { xs: '100%', sm: 'calc(50% - 8px)', md: 'calc(33.333% - 12px)' },
+              flexShrink: 0,
+              overflow: 'hidden',
+              boxSizing: 'border-box'
+            }} key={property.id}>
             <Card
               sx={{
-                height: '100%',
+                height: { xs: 'auto', sm: 480, md: 520 },
+                minHeight: { xs: 400, sm: 480, md: 520 },
                 display: 'flex',
                 flexDirection: 'column',
-                borderRadius: 2,
+                borderRadius: 3,
                 overflow: 'hidden',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                '&:hover': {
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
-                  transform: 'translateY(-4px)',
-                },
+                boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
                 transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                width: '100%',
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
+                },
               }}
             >
-              {/* Image Section */}
-              <Box sx={{ position: 'relative' }}>
-                <CardMedia
-                  component="div"
+              {/* Property Image */}
+              <Box
+                sx={{
+                  height: { xs: 200, sm: 220, md: 240 },
+                  position: 'relative',
+                  overflow: 'hidden',
+                  flexShrink: 0,
+                }}
+              >
+                <Box
+                  component="img"
+                  src={property.image}
+                  alt={property.title}
                   sx={{
-                    height: { xs: 200, sm: 220, md: 200 },
-                    backgroundColor: '#f0f0f0',
-                    backgroundImage: `url(${property.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    position: 'relative',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center',
                   }}
                 />
                 
@@ -129,6 +155,26 @@ const RecommendedProperties = () => {
                     fontFamily: '"Poppins", sans-serif',
                   }}
                 />
+                
+                {/* Price Overlay */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    bottom: 12,
+                    left: 12,
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    color: 'white',
+                    px: 2,
+                    py: 1,
+                    borderRadius: 1,
+                    fontWeight: 700,
+                    fontFamily: '"Poppins", sans-serif',
+                    fontSize: { xs: '0.9rem', sm: '1rem' },
+                    letterSpacing: '0.5px',
+                  }}
+                >
+                  {property.price}
+                </Box>
                 
                 {/* Action Buttons */}
                 <Box sx={{ position: 'absolute', top: 12, right: 12, display: 'flex', gap: 1 }}>
@@ -153,86 +199,140 @@ const RecommendedProperties = () => {
                 </Box>
               </Box>
 
-              {/* Content */}
-              <CardContent sx={{ flex: 1, display: 'flex', flexDirection: 'column', p: { xs: 2, sm: 3 } }}>
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontWeight: 600,
-                    color: '#153C65',
-                    mb: 1,
-                    fontSize: { xs: '1rem', sm: '1.1rem' },
-                    fontFamily: '"Lora", serif',
-                    lineHeight: 1.3,
-                  }}
-                >
-                  {property.title}
-                </Typography>
-                
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: '#666',
-                    mb: 2,
-                    fontSize: { xs: '0.8rem', sm: '0.9rem' },
-                    fontFamily: '"Inter", sans-serif',
-                  }}
-                >
-                  {property.location}
-                </Typography>
-
-                {/* Property Details */}
-                <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
+              <CardContent sx={{ 
+                p: { xs: 2.5, sm: 3, md: 3.5 },
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}>
+                <Box>
                   <Typography
-                    variant="body2"
+                    variant="h6"
                     sx={{
-                      color: '#666',
-                      fontSize: { xs: '0.8rem', sm: '0.9rem' },
-                      fontFamily: '"Inter", sans-serif',
+                      color: '#333B4D',
+                      fontWeight: 700,
+                      mb: 1.5,
+                      fontFamily: '"Poppins", sans-serif',
+                      fontSize: { xs: '1.1rem', sm: '1.2rem' },
+                      lineHeight: 1.3,
+                      minHeight: { xs: '2.8rem', sm: '3rem' },
+                      maxHeight: { xs: '2.8rem', sm: '3rem' },
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical',
+                      wordBreak: 'break-word',
                     }}
                   >
-                    {property.bedrooms} Bedrooms
+                    {property.title}
                   </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: '#666',
-                      fontSize: { xs: '0.8rem', sm: '0.9rem' },
-                      fontFamily: '"Inter", sans-serif',
-                    }}
-                  >
-                    {property.bathrooms} Bathrooms
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: '#666',
-                      fontSize: { xs: '0.8rem', sm: '0.9rem' },
-                      fontFamily: '"Inter", sans-serif',
-                    }}
-                  >
-                    {property.area} Area
-                  </Typography>
+                  
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2.5 }}>
+                    <LocationIcon sx={{ fontSize: 18, color: '#666', mr: 1 }} />
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: '#666',
+                        fontFamily: '"Inter", sans-serif',
+                        fontSize: { xs: '0.9rem', sm: '1rem' },
+                        fontWeight: 500,
+                      }}
+                    >
+                      {property.location}
+                    </Typography>
+                  </Box>
                 </Box>
 
-                {/* Price */}
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontWeight: 700,
-                    color: '#153C65',
-                    fontSize: { xs: '1.1rem', sm: '1.2rem' },
-                    fontFamily: '"Lora", serif',
-                    mt: 'auto',
-                  }}
-                >
-                  {property.price}
-                </Typography>
+                <Divider sx={{ my: 2, backgroundColor: '#e9ecef' }} />
+
+                <Box sx={{ 
+                  display: 'flex', 
+                  gap: { xs: 2, sm: 3 },
+                  justifyContent: 'space-between'
+                }}>
+                  <Box sx={{ textAlign: 'center', flex: 1 }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: '#333B4D',
+                        fontWeight: 700,
+                        fontFamily: '"Poppins", sans-serif',
+                        fontSize: { xs: '1rem', sm: '1.1rem' },
+                        mb: 0.5,
+                      }}
+                    >
+                      {property.bedrooms}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: '#666',
+                        fontFamily: '"Inter", sans-serif',
+                        fontSize: { xs: '0.8rem', sm: '0.85rem' },
+                        fontWeight: 500,
+                      }}
+                    >
+                      Bedrooms
+                    </Typography>
+                  </Box>
+                  <Box sx={{ textAlign: 'center', flex: 1 }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: '#333B4D',
+                        fontWeight: 700,
+                        fontFamily: '"Poppins", sans-serif',
+                        fontSize: { xs: '1rem', sm: '1.1rem' },
+                        mb: 0.5,
+                      }}
+                    >
+                      {property.bathrooms}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: '#666',
+                        fontFamily: '"Inter", sans-serif',
+                        fontSize: { xs: '0.8rem', sm: '0.85rem' },
+                        fontWeight: 500,
+                      }}
+                    >
+                      Bathrooms
+                    </Typography>
+                  </Box>
+                  <Box sx={{ textAlign: 'center', flex: 1 }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: '#333B4D',
+                        fontWeight: 700,
+                        fontFamily: '"Poppins", sans-serif',
+                        fontSize: { xs: '1rem', sm: '1.1rem' },
+                        mb: 0.5,
+                      }}
+                    >
+                      {property.area}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: '#666',
+                        fontFamily: '"Inter", sans-serif',
+                        fontSize: { xs: '0.8rem', sm: '0.85rem' },
+                        fontWeight: 500,
+                      }}
+                    >
+                      Area
+                    </Typography>
+                  </Box>
+                </Box>
               </CardContent>
             </Card>
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </Box>
   );
 };

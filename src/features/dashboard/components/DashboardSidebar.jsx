@@ -11,6 +11,8 @@ import {
   Avatar,
   Divider,
   Button,
+  IconButton,
+  useTheme,
 } from '@mui/material';
 import {
   Dashboard as DashboardIcon,
@@ -25,12 +27,15 @@ import {
   CreditCard as CreditCardIcon,
   Help as HelpIcon,
   Logout as LogoutIcon,
+  ChevronLeft as ChevronLeftIcon,
+  ChevronRight as ChevronRightIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const DashboardSidebar = ({ open, onClose, isMobile }) => {
+const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const theme = useTheme();
 
   const menuItems = [
     {
@@ -110,7 +115,7 @@ const DashboardSidebar = ({ open, onClose, isMobile }) => {
   const drawerContent = (
     <Box sx={{ width: 280, height: '100%', display: 'flex', flexDirection: 'column' }}>
       {/* User Profile Section */}
-      <Box sx={{ p: 3, borderBottom: '1px solid #e0e0e0' }}>
+      <Box sx={{ p: 3, borderBottom: '1px solid #e0e0e0', position: 'relative' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
           <Avatar
             sx={{
@@ -124,7 +129,7 @@ const DashboardSidebar = ({ open, onClose, isMobile }) => {
           >
             JD
           </Avatar>
-          <Box>
+          <Box sx={{ flex: 1 }}>
             <Typography
               variant="h6"
               sx={{
@@ -147,6 +152,17 @@ const DashboardSidebar = ({ open, onClose, isMobile }) => {
               BUYER ACCOUNT
             </Typography>
           </Box>
+          <IconButton
+            onClick={onToggle}
+            sx={{
+              color: '#153C65',
+              '&:hover': {
+                backgroundColor: 'rgba(21, 60, 101, 0.1)',
+              },
+            }}
+          >
+            <ChevronLeftIcon />
+          </IconButton>
         </Box>
       </Box>
 
@@ -349,109 +365,22 @@ const DashboardSidebar = ({ open, onClose, isMobile }) => {
       }}
       sx={{
         '& .MuiDrawer-paper': {
-          width: 280,
+          width: isMobile ? 280 : (open ? 280 : 0),
           boxSizing: 'border-box',
-          backgroundColor: isMobile ? '#153C65' : 'white',
-          borderRight: isMobile ? 'none' : '1px solid #e0e0e0',
+          backgroundColor: 'white',
+          borderRight: '1px solid #e0e0e0',
           display: 'flex',
           flexDirection: 'column',
+          overflow: 'hidden',
+          zIndex: 1,
+          transition: theme.transitions.create(['width'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+          }),
         },
       }}
     >
-      {isMobile ? (
-        <Box sx={{ 
-          width: '100%', 
-          height: '100%', 
-          display: 'flex', 
-          flexDirection: 'column',
-          backgroundColor: '#153C65',
-          color: 'white',
-        }}>
-          {/* Mobile Header */}
-          <Box sx={{ 
-            p: 3, 
-            textAlign: 'center',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-          }}>
-            <Typography
-              variant="h6"
-              sx={{
-                fontWeight: 700,
-                color: '#DFC14C',
-                fontSize: '1.2rem',
-                fontFamily: '"Lora", serif',
-              }}
-            >
-              Naija Luxury Homes
-            </Typography>
-          </Box>
-
-          {/* Mobile Navigation */}
-          <Box sx={{ flex: 1, overflow: 'auto', py: 2 }}>
-            <List sx={{ py: 1 }}>
-              {[
-                { title: 'Home', path: '/' },
-                { title: 'Properties', path: '/dashboard/properties' },
-                { title: 'Mortgage', path: '/dashboard/mortgage' },
-                { title: 'Investment', path: '/dashboard/investment' },
-                { title: 'About', path: '/about' },
-              ].map((item) => (
-                <ListItem key={item.title} disablePadding>
-                  <ListItemButton
-                    onClick={() => handleNavigation(item.path)}
-                    sx={{
-                      mx: 1,
-                      borderRadius: 1,
-                      backgroundColor: isActive(item.path) ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
-                      color: 'white',
-                      '&:hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                      },
-                      py: 1.5,
-                    }}
-                  >
-                    <ListItemText
-                      primary={item.title}
-                      sx={{
-                        '& .MuiListItemText-primary': {
-                          fontWeight: isActive(item.path) ? 600 : 400,
-                          fontSize: '0.95rem',
-                          fontFamily: '"Poppins", sans-serif',
-                        },
-                      }}
-                    />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </List>
-          </Box>
-
-          {/* Mobile Register Button */}
-          <Box sx={{ p: 3, borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
-            <Button
-              variant="contained"
-              fullWidth
-              onClick={() => navigate('/register')}
-              sx={{
-                backgroundColor: '#DFC14C',
-                color: '#153C65',
-                py: 1.5,
-                borderRadius: 2,
-                fontWeight: 600,
-                fontSize: '0.95rem',
-                fontFamily: '"Poppins", sans-serif',
-                '&:hover': {
-                  backgroundColor: '#D4B63C',
-                },
-              }}
-            >
-              Register
-            </Button>
-          </Box>
-        </Box>
-      ) : (
-        drawerContent
-      )}
+      {drawerContent}
     </Drawer>
   );
 };

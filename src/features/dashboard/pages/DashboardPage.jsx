@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { Box, useMediaQuery, useTheme, IconButton } from '@mui/material';
 import { Outlet } from 'react-router-dom';
+import { ChevronRight as ChevronRightIcon } from '@mui/icons-material';
 import DashboardSidebar from '../components/DashboardSidebar';
 import DashboardHeader from '../components/DashboardHeader';
 
@@ -20,30 +21,60 @@ const DashboardPage = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f8f9fa' }}>
-      {/* Sidebar */}
+    <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f8f9fa', overflow: 'hidden', maxWidth: '100vw', width: '100vw' }}>
+      {/* Sidebar - Show on all devices for dashboard */}
       <DashboardSidebar 
         open={sidebarOpen} 
         onClose={handleSidebarClose}
         isMobile={isMobile}
+        onToggle={handleSidebarToggle}
       />
       
-      {/* Main Content Area */}
-      <Box
-        sx={{
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-          }),
-          ...(sidebarOpen && !isMobile && {
-            marginLeft: '280px',
-            width: 'calc(100% - 280px)',
-          }),
-        }}
-      >
+              {/* Main Content Area */}
+        <Box
+          sx={{
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            transition: theme.transitions.create(['margin', 'width'], {
+              easing: theme.transitions.easing.sharp,
+              duration: theme.transitions.duration.leavingScreen,
+            }),
+            ...(sidebarOpen && !isMobile && {
+              marginLeft: '280px',
+              width: 'calc(100vw - 280px)',
+            }),
+            ...(!sidebarOpen && !isMobile && {
+              marginLeft: 0,
+              width: '100vw',
+            }),
+            position: 'relative',
+            overflow: 'hidden',
+            minWidth: 0,
+            maxWidth: '100vw',
+          }}
+        >
+        {/* Sidebar Toggle Button (when closed) */}
+        {!sidebarOpen && !isMobile && (
+          <IconButton
+            onClick={handleSidebarToggle}
+            sx={{
+              position: 'fixed',
+              left: 0,
+              top: '50%',
+              transform: 'translateY(-50%)',
+              backgroundColor: '#153C65',
+              color: 'white',
+              zIndex: 1200,
+              '&:hover': {
+                backgroundColor: '#0d2b4a',
+              },
+              boxShadow: '2px 0 8px rgba(0,0,0,0.1)',
+            }}
+          >
+            <ChevronRightIcon />
+          </IconButton>
+        )}
         {/* Header */}
         <DashboardHeader 
           onSidebarToggle={handleSidebarToggle}
@@ -55,8 +86,12 @@ const DashboardPage = () => {
           component="main"
           sx={{
             flex: 1,
-            p: { xs: 2, sm: 3, md: 4 },
+            p: { xs: 1, sm: 2, md: 3 },
             overflowX: 'hidden',
+            maxWidth: '100%',
+            width: '100%',
+            minWidth: 0,
+            boxSizing: 'border-box',
           }}
         >
           <Outlet />

@@ -13,10 +13,11 @@ const WelcomeBanner = () => {
       sx={{
         background: 'linear-gradient(135deg, #153C65 0%, #0A3A7D 100%)',
         color: 'white',
-        p: { xs: 3, sm: 4, md: 5 },
+        p: { xs: 2, sm: 3, md: 4 },
         borderRadius: 3,
         position: 'relative',
         overflow: 'hidden',
+        width: '100%',
       }}
     >
       {/* Welcome Text */}

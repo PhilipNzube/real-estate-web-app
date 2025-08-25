@@ -40,6 +40,54 @@ const RightSidebar = () => {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+      {/* Upcoming Appointment */}
+      <Paper sx={{ p: { xs: 2, sm: 3 }, borderRadius: 2 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <Typography
+            variant="body2"
+            sx={{
+              fontWeight: 600,
+              color: '#153C65',
+              fontFamily: '"Poppins", sans-serif',
+              fontSize: { xs: '0.8rem', sm: '0.9rem' },
+            }}
+          >
+            22 JUN
+          </Typography>
+          <Typography
+            variant="caption"
+            sx={{
+              color: '#666',
+              fontFamily: '"Inter", sans-serif',
+              fontSize: '0.75rem',
+            }}
+          >
+            02:30 AM
+          </Typography>
+        </Box>
+        <Typography
+          variant="body2"
+          sx={{
+            color: '#666',
+            fontFamily: '"Inter", sans-serif',
+            fontSize: { xs: '0.8rem', sm: '0.9rem' },
+            mb: 0.5,
+          }}
+        >
+          Modern House, Lekki
+        </Typography>
+        <Typography
+          variant="caption"
+          sx={{
+            color: '#153C65',
+            fontFamily: '"Poppins", sans-serif',
+            fontSize: '0.75rem',
+          }}
+        >
+          With Sarah
+        </Typography>
+      </Paper>
+
       {/* Profile Completion */}
       <Paper sx={{ p: { xs: 2, sm: 3 }, borderRadius: 2 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>

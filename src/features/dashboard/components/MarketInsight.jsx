@@ -1,6 +1,27 @@
 import React from 'react';
 import { Box, Typography, Paper, Grid } from '@mui/material';
 import { BarChart as BarChartIcon, Handshake as HandshakeIcon } from '@mui/icons-material';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const MarketInsight = () => {
   const transactions = [
@@ -21,6 +42,107 @@ const MarketInsight = () => {
     },
   ];
 
+  const chartData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    datasets: [
+      {
+        label: 'Victoria Island',
+        data: [75, 78, 82, 85, 88, 92, 95, 98, 96, 94, 97, 100],
+        borderColor: '#4CAF50',
+        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+        tension: 0.4,
+        pointBackgroundColor: '#4CAF50',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 4,
+      },
+      {
+        label: 'Ikoyi',
+        data: [65, 68, 72, 75, 78, 82, 85, 88, 86, 84, 87, 90],
+        borderColor: '#2196F3',
+        backgroundColor: 'rgba(33, 150, 243, 0.1)',
+        tension: 0.4,
+        pointBackgroundColor: '#2196F3',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 4,
+      },
+      {
+        label: 'Lagos',
+        data: [55, 58, 62, 65, 68, 72, 75, 78, 76, 74, 77, 80],
+        borderColor: '#FFC107',
+        backgroundColor: 'rgba(255, 193, 7, 0.1)',
+        tension: 0.4,
+        pointBackgroundColor: '#FFC107',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 4,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        titleColor: '#fff',
+        bodyColor: '#fff',
+        borderColor: '#153C65',
+        borderWidth: 1,
+        cornerRadius: 8,
+        displayColors: true,
+        callbacks: {
+          label: function(context) {
+            return `${context.dataset.label}: N${context.parsed.y}M`;
+          }
+        }
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: false,
+        min: 50,
+        max: 100,
+        ticks: {
+          callback: function(value) {
+            return `N${value}M`;
+          },
+          color: '#666',
+          font: {
+            size: 12,
+            family: '"Inter", sans-serif',
+          },
+        },
+        grid: {
+          color: 'rgba(0, 0, 0, 0.1)',
+          drawBorder: false,
+        },
+      },
+      x: {
+        ticks: {
+          color: '#666',
+          font: {
+            size: 12,
+            family: '"Inter", sans-serif',
+          },
+        },
+        grid: {
+          display: false,
+        },
+      },
+    },
+    elements: {
+      point: {
+        hoverRadius: 6,
+      },
+    },
+  };
+
   return (
     <Box>
       <Typography
@@ -36,9 +158,24 @@ const MarketInsight = () => {
         Market Insight
       </Typography>
 
-      <Grid container spacing={3}>
+      <Box sx={{ 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        gap: { xs: 1.5, sm: 2, md: 3 },
+        width: '100%',
+        overflow: 'hidden',
+        maxWidth: '100%',
+        boxSizing: 'border-box'
+      }}>
         {/* Price Trends Chart */}
-        <Grid item xs={12} md={6}>
+        <Box sx={{ 
+          width: { xs: '100%', lg: 'calc(50% - 8px)' },
+          minWidth: { xs: '100%', lg: 380 },
+          maxWidth: { xs: '100%', lg: 'calc(50% - 8px)' },
+          flexShrink: 0,
+          overflow: 'hidden',
+          boxSizing: 'border-box'
+        }}>
           <Paper
             sx={{
               p: { xs: 2, sm: 3 },
@@ -62,27 +199,14 @@ const MarketInsight = () => {
               <BarChartIcon sx={{ color: '#153C65', fontSize: 20 }} />
             </Box>
 
-            {/* Chart Placeholder */}
+            {/* Chart */}
             <Box
               sx={{
                 height: 200,
-                backgroundColor: '#f8f9fa',
-                borderRadius: 1,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                border: '1px dashed #ccc',
+                position: 'relative',
               }}
             >
-              <Typography
-                variant="body2"
-                sx={{
-                  color: '#666',
-                  fontFamily: '"Inter", sans-serif',
-                }}
-              >
-                Price Trends Chart
-              </Typography>
+              <Line data={chartData} options={chartOptions} />
             </Box>
 
             {/* Legend */}
@@ -128,10 +252,17 @@ const MarketInsight = () => {
               </Box>
             </Box>
           </Paper>
-        </Grid>
+        </Box>
 
         {/* Recent Transactions */}
-        <Grid item xs={12} md={6}>
+        <Box sx={{ 
+          width: { xs: '100%', lg: 'calc(50% - 8px)' },
+          minWidth: { xs: '100%', lg: 380 },
+          maxWidth: { xs: '100%', lg: 'calc(50% - 8px)' },
+          flexShrink: 0,
+          overflow: 'hidden',
+          boxSizing: 'border-box'
+        }}>
           <Paper
             sx={{
               p: { xs: 2, sm: 3 },
@@ -227,8 +358,8 @@ const MarketInsight = () => {
               ))}
             </Box>
           </Paper>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Box>
   );
 };
