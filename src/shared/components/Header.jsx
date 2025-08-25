@@ -35,6 +35,7 @@ const Header = () => {
       flexDirection: 'column',
       background: 'linear-gradient(135deg, #153C65E5 0%, #153C65B2 100%)',
       overflow: 'hidden',
+      width: '100%',
     }}>
       {/* Header */}
       <Box sx={{ 
@@ -64,8 +65,10 @@ const Header = () => {
       {/* Navigation Items - Scrollable */}
       <Box sx={{ 
         flex: 1, 
-        overflow: 'auto',
+        overflowY: 'auto',
+        overflowX: 'hidden',
         minHeight: 0,
+        py: { xs: 1, sm: 2 },
       }}>
         <List sx={{ 
           pt: { xs: 1, sm: 2 },
@@ -76,7 +79,7 @@ const Header = () => {
               key={item} 
               disablePadding
               sx={{
-                mx: 2,
+                mx: { xs: 1.5, sm: 2 },
                 mb: 1,
                 borderRadius: 2,
                 '&:hover': {
@@ -108,8 +111,10 @@ const Header = () => {
         borderTop: '1px solid rgba(255,255,255,0.1)',
         flexShrink: 0,
         backgroundColor: 'rgba(21, 60, 101, 0.95)',
-        position: 'sticky',
+        position: 'fixed',
         bottom: 0,
+        width: '100%',
+        boxSizing: 'border-box',
       }}>
         <Button
           fullWidth
@@ -271,7 +276,8 @@ const Header = () => {
           display: { xs: 'block', md: 'none' },
           '& .MuiDrawer-paper': { 
             boxSizing: 'border-box', 
-            width: { xs: '100%', sm: 280 },
+            width: { xs: 280, sm: 320 },
+            maxWidth: '85vw',
             height: '100vh',
             backgroundColor: 'transparent',
             boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
