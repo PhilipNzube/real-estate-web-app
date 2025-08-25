@@ -111,7 +111,7 @@ const Header = () => {
         borderTop: '1px solid rgba(255,255,255,0.1)',
         flexShrink: 0,
         backgroundColor: 'rgba(21, 60, 101, 0.95)',
-        position: 'fixed',
+        position: 'sticky',
         bottom: 0,
         width: '100%',
         boxSizing: 'border-box',
