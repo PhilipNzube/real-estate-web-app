@@ -145,7 +145,7 @@ const DashboardHeader = ({ onSidebarToggle, sidebarOpen }) => {
                 color: 'white',
                 fontWeight: 700,
                 fontSize: { xs: '1rem', sm: '1.2rem' },
-                fontFamily: '"Lora", serif',
+                fontFamily: '"Axiforma", serif',
                 display: { xs: 'none', sm: 'block' },
                 '@media (max-width: 450px)': {
                   display: 'none',

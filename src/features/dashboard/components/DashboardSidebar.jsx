@@ -131,9 +131,9 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
               variant="h6"
               sx={{
                 fontWeight: 600,
-                color: '#153C65',
+                color: '#000000',
                 fontSize: '1rem',
-                fontFamily: '"Poppins", sans-serif',
+                fontFamily: '"Inter", sans-serif',
               }}
             >
               JOHN DOE
@@ -141,7 +141,7 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
             <Typography
               variant="body2"
               sx={{
-                color: '#666',
+                color: '#757575',
                 fontSize: '0.8rem',
                 fontFamily: '"Inter", sans-serif',
               }}
@@ -172,7 +172,7 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
           sx={{
             px: 3,
             py: 1,
-            color: '#999',
+            color: '#757575',
             fontSize: '0.75rem',
             fontWeight: 600,
             textTransform: 'uppercase',
@@ -190,17 +190,17 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
                 sx={{
                   mx: 1,
                   borderRadius: 1,
-                  backgroundColor: isActive(item.path) ? '#E3F2FD' : 'transparent',
-                  color: isActive(item.path) ? '#153C65' : '#666',
+                  backgroundColor: isActive(item.path) ? '#E6EDFF' : 'transparent',
+                  color: isActive(item.path) ? '#0A3A7D' : '#757575',
                   '&:hover': {
-                    backgroundColor: isActive(item.path) ? '#E3F2FD' : '#f5f5f5',
+                    backgroundColor: isActive(item.path) ? '#E6EDFF' : '#f5f5f5',
                   },
                   py: 1.5,
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: isActive(item.path) ? '#153C65' : '#666',
+                    color: isActive(item.path) ? '#0A3A7D' : '#757575',
                     minWidth: 40,
                   }}
                 >
@@ -229,7 +229,7 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
           sx={{
             px: 3,
             py: 1,
-            color: '#999',
+            color: '#757575',
             fontSize: '0.75rem',
             fontWeight: 600,
             textTransform: 'uppercase',
@@ -247,17 +247,17 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
                 sx={{
                   mx: 1,
                   borderRadius: 1,
-                  backgroundColor: isActive(item.path) ? '#E3F2FD' : 'transparent',
-                  color: isActive(item.path) ? '#153C65' : '#666',
+                  backgroundColor: isActive(item.path) ? '#E6EDFF' : 'transparent',
+                  color: isActive(item.path) ? '#0A3A7D' : '#757575',
                   '&:hover': {
-                    backgroundColor: isActive(item.path) ? '#E3F2FD' : '#f5f5f5',
+                    backgroundColor: isActive(item.path) ? '#E6EDFF' : '#f5f5f5',
                   },
                   py: 1.5,
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: isActive(item.path) ? '#153C65' : '#666',
+                    color: isActive(item.path) ? '#0A3A7D' : '#757575',
                     minWidth: 40,
                   }}
                 >
@@ -286,7 +286,7 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
             onClick={() => navigate('/')}
             sx={{
               borderRadius: 1,
-              color: '#d32f2f',
+              color: '#D55F5A',
               '&:hover': {
                 backgroundColor: '#ffebee',
               },

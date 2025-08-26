@@ -11,7 +11,7 @@ const WelcomeBanner = () => {
   return (
     <Paper
       sx={{
-        background: 'linear-gradient(135deg, #153C65 0%, #0A3A7D 100%)',
+        background: 'linear-gradient(135deg, #0E4592 0%, #155ABB 100%)',
         color: 'white',
         p: { xs: 2, sm: 3, md: 4 },
         borderRadius: 3,
@@ -28,7 +28,7 @@ const WelcomeBanner = () => {
             fontWeight: 700,
             mb: 2,
             fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-            fontFamily: '"Lora", serif',
+            fontFamily: '"Axiforma", serif',
           }}
         >
           Good Afternoon, Oluwaseun!
@@ -39,7 +39,7 @@ const WelcomeBanner = () => {
             fontSize: { xs: '0.9rem', sm: '1rem' },
             lineHeight: 1.6,
             opacity: 0.9,
-            fontFamily: '"Inter", sans-serif',
+            fontFamily: '"Axiforma", sans-serif',
             maxWidth: '600px',
           }}
         >
@@ -60,8 +60,10 @@ const WelcomeBanner = () => {
           <Box
             key={index}
             sx={{
-              textAlign: { xs: 'center', sm: 'left' },
-              flex: 1,
+              backgroundColor: '#255598',
+          borderRadius: '10px',
+          padding: '10px',
+              textAlign: 'center',
             }}
           >
             <Typography
@@ -69,8 +71,8 @@ const WelcomeBanner = () => {
               sx={{
                 fontWeight: 700,
                 fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-                color: '#DFC14C',
-                fontFamily: '"Lora", serif',
+                color: '#FFFFFF',
+                fontFamily: '"Axiforma", serif',
                 mb: 0.5,
               }}
             >
@@ -81,7 +83,7 @@ const WelcomeBanner = () => {
               sx={{
                 fontSize: { xs: '0.8rem', sm: '0.9rem' },
                 opacity: 0.8,
-                fontFamily: '"Poppins", sans-serif',
+                fontFamily: '"Axiforma", sans-serif',
                 fontWeight: 500,
               }}
             >
