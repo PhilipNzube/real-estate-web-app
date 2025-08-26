@@ -174,7 +174,7 @@ const DashboardHeader = ({ onSidebarToggle }) => {
                 display: { xs: 'none', md: 'flex' },
                 alignItems: 'center',
                 backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                borderRadius: 2,
+                borderRadius: 3,
                 width: { md: 450, lg: 550 },
                 height: 44,
                 overflow: 'hidden',
@@ -213,6 +213,7 @@ const DashboardHeader = ({ onSidebarToggle }) => {
               {/* Properties Dropdown Section */}
               <Button
                 onClick={handlePropertyMenuOpen}
+                endIcon={<ArrowDownIcon />}
                 sx={{
                   color: 'white',
                   px: 2,
