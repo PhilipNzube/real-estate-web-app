@@ -58,9 +58,6 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
       icon: <AccountBalanceIcon />,
       path: '/dashboard/mortgage',
     },
-  ];
-
-  const quickAccessItems = [
     {
       title: 'Saved Properties',
       icon: <FavoriteIcon />,
@@ -165,51 +162,11 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
           </IconButton>
         </Box>
       </Box>
+      
 
-      {/* Main Menu */}
+      {/* Sidebar Menu */}
       <Box sx={{ flex: 1, overflow: 'auto' }}>
-        <List sx={{ py: 1 }}>
-          {menuItems.map((item) => (
-            <ListItem key={item.title} disablePadding>
-              <ListItemButton
-                onClick={() => handleNavigation(item.path)}
-                sx={{
-                  mx: 1,
-                  borderRadius: 1,
-                  backgroundColor: isActive(item.path) ? '#E3F2FD' : 'transparent',
-                  color: isActive(item.path) ? '#153C65' : '#666',
-                  '&:hover': {
-                    backgroundColor: isActive(item.path) ? '#E3F2FD' : '#f5f5f5',
-                  },
-                  py: 1.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    color: isActive(item.path) ? '#153C65' : '#666',
-                    minWidth: 40,
-                  }}
-                >
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText
-                  primary={item.title}
-                  sx={{
-                    '& .MuiListItemText-primary': {
-                      fontWeight: isActive(item.path) ? 600 : 400,
-                      fontSize: '0.9rem',
-                      fontFamily: '"Poppins", sans-serif',
-                    },
-                  }}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-
-        <Divider sx={{ my: 2 }} />
-
-        {/* Quick Access */}
+        {/* Main Menu */}
         <Typography
           variant="subtitle2"
           sx={{
@@ -223,10 +180,10 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
             fontFamily: '"Inter", sans-serif',
           }}
         >
-          Quick Access
+          Main Menu
         </Typography>
         <List sx={{ py: 1 }}>
-          {quickAccessItems.map((item) => (
+          {menuItems.map((item) => (
             <ListItem key={item.title} disablePadding>
               <ListItemButton
                 onClick={() => handleNavigation(item.path)}

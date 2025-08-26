@@ -31,14 +31,18 @@ import {
 import { useNavigate } from 'react-router-dom';
 import NLHLogo from '../../../shared/components/icons/NLHLogo';
 
-const DashboardHeader = ({ onSidebarToggle }) => {
+const DashboardHeader = ({ onSidebarToggle, sidebarOpen }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('md', 'lg'));
   const navigate = useNavigate();
   const [propertyMenuAnchor, setPropertyMenuAnchor] = useState(null);
   const [searchExpanded, setSearchExpanded] = useState(false);
   const [dropdownExpanded, setDropdownExpanded] = useState(false);
   const [mobileMenuAnchor, setMobileMenuAnchor] = useState(null);
+
+  // Determine if we should show mobile menu due to space constraints
+  const shouldShowMobileMenu = isMobile || (isTablet && sidebarOpen);
 
   const handlePropertyMenuOpen = (event) => {
     setPropertyMenuAnchor(event.currentTarget);
@@ -48,15 +52,15 @@ const DashboardHeader = ({ onSidebarToggle }) => {
     setPropertyMenuAnchor(null);
   };
 
-  // const handleSearchToggle = () => {
-  //   setSearchExpanded(!searchExpanded);
-  //   if (dropdownExpanded) setDropdownExpanded(false);
-  // };
+  const handleSearchToggle = () => {
+    setSearchExpanded(!searchExpanded);
+    if (dropdownExpanded) setDropdownExpanded(false);
+  };
 
-  // const handleDropdownToggle = () => {
-  //   setDropdownExpanded(!dropdownExpanded);
-  //   if (searchExpanded) setSearchExpanded(false);
-  // };
+  const handleDropdownToggle = () => {
+    setDropdownExpanded(!dropdownExpanded);
+    if (searchExpanded) setSearchExpanded(false);
+  };
 
   const handleMobileMenuOpen = (event) => {
     setMobileMenuAnchor(event.currentTarget);
@@ -171,44 +175,52 @@ const DashboardHeader = ({ onSidebarToggle }) => {
             {/* Desktop: Unified Search and Properties Bar */}
             <Box
               sx={{
-                display: { xs: 'none', md: 'flex' },
+                display: shouldShowMobileMenu ? 'none' : { xs: 'none', md: 'flex' },
                 alignItems: 'center',
                 backgroundColor: 'rgba(255, 255, 255, 0.15)',
                 borderRadius: 3,
-                width: { md: 450, lg: 550 },
+                minWidth: { md: 350, lg: 400 },
+                maxWidth: { md: 500, lg: 600 },
+                width: { md: '40%', lg: '45%' },
                 height: 44,
                 overflow: 'hidden',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
               }}
             >
               {/* Search Section */}
-              <Box
-                sx={{
+        <Box
+          onClick={handleSearchToggle}
+          sx={{
                   display: 'flex',
-                  alignItems: 'center',
+            alignItems: 'center',
                   flex: 1,
-                  px: 2,
+            px: 2,
                   py: 1,
                   borderRight: '1px solid rgba(255, 255, 255, 0.2)',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  },
                 }}
               >
                 <SearchIcon sx={{ color: 'white', mr: 1.5, fontSize: 20 }} />
-                <InputBase
-                  placeholder="Search for properties..."
-                  sx={{
-                    color: 'white',
-                    width: '100%',
-                    '& .MuiInputBase-input': {
-                      color: 'white',
+          <InputBase
+            placeholder="Search for properties..."
+            sx={{
+              color: 'white',
+              width: '100%',
+              pointerEvents: 'none',
+              '& .MuiInputBase-input': {
+                color: 'white',
                       fontSize: '0.9rem',
-                      '&::placeholder': {
-                        color: 'rgba(255, 255, 255, 0.7)',
-                        opacity: 1,
-                      },
-                    },
-                  }}
-                />
-              </Box>
+                '&::placeholder': {
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  opacity: 1,
+                },
+              },
+            }}
+          />
+        </Box>
 
               {/* Properties Dropdown Section */}
               <Button
@@ -235,13 +247,151 @@ const DashboardHeader = ({ onSidebarToggle }) => {
             </Box>
 
             {/* Tablet: Search and Properties Icons */}
-  
+            <Box
+              sx={{
+                display: shouldShowMobileMenu ? 'none' : { xs: 'none', sm: 'flex', md: 'none' },
+                alignItems: 'center',
+                gap: 1,
+                position: 'relative',
+              }}
+            >
+              {/* Search Icon */}
+              <IconButton
+                onClick={handleSearchToggle}
+                sx={{
+                  color: 'white',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  '&:hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                  },
+                }}
+              >
+                <SearchIcon />
+              </IconButton>
+
+              {/* Properties Dropdown Icon */}
+              <IconButton
+                onClick={handleDropdownToggle}
+                sx={{
+                  color: 'white',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  '&:hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                  },
+                }}
+              >
+                <ArrowDownIcon />
+              </IconButton>
+
+              {/* Tablet Expanded Search Bar */}
+              <Fade in={searchExpanded}>
+                <Paper
+                  sx={{
+                    position: 'fixed',
+                    top: 70,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    p: 2,
+                    minWidth: 280,
+                    maxWidth: 320,
+                    zIndex: 1500,
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+                    borderRadius: 2,
+                  }}
+                >
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <SearchIcon sx={{ color: '#666' }} />
+                    <InputBase
+                      placeholder="Search for properties..."
+                      autoFocus
+                      sx={{
+                        flex: 1,
+                        color: '#666',
+                        '& .MuiInputBase-input': {
+                          fontSize: '1rem',
+                        },
+                      }}
+                    />
+                    <IconButton
+                      size="small"
+                      onClick={() => setSearchExpanded(false)}
+                    >
+                      <CloseIcon />
+                    </IconButton>
+                  </Box>
+                </Paper>
+              </Fade>
+
+              {/* Tablet Expanded Dropdown */}
+              <Fade in={dropdownExpanded}>
+                <Paper
+                  sx={{
+                    position: 'fixed',
+                    top: 70,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    p: 1,
+                    minWidth: 180,
+                    zIndex: 1500,
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+                    borderRadius: 2,
+                  }}
+                >
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                    <Button
+                      fullWidth
+                      sx={{
+                        justifyContent: 'flex-start',
+                        textTransform: 'none',
+                        color: '#333',
+                        '&:hover': { backgroundColor: '#f5f5f5' },
+                      }}
+                    >
+                      Residential
+                    </Button>
+                    <Button
+                      fullWidth
+                      sx={{
+                        justifyContent: 'flex-start',
+                        textTransform: 'none',
+                        color: '#333',
+                        '&:hover': { backgroundColor: '#f5f5f5' },
+                      }}
+                    >
+                      Commercial
+                    </Button>
+                    <Button
+                      fullWidth
+                      sx={{
+                        justifyContent: 'flex-start',
+                        textTransform: 'none',
+                        color: '#333',
+                        '&:hover': { backgroundColor: '#f5f5f5' },
+                      }}
+                    >
+                      Land
+                    </Button>
+                    <Button
+                      fullWidth
+                      sx={{
+                        justifyContent: 'flex-start',
+                        textTransform: 'none',
+                        color: '#333',
+                        '&:hover': { backgroundColor: '#f5f5f5' },
+                      }}
+                    >
+                      Investment
+                    </Button>
+                  </Box>
+                </Paper>
+              </Fade>
+            </Box>
           </Box>
 
           {/* Right Section - Notifications, User, and Mobile Menu */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             {/* Desktop/Tablet: Notifications, Messages, Favorites */}
-            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, alignItems: 'center', gap: 1 }}>
+            <Box sx={{ display: shouldShowMobileMenu ? 'none' : { xs: 'none', sm: 'none', md: 'flex' }, alignItems: 'center', gap: 1 }}>
           {/* Notifications */}
           <IconButton color="inherit" sx={{ position: 'relative' }}>
             <Badge badgeContent={3} color="error">
@@ -285,7 +435,7 @@ const DashboardHeader = ({ onSidebarToggle }) => {
             <IconButton
               color="inherit"
               onClick={handleMobileMenuOpen}
-              sx={{ display: { xs: 'flex', sm: 'flex', md: 'none' } }}
+              sx={{ display: shouldShowMobileMenu ? 'flex' : { xs: 'flex', sm: 'flex', md: 'none' } }}
             >
               <MoreVertIcon />
             </IconButton>
@@ -388,8 +538,8 @@ const DashboardHeader = ({ onSidebarToggle }) => {
           </MenuItem>
         </Menu>
 
-        {/* Mobile Expanded Search Bar */}
-        <Fade in={searchExpanded && isMobile}>
+        {/* Mobile/Medium Expanded Search Bar */}
+        <Fade in={searchExpanded}>
           <Paper
             sx={{
               position: 'fixed',
@@ -427,8 +577,8 @@ const DashboardHeader = ({ onSidebarToggle }) => {
           </Paper>
         </Fade>
 
-        {/* Mobile Expanded Dropdown */}
-        <Fade in={dropdownExpanded && isMobile}>
+        {/* Mobile/Medium Expanded Dropdown */}
+        <Fade in={dropdownExpanded}>
           <Paper
             sx={{
               position: 'fixed',

@@ -42,7 +42,8 @@ const DashboardPage = () => {
             }),
             ...(sidebarOpen && !isMobile && {
               marginLeft: '280px',
-              width: 'calc(100% - 280px)',
+              width: 'calc(100vw - 280px)',
+              minWidth: 0,
             }),
             ...(!sidebarOpen && !isMobile && {
               marginLeft: 0,
@@ -52,6 +53,7 @@ const DashboardPage = () => {
             overflow: 'hidden',
             minWidth: 0,
             maxWidth: '100vw',
+            boxSizing: 'border-box',
           }}
         >
         {/* Sidebar Toggle Button (when closed) */}
@@ -92,6 +94,7 @@ const DashboardPage = () => {
             width: '100%',
             minWidth: 0,
             boxSizing: 'border-box',
+            overflow: 'auto',
           }}
         >
           <Outlet />
