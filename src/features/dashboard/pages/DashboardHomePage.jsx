@@ -449,18 +449,18 @@ const DashboardHomePage = () => {
           maxWidth: '100%',
           boxSizing: 'border-box'
         }}>
-          {/* Welcome Banner */}
-          <WelcomeBanner />
-          
+            {/* Welcome Banner */}
+            <WelcomeBanner />
+            
           {/* Continue Browsing */}
-          <PropertyOverview />
-          
-          {/* Recommended Properties */}
-          <RecommendedProperties />
-          
-          {/* Market Insight */}
-          <MarketInsight />
-        </Box>
+            <PropertyOverview />
+            
+            {/* Recommended Properties */}
+            <RecommendedProperties />
+            
+            {/* Market Insight */}
+            <MarketInsight />
+          </Box>
         
         {/* Right Sidebar - Desktop (Always Visible) */}
         <Box sx={{ 

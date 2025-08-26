@@ -212,8 +212,8 @@ const PropertyOverview = () => {
                       }}
                     >
                       {property.location}
-                    </Typography>
-                  </Box>
+                </Typography>
+              </Box>
                 </Box>
 
                 <Divider sx={{ my: 2, backgroundColor: '#e9ecef' }} />
@@ -236,11 +236,11 @@ const PropertyOverview = () => {
                     >
                       {property.bedrooms}
                     </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: '#666',
-                        fontFamily: '"Inter", sans-serif',
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: '#666',
+                    fontFamily: '"Inter", sans-serif',
                         fontSize: { xs: '0.8rem', sm: '0.85rem' },
                         fontWeight: 500,
                       }}
@@ -260,12 +260,12 @@ const PropertyOverview = () => {
                       }}
                     >
                       {property.bathrooms}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: '#666',
-                        fontFamily: '"Inter", sans-serif',
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: '#666',
+                    fontFamily: '"Inter", sans-serif',
                         fontSize: { xs: '0.8rem', sm: '0.85rem' },
                         fontWeight: 500,
                       }}
@@ -285,19 +285,19 @@ const PropertyOverview = () => {
                       }}
                     >
                       {property.area}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: '#666',
-                        fontFamily: '"Inter", sans-serif',
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: '#666',
+                    fontFamily: '"Inter", sans-serif',
                         fontSize: { xs: '0.8rem', sm: '0.85rem' },
                         fontWeight: 500,
-                      }}
-                    >
+                  }}
+                >
                       Area
-                    </Typography>
-                  </Box>
+                </Typography>
+              </Box>
                 </Box>
               </CardContent>
             </Card>

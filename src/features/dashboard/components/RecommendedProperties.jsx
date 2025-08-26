@@ -122,9 +122,9 @@ const RecommendedProperties = () => {
             >
               {/* Property Image */}
               <Box
-                sx={{
+                  sx={{
                   height: { xs: 200, sm: 220, md: 240 },
-                  position: 'relative',
+                    position: 'relative',
                   overflow: 'hidden',
                   flexShrink: 0,
                 }}
@@ -207,15 +207,15 @@ const RecommendedProperties = () => {
                 justifyContent: 'space-between'
               }}>
                 <Box>
-                  <Typography
-                    variant="h6"
-                    sx={{
+                <Typography
+                  variant="h6"
+                  sx={{
                       color: '#333B4D',
                       fontWeight: 700,
                       mb: 1.5,
                       fontFamily: '"Poppins", sans-serif',
                       fontSize: { xs: '1.1rem', sm: '1.2rem' },
-                      lineHeight: 1.3,
+                    lineHeight: 1.3,
                       minHeight: { xs: '2.8rem', sm: '3rem' },
                       maxHeight: { xs: '2.8rem', sm: '3rem' },
                       overflow: 'hidden',
@@ -224,24 +224,24 @@ const RecommendedProperties = () => {
                       WebkitLineClamp: 2,
                       WebkitBoxOrient: 'vertical',
                       wordBreak: 'break-word',
-                    }}
-                  >
-                    {property.title}
-                  </Typography>
-                  
+                  }}
+                >
+                  {property.title}
+                </Typography>
+                
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 2.5 }}>
                     <LocationIcon sx={{ fontSize: 18, color: '#666', mr: 1 }} />
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: '#666',
-                        fontFamily: '"Inter", sans-serif',
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: '#666',
+                    fontFamily: '"Inter", sans-serif',
                         fontSize: { xs: '0.9rem', sm: '1rem' },
                         fontWeight: 500,
-                      }}
-                    >
-                      {property.location}
-                    </Typography>
+                  }}
+                >
+                  {property.location}
+                </Typography>
                   </Box>
                 </Box>
 
@@ -253,9 +253,9 @@ const RecommendedProperties = () => {
                   justifyContent: 'space-between'
                 }}>
                   <Box sx={{ textAlign: 'center', flex: 1 }}>
-                    <Typography
+                  <Typography
                       variant="h6"
-                      sx={{
+                    sx={{
                         color: '#333B4D',
                         fontWeight: 700,
                         fontFamily: '"Poppins", sans-serif',
@@ -264,12 +264,12 @@ const RecommendedProperties = () => {
                       }}
                     >
                       {property.bedrooms}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: '#666',
-                        fontFamily: '"Inter", sans-serif',
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: '#666',
+                      fontFamily: '"Inter", sans-serif',
                         fontSize: { xs: '0.8rem', sm: '0.85rem' },
                         fontWeight: 500,
                       }}
@@ -289,25 +289,25 @@ const RecommendedProperties = () => {
                       }}
                     >
                       {property.bathrooms}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: '#666',
-                        fontFamily: '"Inter", sans-serif',
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: '#666',
+                      fontFamily: '"Inter", sans-serif',
                         fontSize: { xs: '0.8rem', sm: '0.85rem' },
                         fontWeight: 500,
-                      }}
-                    >
+                    }}
+                  >
                       Bathrooms
-                    </Typography>
-                  </Box>
+                  </Typography>
+                </Box>
                   <Box sx={{ textAlign: 'center', flex: 1 }}>
-                    <Typography
-                      variant="h6"
-                      sx={{
+                <Typography
+                  variant="h6"
+                  sx={{
                         color: '#333B4D',
-                        fontWeight: 700,
+                    fontWeight: 700,
                         fontFamily: '"Poppins", sans-serif',
                         fontSize: { xs: '1rem', sm: '1.1rem' },
                         mb: 0.5,
@@ -325,7 +325,7 @@ const RecommendedProperties = () => {
                       }}
                     >
                       Area
-                    </Typography>
+                </Typography>
                   </Box>
                 </Box>
               </CardContent>

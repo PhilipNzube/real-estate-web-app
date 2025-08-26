@@ -16,6 +16,7 @@ import {
   Paper,
   ClickAwayListener,
   Fade,
+  Divider,
 } from '@mui/material';
 import {
   Menu as MenuIcon,
@@ -25,6 +26,7 @@ import {
   Favorite as FavoriteIcon,
   KeyboardArrowDown as ArrowDownIcon,
   Close as CloseIcon,
+  MoreVert as MoreVertIcon,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import NLHLogo from '../../../shared/components/icons/NLHLogo';
@@ -34,8 +36,9 @@ const DashboardHeader = ({ onSidebarToggle }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const navigate = useNavigate();
   const [propertyMenuAnchor, setPropertyMenuAnchor] = useState(null);
-  const [searchExpanded, setSearchExpanded] = useState(!isMobile);
-  const [dropdownExpanded, setDropdownExpanded] = useState(!isMobile);
+  const [searchExpanded, setSearchExpanded] = useState(false);
+  const [dropdownExpanded, setDropdownExpanded] = useState(false);
+  const [mobileMenuAnchor, setMobileMenuAnchor] = useState(null);
 
   const handlePropertyMenuOpen = (event) => {
     setPropertyMenuAnchor(event.currentTarget);
@@ -45,14 +48,22 @@ const DashboardHeader = ({ onSidebarToggle }) => {
     setPropertyMenuAnchor(null);
   };
 
-  const handleSearchToggle = () => {
-    setSearchExpanded(!searchExpanded);
-    if (dropdownExpanded) setDropdownExpanded(false);
+  // const handleSearchToggle = () => {
+  //   setSearchExpanded(!searchExpanded);
+  //   if (dropdownExpanded) setDropdownExpanded(false);
+  // };
+
+  // const handleDropdownToggle = () => {
+  //   setDropdownExpanded(!dropdownExpanded);
+  //   if (searchExpanded) setSearchExpanded(false);
+  // };
+
+  const handleMobileMenuOpen = (event) => {
+    setMobileMenuAnchor(event.currentTarget);
   };
 
-  const handleDropdownToggle = () => {
-    setDropdownExpanded(!dropdownExpanded);
-    if (searchExpanded) setSearchExpanded(false);
+  const handleMobileMenuClose = () => {
+    setMobileMenuAnchor(null);
   };
 
   const handleClickAway = () => {
@@ -68,39 +79,23 @@ const DashboardHeader = ({ onSidebarToggle }) => {
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
-      <AppBar
-        position="sticky"
-        sx={{
-          backgroundColor: '#153C65',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-        //zIndex: theme.zIndex.drawer + 1,
-        zIndex: 1,
-        }}
-      >
+    <AppBar
+      position="sticky"
+      sx={{
+        backgroundColor: '#153C65',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+          zIndex: 1200,
+      }}
+    >
       <Toolbar sx={{ 
         justifyContent: 'space-between',
-        px: { xs: 1.5, sm: 2, md: 3 },
+          px: { xs: 1.5, sm: 2, md: 3 },
         py: { xs: 1, sm: 1.5 },
-        minHeight: { xs: 64, sm: 70 },
-        overflow: { xs: 'auto', sm: 'hidden' },
-        '&::-webkit-scrollbar': {
-          height: '4px',
-        },
-        '&::-webkit-scrollbar-track': {
-          background: 'rgba(255, 255, 255, 0.1)',
-          borderRadius: '2px',
-        },
-        '&::-webkit-scrollbar-thumb': {
-          background: 'rgba(255, 255, 255, 0.3)',
-          borderRadius: '2px',
-          '&:hover': {
-            background: 'rgba(255, 255, 255, 0.5)',
-          },
-        },
+          minHeight: { xs: 64, sm: 70 },
       }}>
         {/* Left Section - Logo and Menu */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          {/* Menu Button - Show on mobile and tablet for dashboard */}
+            {/* Menu Button - Show on mobile and tablet for dashboard */}
           <IconButton
             color="inherit"
             onClick={onSidebarToggle}
@@ -147,7 +142,13 @@ const DashboardHeader = ({ onSidebarToggle }) => {
                 fontWeight: 700,
                 fontSize: { xs: '1rem', sm: '1.2rem' },
                 fontFamily: '"Lora", serif',
-                display: { xs: 'none', sm: 'block' }
+                display: { xs: 'none', sm: 'block' },
+                '@media (max-width: 450px)': {
+                  display: 'none',
+                },
+                '@media (min-width: 451px)': {
+                  display: 'block',
+                },
               }}
             >
               Naija Luxury Homes
@@ -155,217 +156,83 @@ const DashboardHeader = ({ onSidebarToggle }) => {
           </Box>
         </Box>
 
-        {/* Center Section - Desktop: Normal Search and Dropdown, Mobile: Icons */}
-        <Box
-          sx={{
-            display: { xs: 'none', sm: 'flex' },
-            alignItems: 'center',
-            gap: { sm: 1, md: 2 },
-            flex: 1,
-            mx: { sm: 1, md: 2 },
-            minWidth: 0,
-            overflow: 'hidden',
-          }}
-        >
-          {/* Desktop: Normal Search Bar */}
+          {/* Center Section - Desktop: Normal Search and Dropdown, Tablet: Icons */}
           <Box
             sx={{
               display: { xs: 'none', sm: 'flex' },
               alignItems: 'center',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              borderRadius: 2,
-              px: { sm: 1, md: 1.5, lg: 2 },
-              py: 0.5,
-              minWidth: { sm: 120, md: 180, lg: 250 },
-              maxWidth: { sm: 200, md: 280, lg: 400 },
+              gap: { sm: 1, md: 2 },
               flex: 1,
+              mx: { sm: 1, md: 2 },
+              minWidth: 0,
               overflow: 'hidden',
             }}
           >
-            <SearchIcon sx={{ color: 'white', mr: 1, fontSize: 20 }} />
-            <InputBase
-              placeholder="Search for properties..."
-              sx={{
-                color: 'white',
-                width: '100%',
-                '& .MuiInputBase-input': {
-                  color: 'white',
-                  '&::placeholder': {
-                    color: 'rgba(255, 255, 255, 0.7)',
-                    opacity: 1,
-                  },
-                },
-              }}
-            />
-          </Box>
-
-          {/* Desktop: Normal Properties Dropdown */}
-          <Button
-            onClick={handlePropertyMenuOpen}
-            endIcon={<ArrowDownIcon />}
-            sx={{
-              color: 'white',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              borderRadius: 2,
-              px: { sm: 0.5, md: 1, lg: 2 },
-              py: 0.5,
-              textTransform: 'none',
-              fontWeight: 500,
-              fontFamily: '"Poppins", sans-serif',
-              fontSize: { sm: '0.75rem', md: '0.8rem', lg: '0.9rem' },
-              whiteSpace: 'nowrap',
-              minWidth: 'fit-content',
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.2)',
-              },
-            }}
-          >
-            All Properties
-          </Button>
-        </Box>
-
-        {/* Mobile: Search and Dropdown Icons */}
+            {/* Desktop: Normal Search Bar */}
         <Box
           sx={{
-            display: { xs: 'flex', sm: 'none' },
+            display: { xs: 'none', md: 'flex' },
             alignItems: 'center',
-            gap: 1,
-            position: 'relative',
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            borderRadius: 2,
+                px: { md: 1.5, lg: 2 },
+            py: 0.5,
+                minWidth: { md: 180, lg: 250 },
+                maxWidth: { md: 280, lg: 400 },
+            flex: 1,
+                overflow: 'hidden',
           }}
         >
-          {/* Search Icon */}
-          <IconButton
-            onClick={handleSearchToggle}
+          <SearchIcon sx={{ color: 'white', mr: 1, fontSize: 20 }} />
+          <InputBase
+            placeholder="Search for properties..."
             sx={{
               color: 'white',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              width: '100%',
+              '& .MuiInputBase-input': {
+                color: 'white',
+                '&::placeholder': {
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  opacity: 1,
+                },
               },
             }}
-          >
-            <SearchIcon />
-          </IconButton>
-
-          {/* Properties Dropdown Icon */}
-          <IconButton
-            onClick={handleDropdownToggle}
-            sx={{
-              color: 'white',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.2)',
-              },
-            }}
-          >
-            <ArrowDownIcon />
-          </IconButton>
-
-          {/* Mobile Expanded Search Bar */}
-          <Fade in={searchExpanded}>
-            <Paper
-              sx={{
-                position: 'fixed',
-                top: 70,
-                left: '50%',
-                transform: 'translateX(-50%)',
-                p: 2,
-                minWidth: 280,
-                maxWidth: 320,
-                zIndex: 1500,
-                boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
-                borderRadius: 2,
-              }}
-            >
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <SearchIcon sx={{ color: '#666' }} />
-                <InputBase
-                  placeholder="Search for properties..."
-                  autoFocus
-                  sx={{
-                    flex: 1,
-                    '& .MuiInputBase-input': {
-                      fontSize: '1rem',
-                    },
-                  }}
-                />
-                <IconButton
-                  size="small"
-                  onClick={() => setSearchExpanded(false)}
-                >
-                  <CloseIcon />
-                </IconButton>
-              </Box>
-            </Paper>
-          </Fade>
-
-          {/* Mobile Expanded Dropdown */}
-          <Fade in={dropdownExpanded}>
-            <Paper
-              sx={{
-                position: 'fixed',
-                top: 70,
-                left: '50%',
-                transform: 'translateX(-50%)',
-                p: 1,
-                minWidth: 180,
-                zIndex: 1500,
-                boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
-                borderRadius: 2,
-              }}
-            >
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-                <Button
-                  fullWidth
-                  sx={{
-                    justifyContent: 'flex-start',
-                    textTransform: 'none',
-                    color: '#333',
-                    '&:hover': { backgroundColor: '#f5f5f5' },
-                  }}
-                >
-                  Residential
-                </Button>
-                <Button
-                  fullWidth
-                  sx={{
-                    justifyContent: 'flex-start',
-                    textTransform: 'none',
-                    color: '#333',
-                    '&:hover': { backgroundColor: '#f5f5f5' },
-                  }}
-                >
-                  Commercial
-                </Button>
-                <Button
-                  fullWidth
-                  sx={{
-                    justifyContent: 'flex-start',
-                    textTransform: 'none',
-                    color: '#333',
-                    '&:hover': { backgroundColor: '#f5f5f5' },
-                  }}
-                >
-                  Land
-                </Button>
-                <Button
-                  fullWidth
-                  sx={{
-                    justifyContent: 'flex-start',
-                    textTransform: 'none',
-                    color: '#333',
-                    '&:hover': { backgroundColor: '#f5f5f5' },
-                  }}
-                >
-                  Investment
-                </Button>
-              </Box>
-            </Paper>
-          </Fade>
+          />
         </Box>
 
-        {/* Right Section - Notifications and User */}
+            {/* Desktop: Normal Properties Dropdown */}
+            <Button
+              onClick={handlePropertyMenuOpen}
+              endIcon={<ArrowDownIcon />}
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                color: 'white',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                borderRadius: 2,
+                px: { md: 1, lg: 2 },
+                py: 0.5,
+                textTransform: 'none',
+                fontWeight: 500,
+                fontFamily: '"Poppins", sans-serif',
+                fontSize: { md: '0.8rem', lg: '0.9rem' },
+                whiteSpace: 'nowrap',
+                minWidth: 'fit-content',
+                '&:hover': {
+                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                },
+              }}
+            >
+              All Properties
+            </Button>
+
+            {/* Tablet: Search and Properties Icons */}
+  
+          </Box>
+
+          {/* Right Section - Notifications, User, and Mobile Menu */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            {/* Desktop/Tablet: Notifications, Messages, Favorites */}
+            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, alignItems: 'center', gap: 1 }}>
           {/* Notifications */}
           <IconButton color="inherit" sx={{ position: 'relative' }}>
             <Badge badgeContent={3} color="error">
@@ -384,6 +251,7 @@ const DashboardHeader = ({ onSidebarToggle }) => {
           <IconButton color="inherit">
             <FavoriteIcon />
           </IconButton>
+            </Box>
 
           {/* User Avatar */}
           <Box sx={{ display: 'flex', alignItems: 'center', ml: 1 }}>
@@ -403,28 +271,216 @@ const DashboardHeader = ({ onSidebarToggle }) => {
               <ArrowDownIcon sx={{ fontSize: 16 }} />
             </IconButton>
           </Box>
+
+            {/* Mobile: More Options Menu */}
+            <IconButton
+              color="inherit"
+              onClick={handleMobileMenuOpen}
+              sx={{ display: { xs: 'flex', sm: 'flex', md: 'none' } }}
+            >
+              <MoreVertIcon />
+            </IconButton>
         </Box>
       </Toolbar>
 
-      {/* Properties Dropdown Menu */}
-      <Menu
-        anchorEl={propertyMenuAnchor}
-        open={Boolean(propertyMenuAnchor)}
-        onClose={handlePropertyMenuClose}
-        PaperProps={{
-          sx: {
-            mt: 1,
-            minWidth: 200,
-            borderRadius: 2,
-            boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
-          },
-        }}
-      >
-        <MenuItem onClick={handlePropertyMenuClose}>Residential</MenuItem>
-        <MenuItem onClick={handlePropertyMenuClose}>Commercial</MenuItem>
-        <MenuItem onClick={handlePropertyMenuClose}>Land</MenuItem>
-        <MenuItem onClick={handlePropertyMenuClose}>Investment</MenuItem>
-      </Menu>
+        {/* Properties Dropdown Menu */}
+        <Menu
+          anchorEl={propertyMenuAnchor}
+          open={Boolean(propertyMenuAnchor)}
+          onClose={handlePropertyMenuClose}
+          PaperProps={{
+            sx: {
+              color: "black",
+              mt: 1,
+              minWidth: 200,
+              borderRadius: 2,
+              boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+            },
+          }}
+        >
+          <MenuItem onClick={handlePropertyMenuClose}>Residential</MenuItem>
+          <MenuItem onClick={handlePropertyMenuClose}>Commercial</MenuItem>
+          <MenuItem onClick={handlePropertyMenuClose}>Land</MenuItem>
+          <MenuItem onClick={handlePropertyMenuClose}>Investment</MenuItem>
+        </Menu>
+
+        {/* Mobile Tools Menu */}
+        <Menu
+          anchorEl={mobileMenuAnchor}
+          open={Boolean(mobileMenuAnchor)}
+          onClose={handleMobileMenuClose}
+          PaperProps={{
+            sx: {
+              color: "black",
+              mt: 1,
+              minWidth: 200,
+              borderRadius: 2,
+              boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+            },
+          }}
+        >
+          {/* Search Option */}
+          <MenuItem 
+            onClick={() => {
+              handleMobileMenuClose();
+              setSearchExpanded(true);
+            }}
+            sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+          >
+            <SearchIcon sx={{ fontSize: 20 }} />
+            Search Properties
+          </MenuItem>
+          
+          <Divider />
+          
+          {/* Properties Dropdown Option */}
+          <MenuItem 
+            onClick={() => {
+              handleMobileMenuClose();
+              setDropdownExpanded(true);
+            }}
+            sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+          >
+            <ArrowDownIcon sx={{ fontSize: 20 }} />
+            All Properties
+          </MenuItem>
+          
+          <Divider />
+          
+          {/* Notifications */}
+          <MenuItem 
+            onClick={handleMobileMenuClose}
+            sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+          >
+            <Badge badgeContent={3} color="error">
+              <NotificationsIcon sx={{ fontSize: 20 }} />
+            </Badge>
+            Notifications
+          </MenuItem>
+          
+          {/* Messages */}
+          <MenuItem 
+            onClick={handleMobileMenuClose}
+            sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+          >
+            <Badge badgeContent={5} color="error">
+              <MailIcon sx={{ fontSize: 20 }} />
+            </Badge>
+            Messages
+          </MenuItem>
+          
+          {/* Favorites */}
+          <MenuItem 
+            onClick={handleMobileMenuClose}
+            sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+          >
+            <FavoriteIcon sx={{ fontSize: 20 }} />
+            Favorites
+          </MenuItem>
+        </Menu>
+
+        {/* Mobile Expanded Search Bar */}
+        <Fade in={searchExpanded && isMobile}>
+          <Paper
+            sx={{
+              position: 'fixed',
+              top: 70,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              p: 2,
+              minWidth: 280,
+              maxWidth: 320,
+              zIndex: 1500,
+              boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+              borderRadius: 2,
+            }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <SearchIcon sx={{ color: '#666' }} />
+              <InputBase
+                placeholder="Search for properties..."
+                autoFocus
+                sx={{
+                  flex: 1,
+                  color: '#666',
+                  '& .MuiInputBase-input': {
+                    fontSize: '1rem',
+                  },
+                }}
+              />
+              <IconButton
+                size="small"
+                onClick={() => setSearchExpanded(false)}
+              >
+                <CloseIcon />
+              </IconButton>
+            </Box>
+          </Paper>
+        </Fade>
+
+        {/* Mobile Expanded Dropdown */}
+        <Fade in={dropdownExpanded && isMobile}>
+          <Paper
+            sx={{
+              position: 'fixed',
+              top: 70,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              p: 1,
+              minWidth: 180,
+              zIndex: 1500,
+              boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+              borderRadius: 2,
+            }}
+          >
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+              <Button
+                fullWidth
+                sx={{
+                  justifyContent: 'flex-start',
+                  textTransform: 'none',
+                  color: '#333',
+                  '&:hover': { backgroundColor: '#f5f5f5' },
+                }}
+              >
+                Residential
+              </Button>
+              <Button
+                fullWidth
+                sx={{
+                  justifyContent: 'flex-start',
+                  textTransform: 'none',
+                  color: '#333',
+                  '&:hover': { backgroundColor: '#f5f5f5' },
+                }}
+              >
+                Commercial
+              </Button>
+              <Button
+                fullWidth
+                sx={{
+                  justifyContent: 'flex-start',
+                  textTransform: 'none',
+                  color: '#333',
+                  '&:hover': { backgroundColor: '#f5f5f5' },
+                }}
+              >
+                Land
+              </Button>
+              <Button
+                fullWidth
+                sx={{
+                  justifyContent: 'flex-start',
+                  textTransform: 'none',
+                  color: '#333',
+                  '&:hover': { backgroundColor: '#f5f5f5' },
+                }}
+              >
+                Investment
+              </Button>
+            </Box>
+          </Paper>
+        </Fade>
     </AppBar>
     </ClickAwayListener>
   );
