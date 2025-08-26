@@ -94,7 +94,7 @@ const DashboardPage = () => {
             width: '100%',
             minWidth: 0,
             boxSizing: 'border-box',
-            overflow: 'auto',
+            overflowY: 'auto',
           }}
         >
           <Outlet />

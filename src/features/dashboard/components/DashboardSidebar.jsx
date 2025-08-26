@@ -61,7 +61,7 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
     {
       title: 'Saved Properties',
       icon: <FavoriteIcon />,
-      path: '/dashboard/saved',
+      path: '/dashboard/saved-properties',
     },
     {
       title: 'My Inquiries',
@@ -329,7 +329,7 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden',
-          zIndex: 1,
+          zIndex: 1600, // Higher than properties page elements (1500)
           transition: theme.transitions.create(['width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
