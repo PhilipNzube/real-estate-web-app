@@ -28,9 +28,9 @@ const SavedPropertiesActionBar = () => {
       gap: { xs: 1, sm: 1.5 },
       mb: { xs: 2, sm: 3 },
       p: { xs: 1.5, sm: 2 },
-      backgroundColor: 'white',
+      backgroundColor: 'transparent',
       borderRadius: 2,
-      border: '1px solid #e0e0e0',
+      border: '1px solid #E2EDFF',
     }}>
       {/* Left Side - Select All and Add to Collection */}
       <Box sx={{ 
@@ -47,7 +47,7 @@ const SavedPropertiesActionBar = () => {
               checked={selectAll}
               onChange={(e) => setSelectAll(e.target.checked)}
               sx={{
-                color: '#153C65',
+                color: '#E2EDFF',
                 '&.Mui-checked': {
                   color: '#153C65',
                 },
@@ -59,7 +59,7 @@ const SavedPropertiesActionBar = () => {
               fontFamily: '"Poppins", sans-serif',
               fontSize: { xs: '0.8rem', sm: '0.9rem' },
               fontWeight: 500,
-              color: '#333',
+              color: '#596580',
             }}>
               Select All
             </Box>
@@ -69,12 +69,12 @@ const SavedPropertiesActionBar = () => {
 
         <Button
           variant="outlined"
-          endIcon={<ArrowDownIcon />}
+          endIcon={<ArrowDownIcon color="#596580" />}
           sx={{
-            borderColor: '#e0e0e0',
-            color: '#153C65',
-            backgroundColor: '#f8f9fa',
-            borderRadius: 2,
+            borderColor: '#E2EDFF',
+            color: '#596580',
+            backgroundColor: 'transparent',
+            borderRadius: 4,
             px: { xs: 1.5, sm: 2 },
             py: { xs: 0.75, sm: 1 },
             fontFamily: '"Poppins", sans-serif',
@@ -103,12 +103,12 @@ const SavedPropertiesActionBar = () => {
       }}>
         <Button
           variant="outlined"
-          startIcon={<ExportIcon />}
+          startIcon={<ExportIcon color="#596580" />}
           sx={{
-            borderColor: '#e0e0e0',
-            color: '#153C65',
-            backgroundColor: '#f8f9fa',
-            borderRadius: 2,
+            borderColor: '#E2EDFF',
+            color: '#596580',
+            backgroundColor: '#F9FAFF',
+            borderRadius: 4,
             px: { xs: 1.5, sm: 2 },
             py: { xs: 0.75, sm: 1 },
             fontFamily: '"Poppins", sans-serif',
@@ -127,12 +127,12 @@ const SavedPropertiesActionBar = () => {
 
         <Button
           variant="outlined"
-          startIcon={<CompareIcon />}
+          startIcon={<CompareIcon color="#072C5F" />}
           sx={{
-            borderColor: '#e0e0e0',
-            color: '#153C65',
-            backgroundColor: '#fff3cd',
-            borderRadius: 2,
+            borderColor: 'transparent',
+            color: '#072C5F',
+            backgroundColor: '#FFE9B8',
+            borderRadius: 4,
             px: { xs: 1.5, sm: 2 },
             py: { xs: 0.75, sm: 1 },
             fontFamily: '"Poppins", sans-serif',
@@ -151,12 +151,12 @@ const SavedPropertiesActionBar = () => {
 
         <Button
           variant="outlined"
-          startIcon={<DeleteIcon />}
+          startIcon={<DeleteIcon color="#E94B7E" />}
           sx={{
-            borderColor: '#e0e0e0',
-            color: '#d32f2f',
-            backgroundColor: '#ffebee',
-            borderRadius: 2,
+            borderColor: 'transaparent',
+            color: '#E94B7E',
+            backgroundColor: '#FFE6ED',
+            borderRadius: 4,
             px: { xs: 1.5, sm: 2 },
             py: { xs: 0.75, sm: 1 },
             fontFamily: '"Poppins", sans-serif',

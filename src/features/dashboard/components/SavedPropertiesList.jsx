@@ -392,14 +392,15 @@ const SavedPropertiesList = () => {
                     variant="contained"
                     endIcon={<ArrowForwardIcon />}
                     sx={{
-                      backgroundColor: '#153C65',
-                      color: 'white',
+                      backgroundColor: '#E6EDFF',
+                      color: '#0A3A7D',
                       fontFamily: '"Poppins", sans-serif',
                       fontSize: { xs: '0.8rem', sm: '0.9rem' },
                       fontWeight: 600,
                       textTransform: 'none',
                       borderRadius: 2,
                       '&:hover': {
+                        color: '#E6EDFF',
                         backgroundColor: '#0d2b4a',
                       },
                     }}

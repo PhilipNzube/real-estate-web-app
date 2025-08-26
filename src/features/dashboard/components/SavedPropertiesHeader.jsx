@@ -42,15 +42,15 @@ const SavedPropertiesHeader = () => {
           gap: { xs: 0.75, sm: 1 }
         }}>
           <FavoriteIcon sx={{ 
-            color: '#153C65', 
+            color: '#0A3A7D', 
             fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2rem' }
           }} />
           <Typography
             variant="h4"
             sx={{
-              color: '#153C65',
+              color: '#0A3A7D',
               fontWeight: 700,
-              fontFamily: '"Poppins", sans-serif',
+              fontFamily: '"Axiforma", sans-serif',
               fontSize: { xs: '1.4rem', sm: '1.6rem', md: '1.8rem', lg: '2rem' },
               lineHeight: 1.2,
             }}
@@ -62,16 +62,13 @@ const SavedPropertiesHeader = () => {
         <Chip
           label="15"
           sx={{
-            backgroundColor: 'white',
-            color: '#153C65',
-            border: '1px solid #153C65',
-            fontFamily: '"Poppins", sans-serif',
+            backgroundColor: '#E6EDFF',
+            color: '#0A3A7D',
+            borderRadius: 20,
+            fontFamily: '"Axiforma", sans-serif',
             fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1rem' },
             fontWeight: 600,
             height: { xs: 28, sm: 32, md: 36 },
-            '& .MuiChip-label': {
-              px: { xs: 1, sm: 1.5 },
-            },
           }}
         />
       </Box>
@@ -87,15 +84,15 @@ const SavedPropertiesHeader = () => {
       }}>
         <Button
           variant="outlined"
-          endIcon={<ArrowDownIcon />}
+          endIcon={<ArrowDownIcon color="#0A3A7D" />}
           sx={{
-            borderColor: '#153C65',
-            color: '#153C65',
+            borderColor: '#165DC2',
+            color: '#0A3A7D',
             backgroundColor: 'white',
-            borderRadius: 2,
+            borderRadius: 5,
             px: { xs: 1.5, sm: 2, md: 3 },
             py: { xs: 0.75, sm: 1, md: 1.5 },
-            fontFamily: '"Poppins", sans-serif',
+            fontFamily: '"Axifo", sans-serif',
             fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
             fontWeight: 600,
             textTransform: 'none',
@@ -113,12 +110,12 @@ const SavedPropertiesHeader = () => {
           variant="contained"
           startIcon={<AddIcon />}
           sx={{
-            backgroundColor: '#153C65',
+            backgroundColor: '#0A3A7D',
             color: 'white',
-            borderRadius: 2,
+            borderRadius:5,
             px: { xs: 1.5, sm: 2, md: 3 },
             py: { xs: 0.75, sm: 1, md: 1.5 },
-            fontFamily: '"Poppins", sans-serif',
+            fontFamily: '"Axiforma", sans-serif',
             fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
             fontWeight: 600,
             textTransform: 'none',
