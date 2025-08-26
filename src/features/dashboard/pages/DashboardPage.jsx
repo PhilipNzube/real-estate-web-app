@@ -21,7 +21,7 @@ const DashboardPage = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f8f9fa', overflow: 'hidden', maxWidth: '100vw', width: '100vw' }}>
+    <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f8f9fa', overflow: 'hidden', width: '100%' }}>
       {/* Sidebar - Show on all devices for dashboard */}
       <DashboardSidebar 
         open={sidebarOpen} 
@@ -42,11 +42,11 @@ const DashboardPage = () => {
             }),
             ...(sidebarOpen && !isMobile && {
               marginLeft: '280px',
-              width: 'calc(100vw - 280px)',
+              width: 'calc(100% - 280px)',
             }),
             ...(!sidebarOpen && !isMobile && {
               marginLeft: 0,
-              width: '100vw',
+              width: '100%',
             }),
             position: 'relative',
             overflow: 'hidden',
