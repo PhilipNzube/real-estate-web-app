@@ -43,16 +43,16 @@ const RecommendedProperties = () => {
   ];
 
   return (
-    <Box>
+    <Box sx={{ mt: 6 }}>
       {/* Header */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Typography
           variant="h5"
           sx={{
-            fontWeight: 600,
-            color: '#153C65',
-            fontFamily: '"Lora", serif',
-            fontSize: { xs: '1.3rem', sm: '1.5rem', md: '1.8rem' },
+            fontWeight: 500,
+            color: '#333B4D',
+            fontFamily: '"Axiforma", serif',
+            fontSize: { xs: '1rem', sm: '1rem', md: '1.3rem' },
           }}
         >
           Recommended for You
@@ -72,8 +72,9 @@ const RecommendedProperties = () => {
             sx={{
               fontWeight: 500,
               mr: 0.5,
-              fontFamily: '"Poppins", sans-serif',
-              fontSize: { xs: '0.8rem', sm: '0.9rem' },
+              color: '#333B4D',
+            fontFamily: '"Axiforma", serif',
+            fontSize: { xs: '1rem', sm: '1rem', md: '1.3rem' },
             }}
           >
             View all

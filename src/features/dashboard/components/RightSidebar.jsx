@@ -364,14 +364,14 @@ const RightSidebar = () => {
             variant="h6"
             sx={{
               fontWeight: 600,
-              color: '#153C65',
+              color: '#333B4D',
               fontFamily: '"Poppins", sans-serif',
               fontSize: { xs: '1rem', sm: '1.1rem' },
             }}
           >
             Your Dedicated Agent
           </Typography>
-          <PersonIcon sx={{ color: '#153C65', fontSize: 20 }} />
+          <PersonIcon sx={{ color: '#333B4D', fontSize: 20 }} />
         </Box>
 
         <Box sx={{ textAlign: 'center', mb: 3 }}>
@@ -379,7 +379,7 @@ const RightSidebar = () => {
             sx={{
               width: 80,
               height: 80,
-              backgroundColor: '#153C65',
+              backgroundColor: '#0B397C',
               color: 'white',
               fontWeight: 600,
               fontSize: '1.5rem',
@@ -393,8 +393,8 @@ const RightSidebar = () => {
             variant="h6"
             sx={{
               fontWeight: 600,
-              color: '#153C65',
-              fontFamily: '"Lora", serif',
+              color: '#333B4D',
+              fontFamily: '"Poppins", serif',
               fontSize: { xs: '1rem', sm: '1.1rem' },
               mb: 0.5,
             }}
@@ -404,8 +404,8 @@ const RightSidebar = () => {
           <Typography
             variant="body2"
             sx={{
-              color: '#666',
-              fontFamily: '"Inter", sans-serif',
+              color: '#333B4D',
+              fontFamily: '"Poppins", sans-serif',
               fontSize: { xs: '0.8rem', sm: '0.9rem' },
               mb: 2,
             }}
@@ -419,8 +419,8 @@ const RightSidebar = () => {
                 variant="h6"
                 sx={{
                   fontWeight: 700,
-                  color: '#153C65',
-                  fontFamily: '"Lora", serif',
+                  color: '#333B4D',
+                  fontFamily: '"Poppins", serif',
                   fontSize: { xs: '1.1rem', sm: '1.2rem' },
                 }}
               >
@@ -429,8 +429,8 @@ const RightSidebar = () => {
               <Typography
                 variant="caption"
                 sx={{
-                  color: '#666',
-                  fontFamily: '"Inter", sans-serif',
+                  color: '#333B4D',
+                  fontFamily: '"Poppins", sans-serif',
                   fontSize: '0.75rem',
                 }}
               >
@@ -442,8 +442,8 @@ const RightSidebar = () => {
                 variant="h6"
                 sx={{
                   fontWeight: 700,
-                  color: '#153C65',
-                  fontFamily: '"Lora", serif',
+                  color: '#333B4D',
+                  fontFamily: '"Poppins", serif',
                   fontSize: { xs: '1.1rem', sm: '1.2rem' },
                 }}
               >
@@ -452,8 +452,8 @@ const RightSidebar = () => {
               <Typography
                 variant="caption"
                 sx={{
-                  color: '#666',
-                  fontFamily: '"Inter", sans-serif',
+                  color: '#333B4D',
+                  fontFamily: '"Poppins", sans-serif',
                   fontSize: '0.75rem',
                 }}
               >
@@ -467,8 +467,8 @@ const RightSidebar = () => {
               variant="contained"
               startIcon={<PhoneIcon />}
               sx={{
-                backgroundColor: '#153C65',
-                color: 'white',
+                backgroundColor: '#E6EDFF',
+                color: '#0A3A7D',
                 px: 2,
                 py: 1,
                 borderRadius: 2,
@@ -477,6 +477,7 @@ const RightSidebar = () => {
                 fontSize: { xs: '0.8rem', sm: '0.9rem' },
                 flex: 1,
                 '&:hover': {
+                  color: '#E6EDFF',
                   backgroundColor: '#0d2b4a',
                 },
               }}
@@ -484,11 +485,11 @@ const RightSidebar = () => {
               Call
             </Button>
             <Button
-              variant="outlined"
+              variant="contained"
               startIcon={<MessageIcon />}
               sx={{
-                borderColor: '#DFC14C',
-                color: '#DFC14C',
+                backgroundColor: '#FFE9B8',
+                color: '#0A3A7D',
                 px: 2,
                 py: 1,
                 borderRadius: 2,
@@ -497,8 +498,8 @@ const RightSidebar = () => {
                 fontSize: { xs: '0.8rem', sm: '0.9rem' },
                 flex: 1,
                 '&:hover': {
-                  borderColor: '#D4B63C',
-                  backgroundColor: 'rgba(223, 193, 76, 0.1)',
+                  color: '#FFE9B8',
+                  backgroundColor: '#0A3A7D',
                 },
               }}
             >

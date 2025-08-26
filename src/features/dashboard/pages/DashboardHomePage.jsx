@@ -24,6 +24,9 @@ import {
   Message as MessageIcon,
   Menu as MenuIcon,
   Close as CloseIcon,
+  AccessTime as AccessTimeIcon,
+  LocalOffer as LocalOfferIcon,
+  Home as HomeIcon,
 } from '@mui/icons-material';
 import WelcomeBanner from '../components/WelcomeBanner';
 import PropertyOverview from '../components/PropertyOverview';
@@ -43,99 +46,74 @@ const DashboardHomePage = () => {
     { text: 'Verify ID document', completed: false, action: 'Verify' },
   ];
 
+  const upcomingViewings = [
+    {
+      day: '18',
+      month: 'JUN',
+      type: 'Luxury Apartment, V.I',
+      time: '10:00 AM',
+      agent: 'With John',
+    },
+    {
+      day: '22',
+      month: 'JUN',
+      type: 'Modern House, Lekki',
+      time: '02:30 AM',
+      agent: 'With Sarah',
+    },
+  ];
+
   const propertyAlerts = [
     {
       title: 'Price Drops - Lagos',
       count: '12 new properties this week',
-      icon: <Box sx={{ width: 12, height: 12, backgroundColor: '#DFC14C', borderRadius: '50%' }} />,
+      icon: <LocalOfferIcon sx={{ fontSize: 16, color: '#000000' }} />,
+      bgColor: '#fef3c7',
     },
     {
       title: 'New Listings - Lekki',
       count: '8 new properties this week',
-      icon: <Box sx={{ width: 12, height: 12, backgroundColor: '#4CAF50', borderRadius: '50%' }} />,
+      icon: <HomeIcon sx={{ fontSize: 16, color: '#166534' }} />,
+      bgColor: '#dcfce7',
     },
     {
       title: 'Victoria Island Properties',
       count: '8 new properties this week',
-      icon: <LocationIcon sx={{ fontSize: 16, color: '#2196F3' }} />,
+      icon: <LocationIcon sx={{ fontSize: 16, color: '#1e40af' }} />,
+      bgColor: '#dbeafe',
     },
   ];
 
   const RightSidebarContent = () => (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-      {/* Upcoming Appointment */}
-      <Paper sx={{ p: { xs: 2, sm: 3 }, borderRadius: 2 }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-          <Typography
-            variant="body2"
-            sx={{
-              fontWeight: 600,
-              color: '#153C65',
-              fontFamily: '"Poppins", sans-serif',
-              fontSize: { xs: '0.8rem', sm: '0.9rem' },
-            }}
-          >
-            22 JUN
-          </Typography>
-          <Typography
-            variant="caption"
-            sx={{
-              color: '#666',
-              fontFamily: '"Inter", sans-serif',
-              fontSize: '0.75rem',
-            }}
-          >
-            02:30 AM
-          </Typography>
-        </Box>
-        <Typography
-          variant="body2"
-          sx={{
-            color: '#666',
-            fontFamily: '"Inter", sans-serif',
-            fontSize: { xs: '0.8rem', sm: '0.9rem' },
-            mb: 0.5,
-          }}
-        >
-          Modern House, Lekki
-        </Typography>
-        <Typography
-          variant="caption"
-          sx={{
-            color: '#153C65',
-            fontFamily: '"Poppins", sans-serif',
-            fontSize: '0.75rem',
-          }}
-        >
-          With Sarah
-        </Typography>
-      </Paper>
-
-      {/* Profile Completion */}
+      {/* Complete Your Profile */}
       <Paper sx={{ p: { xs: 2, sm: 3 }, borderRadius: 2 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
           <Typography
             variant="h6"
             sx={{
               fontWeight: 600,
-              color: '#153C65',
+              color: '#333B4D',
               fontFamily: '"Poppins", sans-serif',
-              fontSize: { xs: '1rem', sm: '1.1rem' },
+              fontSize: { xs: '1rem', sm: '1rem' },
+              whiteSpace: 'wrap',
             }}
           >
             Complete Your Profile
           </Typography>
-          <Typography
-            variant="body2"
+          <Box
             sx={{
+              backgroundColor: '#E6EDFF',
+              color: '#0A3A7D',
+              px: 1.5,
+              py: 0.5,
+              borderRadius: 20,
+              fontSize: { xs: '0.8rem', sm: '0.9rem' },
               fontWeight: 600,
-              color: '#153C65',
-              fontFamily: '"Lora", serif',
-              fontSize: { xs: '0.9rem', sm: '1rem' },
             }}
           >
             75%
-          </Typography>
+          </Box>
         </Box>
 
         <LinearProgress
@@ -144,9 +122,9 @@ const DashboardHomePage = () => {
           sx={{
             height: 8,
             borderRadius: 4,
-            backgroundColor: '#e0e0e0',
+            backgroundColor: '#e5e7eb',
             '& .MuiLinearProgress-bar': {
-              backgroundColor: '#153C65',
+              backgroundColor: 'linear-gradient(135deg, #0A3A7D 0%, #165DC2 100%)',
               borderRadius: 4,
             },
             mb: 3,
@@ -157,15 +135,16 @@ const DashboardHomePage = () => {
           {profileItems.map((item, index) => (
             <Box key={index} sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
               {item.completed ? (
-                <CheckCircleIcon sx={{ color: '#4CAF50', fontSize: 20 }} />
+                <CheckCircleIcon sx={{ color: '#00A86B', fontSize: 20 }} />
               ) : (
-                <RadioButtonUncheckedIcon sx={{ color: '#ccc', fontSize: 20 }} />
+                <RadioButtonUncheckedIcon sx={{ color: '#FFC043', fontSize: 20 }} />
               )}
               <Typography
                 variant="body2"
                 sx={{
-                  color: item.completed ? '#4CAF50' : '#666',
-                  fontFamily: '"Inter", sans-serif',
+                  color: item.completed ? '#8896B2' : '#596580',
+                  textDecoration: item.completed ? 'line-through' : 'none',
+                  fontFamily: '"Poppins", sans-serif',
                   fontSize: { xs: '0.8rem', sm: '0.9rem' },
                   flex: 1,
                 }}
@@ -176,9 +155,9 @@ const DashboardHomePage = () => {
                 <Typography
                   variant="caption"
                   sx={{
-                    color: '#153C65',
+                    color: '#0A3A7D',
                     fontWeight: 600,
-                    cursor: 'pointer',
+                    cursor: 'poPoppins',
                     fontFamily: '"Poppins", sans-serif',
                     fontSize: '0.75rem',
                     '&:hover': { textDecoration: 'underline' },
@@ -192,6 +171,110 @@ const DashboardHomePage = () => {
         </Box>
       </Paper>
 
+      {/* Upcoming Viewings */}
+      <Paper sx={{ p: { xs: 2, sm: 3 }, borderRadius: 2 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: 600,
+              color: '#333B4D',
+              fontFamily: '"Poppins", sans-serif',
+              fontSize: { xs: '1rem', sm: '1rem' },
+            }}
+          >
+            Upcoming Viewings
+          </Typography>
+          <CalendarIcon sx={{ color: '#0A3A7D', fontSize: 20 }} />
+        </Box>
+
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          {upcomingViewings.map((viewing, index) => (
+            <Box key={index}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <Box
+                  sx={{
+                    backgroundColor: '#F0F5FF',
+                    borderRadius: 1,
+                    p: 1,
+                    minWidth: 50,
+                    textAlign: 'center',
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 700,
+                      color: '#0A3A7D',
+                      fontFamily: '"Poppins", sans-serif',
+                      fontSize: { xs: '1.1rem', sm: '1.2rem' },
+                      lineHeight: 1,
+                    }}
+                  >
+                    {viewing.day}
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      fontWeight: 600,
+                      color: '#0A3A7D',
+                      fontFamily: '"Poppins", sans-serif',
+                      fontSize: '0.7rem',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    {viewing.month}
+                  </Typography>
+                </Box>
+                <Box sx={{ flex: 1 }}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontWeight: 600,
+                      color: '#333B4D',
+                      fontFamily: '"Poppins", sans-serif',
+                      fontSize: { xs: '0.8rem', sm: '0.9rem' },
+                      mb: 0.5,
+                    }}
+                  >
+                    {viewing.type}
+                  </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.5 }}>
+                    <AccessTimeIcon sx={{ fontSize: 14, color: '#6b7280' }} />
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: '#6b7280',
+                        fontFamily: '"Poppins", sans-serif',
+                        fontSize: '0.75rem',
+                      }}
+                    >
+                      {viewing.time}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <PersonIcon sx={{ fontSize: 14, color: '#6b7280' }} />
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: '#6b7280',
+                        fontFamily: '"Poppins", sans-serif',
+                        fontSize: '0.75rem',
+                      }}
+                    >
+                      {viewing.agent}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+              {index < upcomingViewings.length - 1 && (
+                <Box sx={{ borderBottom: '1px solid #e5e7eb', mt: 2 }} />
+              )}
+            </Box>
+          ))}
+        </Box>
+      </Paper>
+
       {/* Property Alerts */}
       <Paper sx={{ p: { xs: 2, sm: 3 }, borderRadius: 2 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
@@ -199,54 +282,69 @@ const DashboardHomePage = () => {
             variant="h6"
             sx={{
               fontWeight: 600,
-              color: '#153C65',
+              color: '#333B4D',
               fontFamily: '"Poppins", sans-serif',
               fontSize: { xs: '1rem', sm: '1.1rem' },
             }}
           >
             Property Alerts
           </Typography>
-          <NotificationsIcon sx={{ color: '#153C65', fontSize: 20 }} />
+          <NotificationsIcon sx={{ color: '#1e40af', fontSize: 20 }} />
         </Box>
 
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {propertyAlerts.map((alert, index) => (
-            <Box
-              key={index}
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 2,
-                p: 2,
-                backgroundColor: '#f8f9fa',
-                borderRadius: 1,
-                border: '1px solid #e0e0e0',
-              }}
-            >
-              {alert.icon}
-              <Box sx={{ flex: 1 }}>
-                <Typography
-                  variant="body2"
+            <Box key={index}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 2,
+                  py: 1.5,
+                }}
+              >
+                <Box
                   sx={{
-                    fontWeight: 600,
-                    color: '#153C65',
-                    fontFamily: '"Poppins", sans-serif',
-                    fontSize: { xs: '0.8rem', sm: '0.9rem' },
+                    width: 32,
+                    height: 32,
+                    backgroundColor: alert.bgColor,
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
                   }}
                 >
-                  {alert.title}
-                </Typography>
-                <Typography
-                  variant="caption"
-                  sx={{
-                    color: '#666',
-                    fontFamily: '"Inter", sans-serif',
-                    fontSize: '0.75rem',
-                  }}
-                >
-                  {alert.count}
-                </Typography>
+                  {alert.icon}
+                </Box>
+                <Box sx={{ flex: 1 }}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontWeight: 600,
+                      color: '#374151',
+                      fontFamily: '"Poppins", sans-serif',
+                      fontSize: { xs: '0.8rem', sm: '0.9rem' },
+                      mb: 0.5,
+                    }}
+                  >
+                    {alert.title}
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: '#6b7280',
+                      fontFamily: '"Poppins", sans-serif',
+                      fontSize: '0.75rem',
+                    }}
+                  >
+                    {alert.count}
+                  </Typography>
+                </Box>
               </Box>
+              {index < propertyAlerts.length - 1 && (
+                <Box sx={{ borderBottom: '1px solid #e5e7eb', mt: 1.5 }} />
+              )}
             </Box>
           ))}
         </Box>
@@ -259,14 +357,14 @@ const DashboardHomePage = () => {
             variant="h6"
             sx={{
               fontWeight: 600,
-              color: '#153C65',
+              color: '#333B4D',
               fontFamily: '"Poppins", sans-serif',
               fontSize: { xs: '1rem', sm: '1.1rem' },
             }}
           >
             Your Dedicated Agent
           </Typography>
-          <PersonIcon sx={{ color: '#153C65', fontSize: 20 }} />
+          <PersonIcon sx={{ color: '#333B4D', fontSize: 20 }} />
         </Box>
 
         <Box sx={{ textAlign: 'center', mb: 3 }}>
@@ -274,7 +372,7 @@ const DashboardHomePage = () => {
             sx={{
               width: 80,
               height: 80,
-              backgroundColor: '#153C65',
+              backgroundColor: '#0B397C',
               color: 'white',
               fontWeight: 600,
               fontSize: '1.5rem',
@@ -288,8 +386,8 @@ const DashboardHomePage = () => {
             variant="h6"
             sx={{
               fontWeight: 600,
-              color: '#153C65',
-              fontFamily: '"Lora", serif',
+              color: '#333B4D',
+              fontFamily: '"Poppins", serif',
               fontSize: { xs: '1rem', sm: '1.1rem' },
               mb: 0.5,
             }}
@@ -299,8 +397,8 @@ const DashboardHomePage = () => {
           <Typography
             variant="body2"
             sx={{
-              color: '#666',
-              fontFamily: '"Inter", sans-serif',
+              color: '#333B4D',
+              fontFamily: '"Poppins", sans-serif',
               fontSize: { xs: '0.8rem', sm: '0.9rem' },
               mb: 2,
             }}
@@ -314,8 +412,8 @@ const DashboardHomePage = () => {
                 variant="h6"
                 sx={{
                   fontWeight: 700,
-                  color: '#153C65',
-                  fontFamily: '"Lora", serif',
+                  color: '#333B4D',
+                  fontFamily: '"Poppins", serif',
                   fontSize: { xs: '1.1rem', sm: '1.2rem' },
                 }}
               >
@@ -324,8 +422,8 @@ const DashboardHomePage = () => {
               <Typography
                 variant="caption"
                 sx={{
-                  color: '#666',
-                  fontFamily: '"Inter", sans-serif',
+                  color: '#333B4D',
+                  fontFamily: '"Poppins", sans-serif',
                   fontSize: '0.75rem',
                 }}
               >
@@ -337,8 +435,8 @@ const DashboardHomePage = () => {
                 variant="h6"
                 sx={{
                   fontWeight: 700,
-                  color: '#153C65',
-                  fontFamily: '"Lora", serif',
+                  color: '#333B4D',
+                  fontFamily: '"Poppins", serif',
                   fontSize: { xs: '1.1rem', sm: '1.2rem' },
                 }}
               >
@@ -347,8 +445,8 @@ const DashboardHomePage = () => {
               <Typography
                 variant="caption"
                 sx={{
-                  color: '#666',
-                  fontFamily: '"Inter", sans-serif',
+                  color: '#333B4D',
+                  fontFamily: '"Poppins", sans-serif',
                   fontSize: '0.75rem',
                 }}
               >
@@ -362,8 +460,8 @@ const DashboardHomePage = () => {
               variant="contained"
               startIcon={<PhoneIcon />}
               sx={{
-                backgroundColor: '#153C65',
-                color: 'white',
+                backgroundColor: '#E6EDFF',
+                color: '#0A3A7D',
                 px: 2,
                 py: 1,
                 borderRadius: 2,
@@ -372,6 +470,7 @@ const DashboardHomePage = () => {
                 fontSize: { xs: '0.8rem', sm: '0.9rem' },
                 flex: 1,
                 '&:hover': {
+                  color: '#E6EDFF',
                   backgroundColor: '#0d2b4a',
                 },
               }}
@@ -379,11 +478,11 @@ const DashboardHomePage = () => {
               Call
             </Button>
             <Button
-              variant="outlined"
+              variant="contained"
               startIcon={<MessageIcon />}
               sx={{
-                borderColor: '#DFC14C',
-                color: '#DFC14C',
+                backgroundColor: '#FFE9B8',
+                color: '#0A3A7D',
                 px: 2,
                 py: 1,
                 borderRadius: 2,
@@ -392,8 +491,8 @@ const DashboardHomePage = () => {
                 fontSize: { xs: '0.8rem', sm: '0.9rem' },
                 flex: 1,
                 '&:hover': {
-                  borderColor: '#D4B63C',
-                  backgroundColor: 'rgba(223, 193, 76, 0.1)',
+                  color: '#FFE9B8',
+                  backgroundColor: '#0A3A7D',
                 },
               }}
             >
@@ -431,7 +530,7 @@ const DashboardHomePage = () => {
       <Box sx={{ 
         display: 'flex', 
         gap: { xs: 0, sm: 1.5, md: 2, lg: 3 },
-        flexDirection: { xs: 'column', lg: 'row' },
+        flexDirection: { xs: 'column', md: 'row' },
         width: '100%',
         overflow: 'hidden',
         maxWidth: '100vw',
@@ -464,15 +563,15 @@ const DashboardHomePage = () => {
         
         {/* Right Sidebar - Desktop (Always Visible) */}
         <Box sx={{ 
-          width: { lg: 300, xl: 320 }, 
-          display: { xs: 'none', lg: 'block' },
+          width: { md: 280, lg: 300, xl: 320 }, 
+          display: { xs: 'none', md: 'block' },
           position: 'sticky',
           top: 20,
           height: 'fit-content',
           flexShrink: 0,
-          minWidth: { lg: 300, xl: 320 },
+          minWidth: { md: 280, lg: 300, xl: 320 },
           overflow: 'hidden',
-          maxWidth: { lg: 300, xl: 320 },
+          maxWidth: { md: 280, lg: 300, xl: 320 },
           boxSizing: 'border-box',
           zIndex: 1200
         }}>
@@ -489,7 +588,7 @@ const DashboardHomePage = () => {
           keepMounted: true,
         }}
         sx={{
-          display: { xs: 'block', lg: 'none' },
+          display: { xs: 'block', md: 'none' },
           zIndex: 1300,
           '& .MuiDrawer-paper': {
             width: 320,

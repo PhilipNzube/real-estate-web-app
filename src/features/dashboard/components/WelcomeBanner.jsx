@@ -52,7 +52,7 @@ const WelcomeBanner = () => {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', sm: 'row' },
+          flexDirection: { xs: 'column', md:'column', lg: 'row' },
           gap: { xs: 2, sm: 4 },
         }}
       >

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Typography, Paper, Grid } from '@mui/material';
-import { BarChart as BarChartIcon, Handshake as HandshakeIcon } from '@mui/icons-material';
+import { Box, Typography, Paper, Grid, Divider } from '@mui/material';
+import { BarChart as BarChartIcon, Handshake as HandshakeIcon, Home as HomeIcon } from '@mui/icons-material';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -144,15 +144,15 @@ const MarketInsight = () => {
   };
 
   return (
-    <Box>
+    <Box sx={{ mt: 6 }}>
       <Typography
         variant="h5"
         sx={{
-          fontWeight: 600,
+          fontWeight: 500,
           mb: 3,
-          color: '#153C65',
-          fontFamily: '"Lora", serif',
-          fontSize: { xs: '1.3rem', sm: '1.5rem', md: '1.8rem' },
+          color: '#333B4D',
+            fontFamily: '"Axiforma", serif',
+            fontSize: { xs: '1.2rem', sm: '1.2rem', md: '1.3rem' },
         }}
       >
         Market Insight
@@ -160,7 +160,8 @@ const MarketInsight = () => {
 
       <Box sx={{ 
         display: 'flex', 
-        flexWrap: 'wrap', 
+        flexDirection: {xs: 'column', sm: 'column', md: 'column', lg: 'row'},
+        //flexWrap: 'wrap', 
         gap: { xs: 1.5, sm: 2, md: 3 },
         width: '100%',
         overflow: 'hidden',
@@ -282,79 +283,88 @@ const MarketInsight = () => {
               >
                 Recent Transactions
               </Typography>
-              <HandshakeIcon sx={{ color: '#153C65', fontSize: 20 }} />
+              <Box
+                sx={{
+                  width: 32,
+                  height: 32,
+                  backgroundColor: '#f3f4f6',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <HandshakeIcon sx={{ color: '#374151', fontSize: 18 }} />
+              </Box>
             </Box>
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               {transactions.map((transaction, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 2,
-                    p: 2,
-                    backgroundColor: '#f8f9fa',
-                    borderRadius: 1,
-                    border: '1px solid #e0e0e0',
-                  }}
-                >
+                <React.Fragment key={index}>
                   <Box
                     sx={{
-                      width: 32,
-                      height: 32,
-                      backgroundColor: '#153C65',
-                      borderRadius: 1,
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
+                      gap: 2,
+                      py: 2,
+                      px: 0,
                     }}
                   >
                     <Box
                       sx={{
-                        width: 16,
-                        height: 16,
-                        backgroundColor: 'white',
+                        width: 32,
+                        height: 32,
+                        backgroundColor: '#dbeafe',
                         borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
                       }}
-                    />
-                  </Box>
-                  <Box sx={{ flex: 1 }}>
+                    >
+                      <HomeIcon sx={{ color: '#1e40af', fontSize: 16 }} />
+                    </Box>
+                    <Box sx={{ flex: 1 }}>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontWeight: 600,
+                          color: '#374151',
+                          fontFamily: '"Inter", sans-serif',
+                          fontSize: { xs: '0.8rem', sm: '0.9rem' },
+                          lineHeight: 1.4,
+                        }}
+                      >
+                        {transaction.type}
+                      </Typography>
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          color: '#6b7280',
+                          fontFamily: '"Inter", sans-serif',
+                          fontSize: '0.75rem',
+                          lineHeight: 1.4,
+                        }}
+                      >
+                        {transaction.location}
+                      </Typography>
+                    </Box>
                     <Typography
                       variant="body2"
                       sx={{
-                        fontWeight: 600,
-                        color: '#153C65',
-                        fontFamily: '"Poppins", sans-serif',
-                        fontSize: { xs: '0.8rem', sm: '0.9rem' },
-                      }}
-                    >
-                      {transaction.type}
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        color: '#666',
+                        fontWeight: 700,
+                        color: '#10b981',
                         fontFamily: '"Inter", sans-serif',
-                        fontSize: '0.75rem',
+                        fontSize: { xs: '0.9rem', sm: '1rem' },
                       }}
                     >
-                      {transaction.location}
+                      {transaction.price}
                     </Typography>
                   </Box>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontWeight: 700,
-                      color: '#4CAF50',
-                      fontFamily: '"Lora", serif',
-                      fontSize: { xs: '0.9rem', sm: '1rem' },
-                    }}
-                  >
-                    {transaction.price}
-                  </Typography>
-                </Box>
+                  {index < transactions.length - 1 && (
+                    <Divider sx={{ borderColor: '#e5e7eb' }} />
+                  )}
+                </React.Fragment>
               ))}
             </Box>
           </Paper>

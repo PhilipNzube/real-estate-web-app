@@ -173,8 +173,8 @@ const DashboardHeader = ({ onSidebarToggle, sidebarOpen }) => {
             }}
           >
             {/* Desktop: Unified Search and Properties Bar */}
-            <Box
-              sx={{
+        <Box
+          sx={{
                 display: shouldShowMobileMenu ? 'none' : { xs: 'none', md: 'flex' },
                 alignItems: 'center',
                 backgroundColor: 'rgba(255, 255, 255, 0.15)',

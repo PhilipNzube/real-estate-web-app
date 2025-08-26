@@ -1,8 +1,11 @@
 import React from 'react';
 import { Box, Typography, Paper, Grid, Chip, Card, CardMedia, CardContent, IconButton, Divider } from '@mui/material';
-import { LocationOn as LocationIcon, Favorite as FavoriteIcon, Share as ShareIcon } from '@mui/icons-material';
+import { LocationOn as LocationIcon, Favorite as FavoriteIcon, Share as ShareIcon, ArrowForward as ArrowForwardIcon } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 const PropertyOverview = () => {
+  const navigate = useNavigate();
+
   const properties = [
     {
       id: 1,
@@ -40,19 +43,45 @@ const PropertyOverview = () => {
   ];
 
   return (
-    <Box>
+    <Box sx={{ mt: 6 }}>
+      {/* Header */}
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
       <Typography
         variant="h5"
         sx={{
-          fontWeight: 600,
-          mb: 3,
+            fontWeight: 500,
+            color: '#333B4D',
+            fontFamily: '"Axiforma", serif',
+            fontSize: { xs: '1.2rem', sm: '1.2rem', md: '1.3rem' },
+          }}
+        >
+          Continue Browsing
+        </Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            cursor: 'pointer',
           color: '#153C65',
-          fontFamily: '"Lora", serif',
-          fontSize: { xs: '1.3rem', sm: '1.5rem', md: '1.8rem' },
-        }}
-      >
-        Continue Browsing
+            '&:hover': { opacity: 0.8 },
+          }}
+          onClick={() => navigate('/dashboard/properties')}
+        >
+          <Typography
+            variant="body2"
+            sx={{
+              fontWeight: 500,
+              mr: 0.5,
+              color: '#333B4D',
+            fontFamily: '"Axiforma", serif',
+            fontSize: { xs: '1.2rem', sm: '1.2rem', md: '1.3rem' },
+            }}
+          >
+            View history
       </Typography>
+          <ArrowForwardIcon sx={{ fontSize: 16 }} />
+        </Box>
+      </Box>
       
       <Box sx={{ 
         display: 'flex', 
