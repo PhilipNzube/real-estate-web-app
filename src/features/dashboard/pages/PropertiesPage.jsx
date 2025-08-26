@@ -74,6 +74,7 @@ const PropertiesPage = () => {
           open={leftSidebarOpen}
           onClose={handleLeftSidebarToggle}
           sx={{
+            zIndex: 1500, // Higher than the toggle button (1400)
             '& .MuiDrawer-paper': {
               width: 280,
               backgroundColor: 'white',
@@ -92,7 +93,8 @@ const PropertiesPage = () => {
             flexDirection: 'column',
             overflow: 'auto',
             backgroundColor: '#f8f9fa',
-            padding: { xs: 2, sm: 3 },
+            padding: { xs: 1.5, sm: 2, md: 3 },
+            minWidth: 0, // Prevent flex item from overflowing
           }}
         >
           {/* Properties Header (Available Properties section) */}

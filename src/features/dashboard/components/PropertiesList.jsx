@@ -102,7 +102,7 @@ const PropertiesList = () => {
       <Box sx={{ 
         display: 'flex', 
         flexWrap: 'wrap', 
-        gap: { xs: 1.5, sm: 2, md: 3 },
+        gap: { xs: 1.5, sm: 1, md: 1.5 },
         width: '100%',
         overflow: 'hidden',
         maxWidth: '100%',
@@ -114,9 +114,9 @@ const PropertiesList = () => {
           
           return (
             <Box key={property.id} sx={{ 
-              width: { xs: '100%', sm: 'calc(50% - 8px)', md: 'calc(33.333% - 12px)' },
-              minWidth: { xs: '100%', sm: 260, md: 300 },
-              maxWidth: { xs: '100%', sm: 'calc(50% - 8px)', md: 'calc(33.333% - 12px)' },
+              width: { xs: '100%', sm: 'calc(50% - 4px)', md: 'calc(33.333% - 8px)' },
+              minWidth: { xs: '100%', sm: 240, md: 280 },
+              maxWidth: { xs: '100%', sm: 'calc(50% - 4px)', md: 'calc(33.333% - 8px)' },
               flexShrink: 0,
               overflow: 'hidden',
               boxSizing: 'border-box'
@@ -170,7 +170,7 @@ const PropertiesList = () => {
                         left: 12,
                         backgroundColor: property.labelColor,
                         color: 'white',
-                        fontFamily: '"Poppins", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                         fontSize: { xs: '0.7rem', sm: '0.8rem' },
                         fontWeight: 600,
                         height: 24,
@@ -260,7 +260,7 @@ const PropertiesList = () => {
                       py: 1,
                       borderRadius: 1,
                       fontWeight: 700,
-                      fontFamily: '"Poppins", sans-serif',
+                      fontFamily: '"Axiforma", sans-serif',
                       fontSize: { xs: '0.9rem', sm: '1rem' },
                       letterSpacing: '0.5px',
                     }}
@@ -301,7 +301,7 @@ const PropertiesList = () => {
                         color: '#333B4D',
                         fontWeight: 700,
                         mb: 1.5,
-                        fontFamily: '"Poppins", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                         fontSize: { xs: '1.1rem', sm: '1.2rem' },
                         lineHeight: 1.3,
                         minHeight: { xs: '2.8rem', sm: '3rem' },
@@ -368,7 +368,7 @@ const PropertiesList = () => {
                         sx={{
                           color: '#333B4D',
                           fontWeight: 700,
-                          fontFamily: '"Poppins", sans-serif',
+                          fontFamily: '"Axiforma", sans-serif',
                           fontSize: { xs: '1rem', sm: '1.1rem' },
                           mb: 0.5,
                         }}
@@ -393,7 +393,7 @@ const PropertiesList = () => {
                         sx={{
                           color: '#333B4D',
                           fontWeight: 700,
-                          fontFamily: '"Poppins", sans-serif',
+                          fontFamily: '"Axiforma", sans-serif',
                           fontSize: { xs: '1rem', sm: '1.1rem' },
                           mb: 0.5,
                         }}
@@ -418,7 +418,7 @@ const PropertiesList = () => {
                         sx={{
                           color: '#333B4D',
                           fontWeight: 700,
-                          fontFamily: '"Poppins", sans-serif',
+                          fontFamily: '"Axiforma", sans-serif',
                           fontSize: { xs: '1rem', sm: '1.1rem' },
                           mb: 0.5,
                         }}
@@ -442,16 +442,17 @@ const PropertiesList = () => {
                   {/* View Details Button */}
                   <Button
                     variant="contained"
-                    endIcon={<ArrowForwardIcon />}
+                    endIcon={<ArrowForwardIcon color="#0A3A7D" />}
                     sx={{
-                      backgroundColor: '#153C65',
-                      color: 'white',
-                      fontFamily: '"Poppins", sans-serif',
+                      backgroundColor: '#E6EDFF',
+                      color: '#0A3A7D',
+                      fontFamily: '"Axiforma", sans-serif',
                       fontSize: { xs: '0.8rem', sm: '0.9rem' },
                       fontWeight: 600,
                       textTransform: 'none',
                       borderRadius: 2,
                       '&:hover': {
+                        color:'#E6EDFF',
                         backgroundColor: '#0d2b4a',
                       },
                     }}
@@ -466,79 +467,220 @@ const PropertiesList = () => {
       </Box>
 
       {/* Pagination */}
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1, mt: 3 }}>
-        <IconButton
+      <Box sx={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        gap: { xs: 0.5, sm: 1, md: 1.5 }, 
+        mt: { xs: 2, sm: 3, md: 4 },
+        flexWrap: 'wrap',
+        overflow: 'visible',
+        px: { xs: 1, sm: 2, md: 3 },
+        width: '100%',
+        maxWidth: '100%',
+        boxSizing: 'border-box',
+        rowGap: { xs: 1, sm: 1.5 },
+      }}>
+        {/* Previous Button */}
+        <Button
+          variant="outlined"
           size="small"
           sx={{
-            color: '#666',
+            minWidth: { xs: 40, sm: 44, md: 48 },
+            height: { xs: 40, sm: 44, md: 48 },
+            borderColor: '#e0e0e0',
+            color: '#333',
+            borderRadius: 2,
+            fontFamily: '"Inter", sans-serif',
+            fontSize: { xs: '0.75rem', sm: '0.8rem', md: '0.9rem' },
+            fontWeight: 500,
+            textTransform: 'none',
+            flexShrink: 0,
             '&:hover': {
+              borderColor: '#153C65',
               backgroundColor: 'rgba(21, 60, 101, 0.04)',
             },
           }}
         >
-          <ArrowForwardIcon sx={{ transform: 'rotate(180deg)', fontSize: 16 }} />
-        </IconButton>
-        
-        {[1, 2, 3, 4].map((page) => (
-          <Button
-            key={page}
-            variant={page === 1 ? 'contained' : 'text'}
-            size="small"
-            sx={{
-              minWidth: 32,
-              height: 32,
-              fontFamily: '"Inter", sans-serif',
-              fontSize: { xs: '0.8rem', sm: '0.9rem' },
-              backgroundColor: page === 1 ? '#153C65' : 'transparent',
-              color: page === 1 ? 'white' : '#666',
-              '&:hover': {
-                backgroundColor: page === 1 ? '#0d2b4a' : 'rgba(21, 60, 101, 0.04)',
-              },
-            }}
-          >
-            {page}
-          </Button>
-        ))}
-        
-        <Typography
+          <ArrowForwardIcon sx={{ 
+            transform: 'rotate(180deg)', 
+            fontSize: { xs: 18, sm: 20, md: 22 } 
+          }} />
+        </Button>
+
+        {/* Page Numbers - Responsive Display */}
+        {/* Mobile: Show only 1, 2, ellipsis, 25 */}
+        <Button
+          variant="contained"
+          size="small"
           sx={{
-            color: '#666',
+            minWidth: { xs: 40, sm: 44, md: 48 },
+            height: { xs: 40, sm: 44, md: 48 },
+            backgroundColor: '#153C65',
+            color: 'white',
+            borderRadius: 2,
             fontFamily: '"Inter", sans-serif',
-            fontSize: { xs: '0.8rem', sm: '0.9rem' },
-            mx: 1,
+            fontSize: { xs: '0.75rem', sm: '0.8rem', md: '0.9rem' },
+            fontWeight: 600,
+            textTransform: 'none',
+            flexShrink: 0,
+            '&:hover': {
+              backgroundColor: '#0d2b4a',
+            },
+          }}
+        >
+          1
+        </Button>
+
+        {/* Show 2 on mobile and tablet, 3 on desktop */}
+        <Button
+          variant="outlined"
+          size="small"
+          sx={{
+            minWidth: { xs: 40, sm: 44, md: 48 },
+            height: { xs: 40, sm: 44, md: 48 },
+            borderColor: '#e0e0e0',
+            color: '#333',
+            borderRadius: 2,
+            fontFamily: '"Inter", sans-serif',
+            fontSize: { xs: '0.75rem', sm: '0.8rem', md: '0.9rem' },
+            fontWeight: 500,
+            textTransform: 'none',
+            flexShrink: 0,
+            display: { xs: 'flex', md: 'flex' },
+            '&:hover': {
+              borderColor: '#153C65',
+              backgroundColor: 'rgba(21, 60, 101, 0.04)',
+            },
+          }}
+        >
+          2
+        </Button>
+
+        {/* Show 3 only on tablet and desktop */}
+        <Button
+          variant="outlined"
+          size="small"
+          sx={{
+            minWidth: { xs: 40, sm: 44, md: 48 },
+            height: { xs: 40, sm: 44, md: 48 },
+            borderColor: '#e0e0e0',
+            color: '#333',
+            borderRadius: 2,
+            fontFamily: '"Inter", sans-serif',
+            fontSize: { xs: '0.75rem', sm: '0.8rem', md: '0.9rem' },
+            fontWeight: 500,
+            textTransform: 'none',
+            flexShrink: 0,
+            display: { xs: 'none', sm: 'flex', md: 'flex' },
+            '&:hover': {
+              borderColor: '#153C65',
+              backgroundColor: 'rgba(21, 60, 101, 0.04)',
+            },
+          }}
+        >
+          3
+        </Button>
+
+        {/* Show 4 only on desktop */}
+        <Button
+          variant="outlined"
+          size="small"
+          sx={{
+            minWidth: { xs: 40, sm: 44, md: 48 },
+            height: { xs: 40, sm: 44, md: 48 },
+            borderColor: '#e0e0e0',
+            color: '#333',
+            borderRadius: 2,
+            fontFamily: '"Inter", sans-serif',
+            fontSize: { xs: '0.75rem', sm: '0.8rem', md: '0.9rem' },
+            fontWeight: 500,
+            textTransform: 'none',
+            flexShrink: 0,
+            display: { xs: 'none', sm: 'none', md: 'flex' },
+            '&:hover': {
+              borderColor: '#153C65',
+              backgroundColor: 'rgba(21, 60, 101, 0.04)',
+            },
+          }}
+        >
+          4
+        </Button>
+
+        {/* Ellipsis - Show on mobile and tablet */}
+        <Button
+          variant="outlined"
+          size="small"
+          sx={{
+            minWidth: { xs: 40, sm: 44, md: 48 },
+            height: { xs: 40, sm: 44, md: 48 },
+            borderColor: '#e0e0e0',
+            color: '#333',
+            borderRadius: 2,
+            fontFamily: '"Inter", sans-serif',
+            fontSize: { xs: '0.75rem', sm: '0.8rem', md: '0.9rem' },
+            fontWeight: 500,
+            textTransform: 'none',
+            flexShrink: 0,
+            display: { xs: 'flex', sm: 'flex', md: 'none' },
+            '&:hover': {
+              borderColor: '#153C65',
+              backgroundColor: 'rgba(21, 60, 101, 0.04)',
+            },
           }}
         >
           ...
-        </Typography>
-        
+        </Button>
+
+        {/* Last Page */}
         <Button
-          variant="text"
+          variant="outlined"
           size="small"
           sx={{
-            minWidth: 32,
-            height: 32,
+            minWidth: { xs: 40, sm: 44, md: 48 },
+            height: { xs: 40, sm: 44, md: 48 },
+            borderColor: '#e0e0e0',
+            color: '#333',
+            borderRadius: 2,
             fontFamily: '"Inter", sans-serif',
-            fontSize: { xs: '0.8rem', sm: '0.9rem' },
-            color: '#666',
+            fontSize: { xs: '0.75rem', sm: '0.8rem', md: '0.9rem' },
+            fontWeight: 500,
+            textTransform: 'none',
+            flexShrink: 0,
             '&:hover': {
+              borderColor: '#153C65',
               backgroundColor: 'rgba(21, 60, 101, 0.04)',
             },
           }}
         >
           25
         </Button>
-        
-        <IconButton
+
+        {/* Next Button */}
+        <Button
+          variant="outlined"
           size="small"
           sx={{
-            color: '#666',
+            minWidth: { xs: 40, sm: 44, md: 48 },
+            height: { xs: 40, sm: 44, md: 48 },
+            borderColor: '#e0e0e0',
+            color: '#333',
+            borderRadius: 2,
+            fontFamily: '"Inter", sans-serif',
+            fontSize: { xs: '0.75rem', sm: '0.8rem', md: '0.9rem' },
+            fontWeight: 500,
+            textTransform: 'none',
+            flexShrink: 0,
             '&:hover': {
+              borderColor: '#153C65',
               backgroundColor: 'rgba(21, 60, 101, 0.04)',
             },
           }}
         >
-          <ArrowForwardIcon sx={{ fontSize: 16 }} />
-        </IconButton>
+          <ArrowForwardIcon sx={{ 
+            fontSize: { xs: 18, sm: 20, md: 22 } 
+          }} />
+        </Button>
       </Box>
     </Box>
   );
