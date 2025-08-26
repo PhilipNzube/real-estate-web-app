@@ -10,6 +10,7 @@ import AccountPreferencesPage from "../../features/auth/pages/AccountPreferences
 import AccountWelcomePage from "../../features/auth/pages/AccountWelcomePage";
 import DashboardPage from "../../features/dashboard/pages/DashboardPage";
 import DashboardHomePage from "../../features/dashboard/pages/DashboardHomePage";
+import PropertiesPage from "../../features/dashboard/pages/PropertiesPage";
 import NotFoundPage from "../../shared/components/NotFoundPage";
 
 export const router = createBrowserRouter([
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
           {
             index: true,
             element: <DashboardHomePage />,
+          },
+          {
+            path: "properties",
+            element: <PropertiesPage />,
           },
         ],
       },

@@ -164,9 +164,24 @@ const MarketInsight = () => {
         //flexWrap: 'wrap', 
         gap: { xs: 1.5, sm: 2, md: 3 },
         width: '100%',
-        overflow: 'hidden',
+        overflowY: 'hidden',
+        overflowX: 'auto',
         maxWidth: '100%',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        '&::-webkit-scrollbar': {
+          height: '6px',
+        },
+        '&::-webkit-scrollbar-track': {
+          backgroundColor: '#f1f1f1',
+          borderRadius: '3px',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          backgroundColor: '#c1c1c1',
+          borderRadius: '3px',
+          '&:hover': {
+            backgroundColor: '#a8a8a8',
+          },
+        },
       }}>
         {/* Price Trends Chart */}
         <Box sx={{ 
@@ -301,66 +316,66 @@ const MarketInsight = () => {
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               {transactions.map((transaction, index) => (
                 <React.Fragment key={index}>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 2,
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
                       py: 2,
                       px: 0,
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: 32,
-                        height: 32,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: 32,
+                      height: 32,
                         backgroundColor: '#dbeafe',
                         borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                      }}
-                    >
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
                       <HomeIcon sx={{ color: '#1e40af', fontSize: 16 }} />
-                    </Box>
-                    <Box sx={{ flex: 1 }}>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          fontWeight: 600,
-                          color: '#374151',
-                          fontFamily: '"Inter", sans-serif',
-                          fontSize: { xs: '0.8rem', sm: '0.9rem' },
-                          lineHeight: 1.4,
-                        }}
-                      >
-                        {transaction.type}
-                      </Typography>
-                      <Typography
-                        variant="caption"
-                        sx={{
-                          color: '#6b7280',
-                          fontFamily: '"Inter", sans-serif',
-                          fontSize: '0.75rem',
-                          lineHeight: 1.4,
-                        }}
-                      >
-                        {transaction.location}
-                      </Typography>
-                    </Box>
+                  </Box>
+                  <Box sx={{ flex: 1 }}>
                     <Typography
                       variant="body2"
                       sx={{
-                        fontWeight: 700,
-                        color: '#10b981',
-                        fontFamily: '"Inter", sans-serif',
-                        fontSize: { xs: '0.9rem', sm: '1rem' },
+                        fontWeight: 600,
+                          color: '#374151',
+                          fontFamily: '"Inter", sans-serif',
+                        fontSize: { xs: '0.8rem', sm: '0.9rem' },
+                          lineHeight: 1.4,
                       }}
                     >
-                      {transaction.price}
+                      {transaction.type}
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                          color: '#6b7280',
+                        fontFamily: '"Inter", sans-serif',
+                        fontSize: '0.75rem',
+                          lineHeight: 1.4,
+                      }}
+                    >
+                      {transaction.location}
                     </Typography>
                   </Box>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontWeight: 700,
+                        color: '#10b981',
+                        fontFamily: '"Inter", sans-serif',
+                      fontSize: { xs: '0.9rem', sm: '1rem' },
+                    }}
+                  >
+                    {transaction.price}
+                  </Typography>
+                </Box>
                   {index < transactions.length - 1 && (
                     <Divider sx={{ borderColor: '#e5e7eb' }} />
                   )}

@@ -67,7 +67,7 @@ const DashboardPage = () => {
               transform: 'translateY(-50%)',
               backgroundColor: '#153C65',
               color: 'white',
-              zIndex: 1200,
+              zIndex: 1400,
               '&:hover': {
                 backgroundColor: '#0d2b4a',
               },
