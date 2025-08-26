@@ -156,7 +156,7 @@ const DashboardHeader = ({ onSidebarToggle }) => {
           </Box>
         </Box>
 
-          {/* Center Section - Desktop: Normal Search and Dropdown, Tablet: Icons */}
+                    {/* Center Section - Desktop: Unified Search Bar, Tablet: Icons */}
           <Box
             sx={{
               display: { xs: 'none', sm: 'flex' },
@@ -168,62 +168,70 @@ const DashboardHeader = ({ onSidebarToggle }) => {
               overflow: 'hidden',
             }}
           >
-            {/* Desktop: Normal Search Bar */}
-        <Box
-          sx={{
-            display: { xs: 'none', md: 'flex' },
-            alignItems: 'center',
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            borderRadius: 2,
-                px: { md: 1.5, lg: 2 },
-            py: 0.5,
-                minWidth: { md: 180, lg: 250 },
-                maxWidth: { md: 280, lg: 400 },
-            flex: 1,
-                overflow: 'hidden',
-          }}
-        >
-          <SearchIcon sx={{ color: 'white', mr: 1, fontSize: 20 }} />
-          <InputBase
-            placeholder="Search for properties..."
-            sx={{
-              color: 'white',
-              width: '100%',
-              '& .MuiInputBase-input': {
-                color: 'white',
-                '&::placeholder': {
-                  color: 'rgba(255, 255, 255, 0.7)',
-                  opacity: 1,
-                },
-              },
-            }}
-          />
-        </Box>
-
-            {/* Desktop: Normal Properties Dropdown */}
-            <Button
-              onClick={handlePropertyMenuOpen}
-              endIcon={<ArrowDownIcon />}
+            {/* Desktop: Unified Search and Properties Bar */}
+            <Box
               sx={{
                 display: { xs: 'none', md: 'flex' },
-                color: 'white',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                alignItems: 'center',
+                backgroundColor: 'rgba(255, 255, 255, 0.15)',
                 borderRadius: 2,
-                px: { md: 1, lg: 2 },
-                py: 0.5,
-                textTransform: 'none',
-                fontWeight: 500,
-                fontFamily: '"Poppins", sans-serif',
-                fontSize: { md: '0.8rem', lg: '0.9rem' },
-                whiteSpace: 'nowrap',
-                minWidth: 'fit-content',
-                '&:hover': {
-                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                },
+                width: { md: 450, lg: 550 },
+                height: 44,
+                overflow: 'hidden',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
               }}
             >
-              All Properties
-            </Button>
+              {/* Search Section */}
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  flex: 1,
+                  px: 2,
+                  py: 1,
+                  borderRight: '1px solid rgba(255, 255, 255, 0.2)',
+                }}
+              >
+                <SearchIcon sx={{ color: 'white', mr: 1.5, fontSize: 20 }} />
+                <InputBase
+                  placeholder="Search for properties..."
+                  sx={{
+                    color: 'white',
+                    width: '100%',
+                    '& .MuiInputBase-input': {
+                      color: 'white',
+                      fontSize: '0.9rem',
+                      '&::placeholder': {
+                        color: 'rgba(255, 255, 255, 0.7)',
+                        opacity: 1,
+                      },
+                    },
+                  }}
+                />
+              </Box>
+
+              {/* Properties Dropdown Section */}
+              <Button
+                onClick={handlePropertyMenuOpen}
+                sx={{
+                  color: 'white',
+                  px: 2,
+                  py: 1,
+                  textTransform: 'none',
+                  fontWeight: 500,
+                  fontFamily: '"Poppins", sans-serif',
+                  fontSize: '0.9rem',
+                  whiteSpace: 'nowrap',
+                  minWidth: 'fit-content',
+                  borderRadius: 0,
+                  '&:hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  },
+                }}
+              >
+                All Properties
+              </Button>
+            </Box>
 
             {/* Tablet: Search and Properties Icons */}
   
