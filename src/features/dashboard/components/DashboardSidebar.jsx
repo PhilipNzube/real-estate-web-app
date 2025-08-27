@@ -23,6 +23,15 @@ import {
   Logout as LogoutIcon,
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
+  Speed as SpeedIcon,
+  Business as BusinessIcon,
+  AttachMoney as AttachMoneyIcon,
+  Chat as ChatIcon,
+  Notifications as NotificationsIcon,
+  Mail as MailIcon,
+  Person as PersonIcon,
+  CreditCard as CreditCardIcon,
+  Help as HelpIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -34,12 +43,12 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
   const menuItems = [
     {
       title: 'Dashboard',
-      icon: <DashboardIcon />,
+      icon: <SpeedIcon />,
       path: '/dashboard',
     },
     {
       title: 'Properties',
-      icon: <HomeIcon />,
+      icon: <BusinessIcon />,
       path: '/dashboard/properties',
     },
     {
@@ -48,23 +57,28 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
       path: '/dashboard/investment',
     },
     {
+      title: 'Mortgage',
+      icon: <AttachMoneyIcon />,
+      path: '/dashboard/mortgage',
+    },
+    {
       title: 'Saved Properties',
       icon: <FavoriteIcon />,
       path: '/dashboard/saved-properties',
     },
     {
       title: 'My Inquiries',
-      icon: <SettingsIcon />,
+      icon: <ChatIcon />,
       path: '/dashboard/inquiries',
     },
     {
       title: 'Property Alerts',
-      icon: <SettingsIcon />,
+      icon: <NotificationsIcon />,
       path: '/dashboard/alerts',
     },
     {
       title: 'Messages',
-      icon: <SettingsIcon />,
+      icon: <MailIcon />,
       path: '/dashboard/messages',
     },
   ];
@@ -72,17 +86,17 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
   const accountItems = [
     {
       title: 'Profile Settings',
-      icon: <SettingsIcon />,
+      icon: <PersonIcon />,
       path: '/dashboard/profile',
     },
     {
       title: 'Billing & Payments',
-      icon: <SettingsIcon />,
+      icon: <CreditCardIcon />,
       path: '/dashboard/billing',
     },
     {
       title: 'Help & Support',
-      icon: <SettingsIcon />,
+      icon: <HelpIcon />,
       path: '/dashboard/support',
     },
   ];
