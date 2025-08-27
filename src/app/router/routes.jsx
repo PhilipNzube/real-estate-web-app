@@ -12,6 +12,7 @@ import DashboardPage from "../../features/dashboard/pages/DashboardPage";
 import DashboardHomePage from "../../features/dashboard/pages/DashboardHomePage";
 import PropertiesPage from "../../features/dashboard/pages/PropertiesPage";
 import SavedPropertiesPage from "../../features/dashboard/pages/SavedPropertiesPage";
+import InvestmentPage from "../../features/dashboard/pages/InvestmentPage";
 import NotFoundPage from "../../shared/components/NotFoundPage";
 
 export const router = createBrowserRouter([
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
           {
             path: "saved-properties",
             element: <SavedPropertiesPage />,
+          },
+          {
+            path: "investment",
+            element: <InvestmentPage />,
           },
         ],
       },

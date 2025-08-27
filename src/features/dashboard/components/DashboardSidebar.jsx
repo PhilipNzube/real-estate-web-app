@@ -16,16 +16,10 @@ import {
 } from '@mui/material';
 import {
   Dashboard as DashboardIcon,
-  Business as BusinessIcon,
-  TrendingUp as TrendingUpIcon,
-  AccountBalance as AccountBalanceIcon,
+  Home as HomeIcon,
   Favorite as FavoriteIcon,
-  Chat as ChatIcon,
-  Notifications as NotificationsIcon,
-  Mail as MailIcon,
-  Person as PersonIcon,
-  CreditCard as CreditCardIcon,
-  Help as HelpIcon,
+  TrendingUp as TrendingUpIcon,
+  Settings as SettingsIcon,
   Logout as LogoutIcon,
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
@@ -45,7 +39,7 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
     },
     {
       title: 'Properties',
-      icon: <BusinessIcon />,
+      icon: <HomeIcon />,
       path: '/dashboard/properties',
     },
     {
@@ -54,28 +48,23 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
       path: '/dashboard/investment',
     },
     {
-      title: 'Mortgage',
-      icon: <AccountBalanceIcon />,
-      path: '/dashboard/mortgage',
-    },
-    {
       title: 'Saved Properties',
       icon: <FavoriteIcon />,
       path: '/dashboard/saved-properties',
     },
     {
       title: 'My Inquiries',
-      icon: <ChatIcon />,
+      icon: <SettingsIcon />,
       path: '/dashboard/inquiries',
     },
     {
       title: 'Property Alerts',
-      icon: <NotificationsIcon />,
+      icon: <SettingsIcon />,
       path: '/dashboard/alerts',
     },
     {
       title: 'Messages',
-      icon: <MailIcon />,
+      icon: <SettingsIcon />,
       path: '/dashboard/messages',
     },
   ];
@@ -83,17 +72,17 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
   const accountItems = [
     {
       title: 'Profile Settings',
-      icon: <PersonIcon />,
+      icon: <SettingsIcon />,
       path: '/dashboard/profile',
     },
     {
       title: 'Billing & Payments',
-      icon: <CreditCardIcon />,
+      icon: <SettingsIcon />,
       path: '/dashboard/billing',
     },
     {
       title: 'Help & Support',
-      icon: <HelpIcon />,
+      icon: <SettingsIcon />,
       path: '/dashboard/support',
     },
   ];
