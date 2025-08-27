@@ -164,7 +164,7 @@ const InquiriesList = ({ selectedTab, onInquiryClick, selectedInquiry }) => {
                 fontWeight: 700,
                 color: '#0A3A7D',
                 fontSize: { xs: '1rem', sm: '1.125rem' },
-                fontFamily: '"Inter", sans-serif',
+                fontFamily: '"Axiforma", sans-serif',
                 mb: 2,
                 textTransform: 'capitalize',
               }}

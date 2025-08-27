@@ -24,9 +24,9 @@ const InquiryCard = ({ inquiry, onClick, isSelected }) => {
   const getStatusColor = (status) => {
     switch (status) {
       case 'active':
-        return { bg: '#3B82F6', text: 'white' };
+        return { bg: '#E6EDFF', text: '#0A3A7D' };
       case 'resolved':
-        return { bg: '#10B981', text: 'white' };
+        return { bg: '#E6F7EF', text: '#008000' };
       case 'pending':
         return { bg: '#F59E0B', text: 'white' };
       case 'archived':
@@ -47,7 +47,7 @@ const InquiryCard = ({ inquiry, onClick, isSelected }) => {
         p: { xs: 2, sm: 3 },
         borderRadius: 2,
         backgroundColor: 'white',
-        cursor: 'pointer',
+        cursor: 'poAxi',
         border: isSelected ? '2px solid #0A3A7D' : '1px solid #e0e0e0',
         transition: 'all 0.2s ease',
         '&:hover': {
@@ -99,7 +99,7 @@ const InquiryCard = ({ inquiry, onClick, isSelected }) => {
               fontWeight: 700,
               color: '#0A3A7D',
               fontSize: { xs: '1rem', sm: '1.125rem' },
-              fontFamily: '"Inter", sans-serif',
+              fontFamily: '"Axiforma", sans-serif',
               lineHeight: 1.3,
               flex: 1,
               mr: 2,
@@ -138,7 +138,7 @@ const InquiryCard = ({ inquiry, onClick, isSelected }) => {
               sx={{
                 color: '#757575',
                 fontSize: { xs: '0.75rem', sm: '0.8rem' },
-                fontFamily: '"Inter", sans-serif',
+                fontFamily: '"Axiforma", sans-serif',
               }}
             >
               {inquiry.location}
@@ -152,7 +152,7 @@ const InquiryCard = ({ inquiry, onClick, isSelected }) => {
               sx={{
                 color: '#757575',
                 fontSize: { xs: '0.75rem', sm: '0.8rem' },
-                fontFamily: '"Inter", sans-serif',
+                fontFamily: '"Axi", sans-serif',
               }}
             >
               {inquiry.timeAgo}
@@ -166,7 +166,7 @@ const InquiryCard = ({ inquiry, onClick, isSelected }) => {
           sx={{
             color: '#666',
             fontSize: { xs: '0.8rem', sm: '0.875rem' },
-            fontFamily: '"Inter", sans-serif',
+            fontFamily: '"Axi", sans-serif',
             lineHeight: 1.5,
             mb: 2,
             display: '-webkit-box',
@@ -207,7 +207,7 @@ const InquiryCard = ({ inquiry, onClick, isSelected }) => {
                   fontWeight: 600,
                   color: '#333',
                   fontSize: { xs: '0.75rem', sm: '0.8rem' },
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Axi", sans-serif',
                 }}
               >
                 {inquiry.sender.name}
@@ -217,7 +217,7 @@ const InquiryCard = ({ inquiry, onClick, isSelected }) => {
                 sx={{
                   color: '#757575',
                   fontSize: { xs: '0.65rem', sm: '0.7rem' },
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Axi", sans-serif',
                 }}
               >
                 {inquiry.sender.role}

@@ -73,7 +73,7 @@ const InquiriesTabs = ({ selectedTab, onTabChange }) => {
               color: selectedTab === tab.id ? '#0A3A7D' : '#757575',
               fontWeight: selectedTab === tab.id ? 600 : 500,
               fontSize: { xs: '0.8rem', sm: '0.875rem' },
-              fontFamily: '"Inter", sans-serif',
+              fontFamily: '"Axiforma", sans-serif',
               mr: { xs: 0.5, sm: 1 }, // Add space between text and badge
             }}
           >
@@ -84,8 +84,8 @@ const InquiriesTabs = ({ selectedTab, onTabChange }) => {
             badgeContent={tab.count}
             sx={{
               '& .MuiBadge-badge': {
-                backgroundColor: selectedTab === tab.id ? '#0A3A7D' : '#757575',
-                color: 'white',
+                backgroundColor: selectedTab === tab.id ? '#0A3A7D' : '#E6EDFF',
+                color: selectedTab === tab.id ?'white' : '#0A3A7D',
                 fontSize: { xs: '0.65rem', sm: '0.7rem' },
                 fontWeight: 600,
                 minWidth: { xs: 16, sm: 18 },

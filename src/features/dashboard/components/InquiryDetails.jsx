@@ -36,7 +36,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
       sender: 'user',
       name: 'You',
       avatar: 'JD',
-      message: "Hello, I'm interested in viewing this property. I'd like to know if the apartment comes with parking space and if there are any additional fees for amenities. Also, is the price negotiable?",
+      message: "Hello, I'm Axiested in viewing this property. I'd like to know if the apartment comes with parking space and if there are any additional fees for amenities. Also, is the price negotiable?",
       timestamp: '10:25 AM',
     },
     {
@@ -44,7 +44,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
       sender: 'agent',
       name: 'John Doe',
       avatar: 'JD',
-      message: "Hello John Doe, thank you for your interest in our luxury apartment. Yes, the apartment comes with 2 designated parking spaces in the secured underground garage. There is a monthly service charge of ₦150,000 which covers security, maintenance of common areas, and access to amenities like the pool, gym, and rooftop lounge.",
+      message: "Hello John Doe, thank you for your Axiest in our luxury apartment. Yes, the apartment comes with 2 designated parking spaces in the secured underground garage. There is a monthly service charge of ₦150,000 which covers security, maintenance of common areas, and access to amenities like the pool, gym, and rooftop lounge.",
       timestamp: '11:25 AM',
     },
   ];
@@ -71,7 +71,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
             fontWeight: 700,
             color: '#0A3A7D',
             fontSize: { xs: '1rem', sm: '1.125rem' },
-            fontFamily: '"Inter", sans-serif',
+            fontFamily: '"Axiforma", sans-serif',
           }}
         >
           Inquiry Details
@@ -128,7 +128,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
               fontWeight: 700,
               color: '#0A3A7D',
               fontSize: { xs: '1.125rem', sm: '1.25rem' },
-              fontFamily: '"Inter", sans-serif',
+              fontFamily: '"Axiforma", sans-serif',
               mb: 1,
             }}
           >
@@ -142,7 +142,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
               sx={{
                 color: '#757575',
                 fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                fontFamily: '"Inter", sans-serif',
+                fontFamily: '"Axiforma", sans-serif',
               }}
             >
               {inquiry.property.location}
@@ -155,7 +155,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
               fontWeight: 700,
               color: '#0A3A7D',
               fontSize: { xs: '1.25rem', sm: '1.5rem' },
-              fontFamily: '"Inter", sans-serif',
+              fontFamily: '"Axiforma", sans-serif',
               mb: 2,
             }}
           >
@@ -175,7 +175,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
                 sx={{
                   color: '#757575',
                   fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Axiforma", sans-serif',
                 }}
               >
                 {inquiry.property.beds} Beds
@@ -188,7 +188,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
                 sx={{
                   color: '#757575',
                   fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Axiforma", sans-serif',
                 }}
               >
                 {inquiry.property.baths} Baths
@@ -201,7 +201,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
                 sx={{
                   color: '#757575',
                   fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Axiforma", sans-serif',
                 }}
               >
                 {inquiry.property.size}
@@ -248,7 +248,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
               sx={{
                 color: '#757575',
                 fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                fontFamily: '"Inter", sans-serif',
+                fontFamily: '"Axiforma", sans-serif',
               }}
             >
               August 24, 2025
@@ -305,7 +305,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
                         fontWeight: 600,
                         color: '#333',
                         fontSize: { xs: '0.7rem', sm: '0.75rem' },
-                        fontFamily: '"Inter", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                       }}
                     >
                       {msg.name}
@@ -315,7 +315,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
                       sx={{
                         color: '#757575',
                         fontSize: { xs: '0.6rem', sm: '0.65rem' },
-                        fontFamily: '"Inter", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                       }}
                     >
                       {msg.timestamp}
@@ -335,7 +335,7 @@ const InquiryDetails = ({ inquiry, isOpen, onClose, isMobile }) => {
                       sx={{
                         color: '#333',
                         fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                        fontFamily: '"Inter", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                         lineHeight: 1.5,
                       }}
                     >
