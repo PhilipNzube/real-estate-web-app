@@ -19,7 +19,7 @@ const InvestmentFilters = () => {
       id: 'all',
       label: 'All Projects',
       icon: <GridIcon sx={{ fontSize: 18 }} />,
-      color: '#1976d2',
+      color: '#0A6CFF',
     },
     {
       id: 'land',
@@ -91,6 +91,7 @@ const InvestmentFilters = () => {
               textTransform: 'none',
               whiteSpace: 'nowrap',
               minWidth: 'fit-content',
+              fontFamily: '"Axiforma", sans-serif',
               '&:hover': {
                 backgroundColor: activeFilter === option.id ? option.color : 'rgba(0,0,0,0.04)',
                 borderColor: option.color,

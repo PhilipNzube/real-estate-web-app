@@ -63,8 +63,8 @@ const InvestmentPortfolio = () => {
         variant="h5"
         sx={{
           fontWeight: 700,
-          color: '#333B4D',
-          fontFamily: '"Poppins", sans-serif',
+          color: '#0A3A7D',
+          fontFamily: '"Axiforma", sans-serif',
           fontSize: { xs: '1.3rem', sm: '1.5rem', md: '1.8rem' },
           mb: { xs: 2, sm: 3, md: 4 },
         }}
@@ -107,11 +107,11 @@ const InvestmentPortfolio = () => {
               minWidth: 'fit-content',
               px: { xs: 2, sm: 3, md: 4 },
               '&.Mui-selected': {
-                color: '#1976d2',
+                color: '#3B82F6',
               },
             },
             '& .MuiTabs-indicator': {
-              backgroundColor: '#1976d2',
+              backgroundColor: '#3B82F6',
               height: 3,
             },
           }}
@@ -167,7 +167,7 @@ const InvestmentPortfolio = () => {
                 variant="body2"
                 sx={{
                   color: '#666',
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Axiforma", sans-serif',
                   fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' },
                   fontWeight: 500,
                   mb: 1,
@@ -182,7 +182,7 @@ const InvestmentPortfolio = () => {
                 sx={{
                   fontWeight: 700,
                   color: '#333B4D',
-                  fontFamily: '"Poppins", sans-serif',
+                  fontFamily: '"Axiforma", sans-serif',
                   fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.6rem' },
                   mb: 1,
                   lineHeight: 1.2,
@@ -202,7 +202,7 @@ const InvestmentPortfolio = () => {
                   variant="caption"
                   sx={{
                     color: item.trendColor,
-                    fontFamily: '"Inter", sans-serif',
+                    fontFamily: '"Axiforma", sans-serif',
                     fontSize: { xs: '0.65rem', sm: '0.7rem', md: '0.75rem' },
                     fontWeight: 600,
                   }}
@@ -225,9 +225,9 @@ const InvestmentPortfolio = () => {
           variant="outlined"
           startIcon={<TrendingUpIcon />}
           sx={{
-            borderColor: '#1976d2',
-            color: '#1976d2',
-            fontFamily: '"Poppins", sans-serif',
+            borderColor: '#3B82F6',
+            color: '#3B82F6',
+            fontFamily: '"Axiforma", sans-serif',
             fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
             fontWeight: 600,
             textTransform: 'none',
@@ -235,9 +235,9 @@ const InvestmentPortfolio = () => {
             px: { xs: 3, sm: 4, md: 5 },
             py: { xs: 1.25, sm: 1.5, md: 1.75 },
             '&:hover': {
-              backgroundColor: '#1976d2',
+              backgroundColor: '#3B82F6',
               color: 'white',
-              borderColor: '#1976d2',
+              borderColor: '#3B82F6',
             },
           }}
         >

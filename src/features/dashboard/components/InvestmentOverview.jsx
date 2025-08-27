@@ -134,7 +134,7 @@ const InvestmentOverview = () => {
               sx={{
                 fontWeight: 700,
                 color: '#333B4D',
-                fontFamily: '"Poppins", sans-serif',
+                fontFamily: '"Axiforma", sans-serif',
                 fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' },
                 mb: { xs: 0.5, sm: 0.75, md: 1 },
                 lineHeight: 1.2,
@@ -149,7 +149,7 @@ const InvestmentOverview = () => {
               variant="body2"
               sx={{
                 color: '#666',
-                fontFamily: '"Inter", sans-serif',
+                fontFamily: '"Axiforma", sans-serif',
                 fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.85rem' },
                 fontWeight: 500,
                 mb: { xs: 1, sm: 1.5, md: 2 },
@@ -170,7 +170,7 @@ const InvestmentOverview = () => {
                 variant="caption"
                 sx={{
                   color: item.trendColor,
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Axiforma", sans-serif',
                   fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.75rem' },
                   fontWeight: 600,
                   lineHeight: 1.2,

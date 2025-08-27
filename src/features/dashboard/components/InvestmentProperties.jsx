@@ -82,7 +82,7 @@ const InvestmentProperties = () => {
         sx={{
           fontWeight: 700,
           color: '#333B4D',
-          fontFamily: '"Poppins", sans-serif',
+          fontFamily: '"Axiforma", sans-serif',
           fontSize: { xs: '1.3rem', sm: '1.5rem', md: '1.8rem' },
           mb: { xs: 2, sm: 3, md: 4 },
         }}
@@ -143,8 +143,8 @@ const InvestmentProperties = () => {
                   position: 'absolute',
                   top: 12,
                   right: 12,
-                  backgroundColor: '#4caf50',
-                  color: 'white',
+                  backgroundColor: '#FFFFFF',
+                  color: '#10B981',
                   px: 1.5,
                   py: 0.5,
                   borderRadius: 1,
@@ -153,7 +153,7 @@ const InvestmentProperties = () => {
                   gap: 0.5,
                   fontSize: { xs: '0.7rem', sm: '0.75rem' },
                   fontWeight: 600,
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Axiforma", sans-serif',
                 }}
               >
                 <VerifiedIcon sx={{ fontSize: 14 }} />
@@ -181,7 +181,7 @@ const InvestmentProperties = () => {
                   sx={{
                     fontSize: { xs: '0.75rem', sm: '0.8rem' },
                     fontWeight: 500,
-                    fontFamily: '"Inter", sans-serif',
+                    fontFamily: '"Axiforma", sans-serif',
                   }}
                 >
                   {property.location}
@@ -218,7 +218,7 @@ const InvestmentProperties = () => {
                 sx={{
                   fontWeight: 700,
                   color: '#333B4D',
-                  fontFamily: '"Poppins", sans-serif',
+                  fontFamily: '"Axiforma", sans-serif',
                   fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.3rem' },
                   mb: 1,
                   lineHeight: 1.3,
@@ -232,7 +232,7 @@ const InvestmentProperties = () => {
                 variant="body2"
                 sx={{
                   color: '#666',
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Axiforma", sans-serif',
                   fontSize: { xs: '0.85rem', sm: '0.9rem' },
                   mb: 3,
                   lineHeight: 1.5,
@@ -255,7 +255,7 @@ const InvestmentProperties = () => {
                       sx={{
                         fontSize: { xs: '0.75rem', sm: '0.8rem' },
                         color: '#666',
-                        fontFamily: '"Inter", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                         fontWeight: 500,
                       }}
                     >
@@ -266,7 +266,7 @@ const InvestmentProperties = () => {
                         fontSize: { xs: '0.9rem', sm: '1rem' },
                         fontWeight: 700,
                         color: '#333B4D',
-                        fontFamily: '"Poppins", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                       }}
                     >
                       {property.minInvestment}
@@ -281,7 +281,7 @@ const InvestmentProperties = () => {
                       sx={{
                         fontSize: { xs: '0.75rem', sm: '0.8rem' },
                         color: '#666',
-                        fontFamily: '"Inter", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                         fontWeight: 500,
                       }}
                     >
@@ -292,7 +292,7 @@ const InvestmentProperties = () => {
                         fontSize: { xs: '0.9rem', sm: '1rem' },
                         fontWeight: 700,
                         color: '#4caf50',
-                        fontFamily: '"Poppins", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                       }}
                     >
                       {property.expectedROI}
@@ -307,7 +307,7 @@ const InvestmentProperties = () => {
                       sx={{
                         fontSize: { xs: '0.75rem', sm: '0.8rem' },
                         color: '#666',
-                        fontFamily: '"Inter", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                         fontWeight: 500,
                       }}
                     >
@@ -318,7 +318,7 @@ const InvestmentProperties = () => {
                         fontSize: { xs: '0.9rem', sm: '1rem' },
                         fontWeight: 700,
                         color: '#333B4D',
-                        fontFamily: '"Poppins", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                       }}
                     >
                       {property.lockPeriod}
@@ -333,7 +333,7 @@ const InvestmentProperties = () => {
                       sx={{
                         fontSize: { xs: '0.75rem', sm: '0.8rem' },
                         color: '#666',
-                        fontFamily: '"Inter", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                         fontWeight: 500,
                       }}
                     >
@@ -344,7 +344,7 @@ const InvestmentProperties = () => {
                         fontSize: { xs: '0.9rem', sm: '1rem' },
                         fontWeight: 700,
                         color: '#333B4D',
-                        fontFamily: '"Poppins", sans-serif',
+                        fontFamily: '"Axiforma", sans-serif',
                       }}
                     >
                       {property.investors}
@@ -372,7 +372,7 @@ const InvestmentProperties = () => {
                       borderRadius: 2,
                       backgroundColor: 'transparent',
                       '& .MuiLinearProgress-bar': {
-                        backgroundColor: '#1976d2',
+                        backgroundColor: '#0A6CFF',
                         borderRadius: 2,
                       },
                     }}
@@ -389,7 +389,7 @@ const InvestmentProperties = () => {
                         width: 12,
                         height: 12,
                         borderRadius: '50%',
-                        backgroundColor: index < property.progressPosition ? '#1976d2' : '#e0e0e0',
+                        backgroundColor: index < property.progressPosition ? '#0A6CFF' : '#e0e0e0',
                         border: '2px solid white',
                         boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
                       }}
@@ -401,7 +401,7 @@ const InvestmentProperties = () => {
                   justifyContent: 'space-between',
                   fontSize: { xs: '0.7rem', sm: '0.75rem' },
                   color: '#666',
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Axiforma", sans-serif',
                   fontWeight: 500,
                 }}>
                   {property.progressLabels.map((label, index) => (
@@ -415,9 +415,9 @@ const InvestmentProperties = () => {
                 variant="contained"
                 fullWidth
                 sx={{
-                  backgroundColor: '#1976d2',
+                  backgroundColor: '#0A6CFF',
                   color: 'white',
-                  fontFamily: '"Poppins", sans-serif',
+                  fontFamily: '"Axiforma", sans-serif',
                   fontSize: { xs: '0.9rem', sm: '1rem' },
                   fontWeight: 600,
                   textTransform: 'none',
