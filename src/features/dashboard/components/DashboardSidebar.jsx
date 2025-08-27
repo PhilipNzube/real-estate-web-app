@@ -165,7 +165,7 @@ const DashboardSidebar = ({ open, onClose, isMobile, onToggle }) => {
           </IconButton>
         </Box>
       </Box>
-      
+
 
       {/* Sidebar Menu */}
       <Box sx={{ flex: 1, overflow: 'auto' }}>

@@ -178,18 +178,18 @@ const RightSidebar = () => {
           {upcomingViewings.map((viewing, index) => (
             <Box key={index}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                <Box
-                  sx={{
+          <Box
+            sx={{
                     backgroundColor: '#dbeafe',
-                    borderRadius: 1,
+              borderRadius: 1,
                     p: 1,
                     minWidth: 50,
                     textAlign: 'center',
-                  }}
-                >
-                  <Typography
+            }}
+          >
+              <Typography
                     variant="h6"
-                    sx={{
+                sx={{
                       fontWeight: 700,
                       color: '#1e40af',
                       fontFamily: '"Inter", sans-serif',
@@ -198,59 +198,59 @@ const RightSidebar = () => {
                     }}
                   >
                     {viewing.day}
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    sx={{
+              </Typography>
+              <Typography
+                variant="caption"
+                sx={{
                       fontWeight: 600,
                       color: '#1e40af',
-                      fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Inter", sans-serif',
                       fontSize: '0.7rem',
                       textTransform: 'uppercase',
-                    }}
-                  >
+                }}
+              >
                     {viewing.month}
-                  </Typography>
-                </Box>
+              </Typography>
+            </Box>
                 <Box sx={{ flex: 1 }}>
-                  <Typography
-                    variant="body2"
-                    sx={{
+            <Typography
+              variant="body2"
+              sx={{
                       fontWeight: 600,
                       color: '#374151',
-                      fontFamily: '"Inter", sans-serif',
-                      fontSize: { xs: '0.8rem', sm: '0.9rem' },
-                      mb: 0.5,
-                    }}
-                  >
+                fontFamily: '"Inter", sans-serif',
+                fontSize: { xs: '0.8rem', sm: '0.9rem' },
+                mb: 0.5,
+              }}
+            >
                     {viewing.type}
-                  </Typography>
+            </Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.5 }}>
                     <AccessTimeIcon sx={{ fontSize: 14, color: '#6b7280' }} />
-                    <Typography
-                      variant="caption"
-                      sx={{
+            <Typography
+              variant="caption"
+              sx={{
                         color: '#6b7280',
                         fontFamily: '"Inter", sans-serif',
-                        fontSize: '0.75rem',
-                      }}
-                    >
+                fontSize: '0.75rem',
+              }}
+            >
                       {viewing.time}
-                    </Typography>
-                  </Box>
+            </Typography>
+          </Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     <PersonIcon sx={{ fontSize: 14, color: '#6b7280' }} />
-                    <Typography
-                      variant="caption"
-                      sx={{
+              <Typography
+                variant="caption"
+                sx={{
                         color: '#6b7280',
-                        fontFamily: '"Inter", sans-serif',
-                        fontSize: '0.75rem',
-                      }}
-                    >
+                  fontFamily: '"Inter", sans-serif',
+                  fontSize: '0.75rem',
+                }}
+              >
                       {viewing.agent}
-                    </Typography>
-                  </Box>
+            </Typography>
+          </Box>
                 </Box>
               </Box>
               {index < upcomingViewings.length - 1 && (
@@ -281,11 +281,11 @@ const RightSidebar = () => {
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {propertyAlerts.map((alert, index) => (
             <Box key={index}>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 2,
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 2,
                   py: 1.5,
                 }}
               >
@@ -299,34 +299,34 @@ const RightSidebar = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0,
-                  }}
-                >
-                  {alert.icon}
+              }}
+            >
+              {alert.icon}
                 </Box>
-                <Box sx={{ flex: 1 }}>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontWeight: 600,
+              <Box sx={{ flex: 1 }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontWeight: 600,
                       color: '#374151',
                       fontFamily: '"Inter", sans-serif',
-                      fontSize: { xs: '0.8rem', sm: '0.9rem' },
+                    fontSize: { xs: '0.8rem', sm: '0.9rem' },
                       mb: 0.5,
-                    }}
-                  >
-                    {alert.title}
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    sx={{
+                  }}
+                >
+                  {alert.title}
+                </Typography>
+                <Typography
+                  variant="caption"
+                  sx={{
                       color: '#6b7280',
-                      fontFamily: '"Inter", sans-serif',
-                      fontSize: '0.75rem',
-                    }}
-                  >
-                    {alert.count}
-                  </Typography>
-                </Box>
+                    fontFamily: '"Inter", sans-serif',
+                    fontSize: '0.75rem',
+                  }}
+                >
+                  {alert.count}
+                </Typography>
+              </Box>
               </Box>
               {index < propertyAlerts.length - 1 && (
                 <Box sx={{ borderBottom: '1px solid #e5e7eb', mt: 1.5 }} />

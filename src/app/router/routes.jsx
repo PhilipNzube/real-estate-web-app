@@ -9,6 +9,7 @@ import SavedPropertiesPage from "../../features/dashboard/pages/SavedPropertiesP
 import InvestmentPage from "../../features/dashboard/pages/InvestmentPage";
 import InvestmentDetailsPage from "../../features/dashboard/pages/InvestmentDetailsPage";
 import InquiriesPage from "../../features/dashboard/pages/InquiriesPage";
+import PropertyAlertsPage from "../../features/dashboard/pages/PropertyAlertsPage";
 import NotFoundPage from "../../shared/components/NotFoundPage";
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
           {
             path: "inquiries",
             element: <InquiriesPage />,
+          },
+          {
+            path: "alerts",
+            element: <PropertyAlertsPage />,
           },
         ],
       },
