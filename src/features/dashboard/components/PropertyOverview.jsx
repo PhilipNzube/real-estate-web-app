@@ -52,7 +52,7 @@ const PropertyOverview = () => {
             fontWeight: 500,
             color: '#333B4D',
             fontFamily: '"Axiforma", serif',
-            fontSize: { xs: '1.2rem', sm: '1.2rem', md: '1.3rem' },
+            fontSize: { xs: '1rem', sm: '1rem', md: '1.3rem' },
           }}
         >
           Continue Browsing
@@ -74,7 +74,7 @@ const PropertyOverview = () => {
               mr: 0.5,
               color: '#333B4D',
             fontFamily: '"Axiforma", serif',
-            fontSize: { xs: '1.2rem', sm: '1.2rem', md: '1.3rem' },
+            fontSize: { xs: '1rem', sm: '1rem', md: '1.3rem' },
             }}
           >
             View history
