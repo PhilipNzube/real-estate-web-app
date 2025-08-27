@@ -8,6 +8,7 @@ import {
   Chip,
   LinearProgress,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import {
   LocationOn as LocationIcon,
   Verified as VerifiedIcon,
@@ -21,6 +22,8 @@ import {
 } from '@mui/icons-material';
 
 const InvestmentProperties = () => {
+  const navigate = useNavigate();
+
   const properties = [
     {
       id: 1,
@@ -75,13 +78,17 @@ const InvestmentProperties = () => {
     },
   ];
 
+  const handleInvestNow = (propertyId) => {
+    navigate(`/dashboard/investment/${propertyId}`);
+  };
+
   return (
     <Box sx={{ mb: { xs: 4, sm: 5, md: 6 } }}>
       <Typography
         variant="h5"
         sx={{
           fontWeight: 700,
-          color: '#333B4D',
+          color: '#0A3A7D',
           fontFamily: '"Axiforma", sans-serif',
           fontSize: { xs: '1.3rem', sm: '1.5rem', md: '1.8rem' },
           mb: { xs: 2, sm: 3, md: 4 },
@@ -217,7 +224,7 @@ const InvestmentProperties = () => {
                 variant="h6"
                 sx={{
                   fontWeight: 700,
-                  color: '#333B4D',
+                  color: '#0A3A7D',
                   fontFamily: '"Axiforma", sans-serif',
                   fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.3rem' },
                   mb: 1,
@@ -265,7 +272,7 @@ const InvestmentProperties = () => {
                       sx={{
                         fontSize: { xs: '0.9rem', sm: '1rem' },
                         fontWeight: 700,
-                        color: '#333B4D',
+                        color: '#0A3A7D',
                         fontFamily: '"Axiforma", sans-serif',
                       }}
                     >
@@ -317,7 +324,7 @@ const InvestmentProperties = () => {
                       sx={{
                         fontSize: { xs: '0.9rem', sm: '1rem' },
                         fontWeight: 700,
-                        color: '#333B4D',
+                        color: '#0A3A7D',
                         fontFamily: '"Axiforma", sans-serif',
                       }}
                     >
@@ -343,7 +350,7 @@ const InvestmentProperties = () => {
                       sx={{
                         fontSize: { xs: '0.9rem', sm: '1rem' },
                         fontWeight: 700,
-                        color: '#333B4D',
+                        color: '#0A3A7D',
                         fontFamily: '"Axiforma", sans-serif',
                       }}
                     >
@@ -414,6 +421,7 @@ const InvestmentProperties = () => {
               <Button
                 variant="contained"
                 fullWidth
+                onClick={() => handleInvestNow(property.id)}
                 sx={{
                   backgroundColor: '#0A6CFF',
                   color: 'white',
@@ -424,7 +432,7 @@ const InvestmentProperties = () => {
                   borderRadius: 2,
                   py: { xs: 1.25, sm: 1.5 },
                   '&:hover': {
-                    backgroundColor: '#1565c0',
+                    backgroundColor: '#0056cc',
                   },
                 }}
               >
