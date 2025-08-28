@@ -126,7 +126,7 @@ const PropertyAlertsList = ({ selectedTab }) => {
       case 'paused':
         return { bg: '#FFF3E0', color: '#F57C00', dot: '#FF9800' };
       case 'custom':
-        return { bg: '#E3F2FD', color: '#1976D2', dot: '#2196F3' };
+        return { bg: '#F0F5FF', color: '#0A3A7D', dot: '#2196F3' };
       default:
         return { bg: '#F5F5F5', color: '#757575', dot: '#9E9E9E' };
     }
@@ -135,17 +135,17 @@ const PropertyAlertsList = ({ selectedTab }) => {
   const getPropertyTypeIcon = (type) => {
     switch (type.toLowerCase()) {
       case 'apartment':
-        return <HomeIcon sx={{ fontSize: 14 }} />;
+        return <HomeIcon color="#0A3A7D" sx={{ fontSize: 14 }} />;
       case 'house':
-        return <HomeIcon sx={{ fontSize: 14 }} />;
+        return <HomeIcon color="#0A3A7D" sx={{ fontSize: 14 }} />;
       case 'villa':
-        return <HomeIcon sx={{ fontSize: 14 }} />;
+        return <HomeIcon color="#0A3A7D" sx={{ fontSize: 14 }} />;
       case 'land':
-        return <LandscapeIcon sx={{ fontSize: 14 }} />;
+        return <LandscapeIcon color="#0A3A7D" sx={{ fontSize: 14 }} />;
       case 'commercial':
-        return <BusinessIcon sx={{ fontSize: 14 }} />;
+        return <BusinessIcon color="#0A3A7D" sx={{ fontSize: 14 }} />;
       default:
-        return <HomeIcon sx={{ fontSize: 14 }} />;
+        return <HomeIcon color="#0A3A7D" sx={{ fontSize: 14 }} />;
     }
   };
 
@@ -215,7 +215,7 @@ const PropertyAlertsList = ({ selectedTab }) => {
                   sx={{
                     fontWeight: 700,
                     fontSize: { xs: '1rem', sm: '1.1rem' },
-                    color: '#1a1a1a',
+                    color: 'black',
                     fontFamily: '"Axiforma", sans-serif',
                     lineHeight: 1.3,
                     flex: 1,
@@ -228,13 +228,13 @@ const PropertyAlertsList = ({ selectedTab }) => {
                   checked={alert.isActive}
                   sx={{
                     '& .MuiSwitch-switchBase.Mui-checked': {
-                      color: '#4CAF50',
+                      color: 'white',
                       '&:hover': {
                         backgroundColor: 'rgba(76, 175, 80, 0.08)',
                       },
                     },
                     '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-                      backgroundColor: '#4CAF50',
+                      backgroundColor: '#008000',
                     },
                   }}
                 />
@@ -242,11 +242,11 @@ const PropertyAlertsList = ({ selectedTab }) => {
 
               {/* Creation Date */}
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <TimeIcon sx={{ fontSize: 16, color: '#757575', mr: 1 }} />
+                <TimeIcon sx={{ fontSize: 16, color: '#808080', mr: 1 }} />
                 <Typography
                   variant="body2"
                   sx={{
-                    color: '#757575',
+                    color: '#808080',
                     fontSize: '0.8rem',
                     fontFamily: '"Axiforma", sans-serif',
                   }}
@@ -258,12 +258,12 @@ const PropertyAlertsList = ({ selectedTab }) => {
               {/* Property Attributes - First Row */}
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 1 }}>
                 <Chip
-                  icon={<LocationIcon />}
+                  icon={<LocationIcon color="#0A3A7D" />}
                   label={alert.location}
                   size="small"
                   sx={{
-                    backgroundColor: '#E3F2FD',
-                    color: '#1976D2',
+                    backgroundColor: '#F0F5FF',
+                    color: '#0A3A7D',
                     fontSize: '0.7rem',
                     height: 24,
                     '& .MuiChip-icon': { fontSize: 14 },
@@ -274,20 +274,20 @@ const PropertyAlertsList = ({ selectedTab }) => {
                   label={alert.propertyType}
                   size="small"
                   sx={{
-                    backgroundColor: '#E3F2FD',
-                    color: '#1976D2',
+                    backgroundColor: '#F0F5FF',
+                    color: '#0A3A7D',
                     fontSize: '0.7rem',
                     height: 24,
                     '& .MuiChip-icon': { fontSize: 14 },
                   }}
                 />
                 <Chip
-                  icon={<PriceIcon />}
+                  icon={<PriceIcon color="#0A3A7D" />}
                   label={alert.priceRange}
                   size="small"
                   sx={{
-                    backgroundColor: '#E3F2FD',
-                    color: '#1976D2',
+                    backgroundColor: '#F0F5FF',
+                    color: '#0A3A7D',
                     fontSize: '0.7rem',
                     height: 24,
                     '& .MuiChip-icon': { fontSize: 14 },
@@ -298,24 +298,24 @@ const PropertyAlertsList = ({ selectedTab }) => {
               {/* Property Attributes - Second Row */}
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2 }}>
                 <Chip
-                  icon={<BedIcon />}
+                  icon={<BedIcon color="#0A3A7D" />}
                   label={alert.beds}
                   size="small"
                   sx={{
-                    backgroundColor: '#E3F2FD',
-                    color: '#1976D2',
+                    backgroundColor: '#F0F5FF',
+                    color: '#0A3A7D',
                     fontSize: '0.7rem',
                     height: 24,
                     '& .MuiChip-icon': { fontSize: 14 },
                   }}
                 />
                 <Chip
-                  icon={<BathIcon />}
+                  icon={<BathIcon color="#0A3A7D" />}
                   label={alert.baths}
                   size="small"
                   sx={{
-                    backgroundColor: '#E3F2FD',
-                    color: '#1976D2',
+                    backgroundColor: '#F0F5FF',
+                    color: '#0A3A7D',
                     fontSize: '0.7rem',
                     height: 24,
                     '& .MuiChip-icon': { fontSize: 14 },
@@ -324,12 +324,12 @@ const PropertyAlertsList = ({ selectedTab }) => {
                 {alert.amenities.map((amenity, index) => (
                   <Chip
                     key={index}
-                    icon={amenity === 'Pool' ? <PoolIcon /> : null}
+                    icon={amenity === 'Pool' ? <PoolIcon color="#0A3A7D" /> : null}
                     label={amenity}
                     size="small"
                     sx={{
-                      backgroundColor: '#E3F2FD',
-                      color: '#1976D2',
+                      backgroundColor: '#F0F5FF',
+                      color: '#0A3A7D',
                       fontSize: '0.7rem',
                       height: 24,
                       '& .MuiChip-icon': { fontSize: 14 },
@@ -340,7 +340,7 @@ const PropertyAlertsList = ({ selectedTab }) => {
 
               {/* Matches Summary */}
               <Box sx={{
-                backgroundColor: '#E3F2FD',
+                backgroundColor: '#F0F5FF',
                 borderRadius: 1,
                 p: 2,
                 mb: 2,
@@ -349,13 +349,13 @@ const PropertyAlertsList = ({ selectedTab }) => {
                 justifyContent: 'space-between',
               }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <TargetIcon sx={{ fontSize: 20, color: '#1976D2' }} />
+                  <TargetIcon sx={{ fontSize: 20, color: '#0A3A7D' }} />
                   <Box>
                     <Typography
                       variant="body1"
                       sx={{
                         fontWeight: 600,
-                        color: '#1976D2',
+                        color: '#0A3A7D',
                         fontSize: '0.9rem',
                         fontFamily: '"Axiforma", sans-serif',
                       }}
@@ -365,7 +365,7 @@ const PropertyAlertsList = ({ selectedTab }) => {
                     <Typography
                       variant="body2"
                       sx={{
-                        color: '#1976D2',
+                        color: '#0A3A7D',
                         fontSize: '0.8rem',
                         fontFamily: '"Axiforma", sans-serif',
                       }}
@@ -378,12 +378,12 @@ const PropertyAlertsList = ({ selectedTab }) => {
                   variant="contained"
                   size="small"
                   sx={{
-                    backgroundColor: '#1976D2',
+                    backgroundColor: '#0A3A7D',
                     color: 'white',
                     textTransform: 'none',
-                    fontWeight: 600,
+                    fontWeight: 400,
                     fontSize: '0.8rem',
-                    px: 2,
+                   
                     py: 0.5,
                     borderRadius: 1,
                     '&:hover': {
@@ -394,6 +394,7 @@ const PropertyAlertsList = ({ selectedTab }) => {
                   View Matches
                 </Button>
               </Box>
+              
 
               {/* Footer */}
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
