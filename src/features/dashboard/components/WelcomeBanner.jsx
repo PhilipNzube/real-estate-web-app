@@ -31,7 +31,7 @@ const WelcomeBanner = () => {
             fontFamily: '"Axiforma", serif',
           }}
         >
-          Good Afternoon, Oluwaseun!
+          Good Afternoon, User!
         </Typography>
         <Typography
           variant="body1"

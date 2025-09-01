@@ -27,6 +27,7 @@ const PropertySearchForm = () => {
     'Penthouse',
     'Townhouse',
     'Land',
+    'Short Let'
   ];
 
   const budgetRanges = [
