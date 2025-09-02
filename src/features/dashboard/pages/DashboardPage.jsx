@@ -1,24 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, useMediaQuery, useTheme, IconButton } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import { ChevronRight as ChevronRightIcon } from '@mui/icons-material';
 import DashboardSidebar from '../components/DashboardSidebar';
 import DashboardHeader from '../components/DashboardHeader';
+import { DashboardProvider, useDashboard } from '../context/DashboardContext';
 
-const DashboardPage = () => {
+const DashboardContent = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const [sidebarOpen, setSidebarOpen] = useState(!isMobile);
-
-  const handleSidebarToggle = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
-
-  const handleSidebarClose = () => {
-    if (isMobile) {
-      setSidebarOpen(false);
-    }
-  };
+  const { sidebarOpen, handleSidebarToggle, handleSidebarClose, isMobile } = useDashboard();
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f8f9fa', overflow: 'hidden', width: '100%' }}>
@@ -30,32 +20,32 @@ const DashboardPage = () => {
         onToggle={handleSidebarToggle}
       />
       
-              {/* Main Content Area */}
-        <Box
-          sx={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            transition: theme.transitions.create(['margin', 'width'], {
-              easing: theme.transitions.easing.sharp,
-              duration: theme.transitions.duration.leavingScreen,
-            }),
-            ...(sidebarOpen && !isMobile && {
-              marginLeft: '280px',
-              width: 'calc(100vw - 280px)',
-              minWidth: 0,
-            }),
-            ...(!sidebarOpen && !isMobile && {
-              marginLeft: 0,
-              width: '100%',
-            }),
-            position: 'relative',
-            overflow: 'hidden',
+      {/* Main Content Area */}
+      <Box
+        sx={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+          }),
+          ...(sidebarOpen && !isMobile && {
+            marginLeft: '280px',
+            width: 'calc(100vw - 280px)',
             minWidth: 0,
-            maxWidth: '100vw',
-            boxSizing: 'border-box',
-          }}
-        >
+          }),
+          ...(!sidebarOpen && !isMobile && {
+            marginLeft: 0,
+            width: '100%',
+          }),
+          position: 'relative',
+          overflow: 'hidden',
+          minWidth: 0,
+          maxWidth: '100vw',
+          boxSizing: 'border-box',
+        }}
+      >
         {/* Sidebar Toggle Button (when closed) */}
         {!sidebarOpen && !isMobile && (
           <IconButton
@@ -77,6 +67,7 @@ const DashboardPage = () => {
             <ChevronRightIcon />
           </IconButton>
         )}
+        
         {/* Header */}
         <DashboardHeader 
           onSidebarToggle={handleSidebarToggle}
@@ -101,6 +92,14 @@ const DashboardPage = () => {
         </Box>
       </Box>
     </Box>
+  );
+};
+
+const DashboardPage = () => {
+  return (
+    <DashboardProvider>
+      <DashboardContent />
+    </DashboardProvider>
   );
 };
 

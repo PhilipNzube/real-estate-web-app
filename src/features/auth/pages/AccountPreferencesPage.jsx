@@ -17,6 +17,7 @@ import {
   Slider,
   Switch,
   FormControlLabel,
+  Checkbox,
   Radio,
   RadioGroup,
   Divider,
@@ -47,6 +48,7 @@ import {
   Terrain as TerrainIcon,
   LocalOffer as LocalOfferIcon,
   Article as ArticleIcon,
+  Hotel as HotelIcon,
 } from '@mui/icons-material';
 
 const AccountPreferencesPage = () => {
@@ -69,6 +71,7 @@ const AccountPreferencesPage = () => {
     { id: 'land', label: 'Land', icon: <TerrainIcon /> },
     { id: 'commercial', label: 'Commercial', icon: <BusinessIcon /> },
     { id: 'newDevelopment', label: 'New Development', icon: <BuildIcon /> },
+    { id: 'shortlet', label: 'Short Let', icon: <HotelIcon /> },
   ];
 
   const bedroomOptions = ['Studio', '1', '2', '3', '4', '5+'];
@@ -323,10 +326,16 @@ const AccountPreferencesPage = () => {
                     '& fieldset': {
                       borderColor: '#ddd',
                     },
+                    '&:hover fieldset': {
+                      borderColor: '#153C65',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#153C65',
+                    },
                   },
                   '& .MuiInputBase-input': {
-                    color: '#666',
-                    fontWeight: 500,
+                    color: '#333',
+                    fontWeight: 600,
                     fontFamily: '"Inter", sans-serif',
                   },
                 }}
@@ -344,10 +353,16 @@ const AccountPreferencesPage = () => {
                     '& fieldset': {
                       borderColor: '#ddd',
                     },
+                    '&:hover fieldset': {
+                      borderColor: '#153C65',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#153C65',
+                    },
                   },
                   '& .MuiInputBase-input': {
-                    color: '#666',
-                    fontWeight: 500,
+                    color: '#333',
+                    fontWeight: 600,
                     fontFamily: '"Inter", sans-serif',
                   },
                 }}
@@ -417,6 +432,7 @@ const AccountPreferencesPage = () => {
               sx={{
                 '& .MuiOutlinedInput-root': {
                   borderRadius: 2,
+                  backgroundColor: '#f8f9fa',
                   '& fieldset': {
                     borderColor: '#ddd',
                   },
@@ -427,9 +443,14 @@ const AccountPreferencesPage = () => {
                     borderColor: '#153C65',
                   },
                 },
-                '& .MuiInputLabel-root': {
-                  color: '#666',
+                '& .MuiInputBase-input': {
+                  color: '#333',
+                  fontWeight: 500,
                   fontFamily: '"Inter", sans-serif',
+                },
+                '& .MuiInputBase-input::placeholder': {
+                  color: '#666',
+                  opacity: 1,
                 },
               }}
             />
@@ -681,13 +702,15 @@ const AccountPreferencesPage = () => {
                   Preferred Language
                 </Typography>
                 <FormControl fullWidth>
+                  <InputLabel sx={{ color: '#666', fontWeight: 500 }}>Preferred Language</InputLabel>
                   <Select
                     value={language}
                     onChange={(e) => setLanguage(e.target.value)}
-                    displayEmpty
+                    label="Preferred Language"
                     sx={{
                       '& .MuiOutlinedInput-root': {
                         borderRadius: 2,
+                        backgroundColor: '#f8f9fa',
                         '& fieldset': {
                           borderColor: '#ddd',
                         },
@@ -699,15 +722,19 @@ const AccountPreferencesPage = () => {
                         },
                       },
                       '& .MuiSelect-select': {
-                        color: 'black',
+                        color: '#333',
+                        fontWeight: 500,
+                      },
+                      '& .MuiInputLabel-root.Mui-focused': {
+                        color: '#153C65',
                       },
                     }}
                   >
-                    <MenuItem value="" disabled>
+                    <MenuItem value="" disabled sx={{ color: '#999', fontStyle: 'italic' }}>
                       Select language
                     </MenuItem>
                     {languages.map((lang) => (
-                      <MenuItem key={lang} value={lang} sx={{ color: 'black' }}>
+                      <MenuItem key={lang} value={lang} sx={{ color: '#333' }}>
                         {lang}
                       </MenuItem>
                     ))}

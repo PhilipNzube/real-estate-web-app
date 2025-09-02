@@ -256,6 +256,11 @@ const CompleteAccountSetupPage = () => {
                       color: '#666',
                       fontFamily: '"Inter", sans-serif',
                     },
+                    '& .MuiInputBase-input': {
+                      color: '#333',
+                      fontWeight: 500,
+                      fontFamily: '"Inter", sans-serif',
+                    },
                   }}
                 />
                 <TextField
@@ -278,6 +283,11 @@ const CompleteAccountSetupPage = () => {
                     },
                     '& .MuiInputLabel-root': {
                       color: '#666',
+                      fontFamily: '"Inter", sans-serif',
+                    },
+                    '& .MuiInputBase-input': {
+                      color: '#333',
+                      fontWeight: 500,
                       fontFamily: '"Inter", sans-serif',
                     },
                   }}
@@ -305,6 +315,11 @@ const CompleteAccountSetupPage = () => {
                   },
                   '& .MuiInputLabel-root': {
                     color: '#666',
+                    fontFamily: '"Inter", sans-serif',
+                  },
+                  '& .MuiInputBase-input': {
+                    color: '#333',
+                    fontWeight: 500,
                     fontFamily: '"Inter", sans-serif',
                   },
                 }}
@@ -341,16 +356,13 @@ const CompleteAccountSetupPage = () => {
                 type="date"
                 value={formData.dateOfBirth}
                 onChange={handleChange('dateOfBirth')}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <CalendarIcon sx={{ color: '#666' }} />
-                    </InputAdornment>
-                  ),
+                inputProps={{
+                  max: new Date().toISOString().split('T')[0], // Prevent future dates
                 }}
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: 2,
+                    backgroundColor: '#f8f9fa',
                     '& fieldset': {
                       borderColor: '#ddd',
                     },
@@ -364,6 +376,41 @@ const CompleteAccountSetupPage = () => {
                   '& .MuiInputLabel-root': {
                     color: '#666',
                     fontFamily: '"Inter", sans-serif',
+                  },
+                  '& .MuiInputBase-input': {
+                    color: '#333',
+                    fontWeight: 500,
+                    fontFamily: '"Inter", sans-serif',
+                  },
+                  // Customize the native date picker icon
+                  '& input[type="date"]::-webkit-calendar-picker-indicator': {
+                    cursor: 'pointer',
+                    filter: 'invert(0.4)',
+                    opacity: 0.8,
+                    '&:hover': {
+                      filter: 'invert(0.2)',
+                      opacity: 1,
+                    },
+                  },
+                  // Ensure date text is visible
+                  '& input[type="date"]::-webkit-datetime-edit': {
+                    color: '#333',
+                    fontWeight: 500,
+                  },
+                  '& input[type="date"]::-webkit-datetime-edit-fields-wrapper': {
+                    color: '#333',
+                  },
+                  '& input[type="date"]::-webkit-datetime-edit-text': {
+                    color: '#666',
+                  },
+                  '& input[type="date"]::-webkit-datetime-edit-month-field': {
+                    color: '#333',
+                  },
+                  '& input[type="date"]::-webkit-datetime-edit-day-field': {
+                    color: '#333',
+                  },
+                  '& input[type="date"]::-webkit-datetime-edit-year-field': {
+                    color: '#333',
                   },
                 }}
               />
@@ -427,6 +474,11 @@ const CompleteAccountSetupPage = () => {
                 },
                 '& .MuiInputLabel-root': {
                   color: '#666',
+                  fontFamily: '"Inter", sans-serif',
+                },
+                '& .MuiInputBase-input': {
+                  color: '#333',
+                  fontWeight: 500,
                   fontFamily: '"Inter", sans-serif',
                 },
               }}

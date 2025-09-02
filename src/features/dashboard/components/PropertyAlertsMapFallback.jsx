@@ -19,60 +19,110 @@ const PropertyAlertsMapFallback = ({ selectedTab }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   // Sample data for Nigeria locations
-  const alertData = [
+  const alerts = [
     {
       id: 1,
-      title: "Investment Properties in Ikeja, GRA",
-      location: "Ikeja GRA",
-      status: "custom",
-      propertyCount: 8,
+      title: 'Luxury Apartment in Victoria Island',
+      location: 'Victoria Island, Lagos',
+      price: '₦75,000,000',
+      bedrooms: '3',
+      bathrooms: '2',
+      area: '210m²',
       propertyType: "Any Type",
-      priceRange: "N90M - N180M",
+      status: 'Active',
+      lastUpdated: '2 hours ago',
+      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop',
     },
     {
       id: 2,
-      title: "Beachfront Properties",
-      location: "Banana Island",
-      status: "active",
-      propertyCount: 12,
+      title: 'Modern Villa in Lekki Phase 1',
+      location: 'Lekki Phase 1, Lagos',
+      price: '₦120,000,000',
+      bedrooms: '4',
+      bathrooms: '3',
+      area: '350m²',
       propertyType: "Villa",
-      priceRange: "N200M+",
+      status: 'Active',
+      lastUpdated: '4 hours ago',
+      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=250&fit=crop',
     },
     {
       id: 3,
-      title: "Affordable Apartments in Epe",
-      location: "Epe",
-      status: "paused",
-      propertyCount: 12,
+      title: 'Premium Land in Banana Island',
+      location: 'Banana Island, Lagos',
+      price: '₦200,000,000',
+      bedrooms: 'N/A',
+      bathrooms: 'N/A',
+      area: '500m²',
       propertyType: "Land",
-      priceRange: "N5M - N20M",
+      status: 'Active',
+      lastUpdated: '6 hours ago',
+      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=250&fit=crop',
     },
     {
       id: 4,
-      title: "Luxury Apartment in Victoria Island",
-      location: "Victoria Island",
-      status: "active",
-      propertyCount: 8,
+      title: 'Elegant Penthouse in Ikoyi',
+      location: 'Ikoyi, Lagos',
+      price: '₦95,000,000',
+      bedrooms: '2',
+      bathrooms: '2',
+      area: '180m²',
       propertyType: "Apartment",
-      priceRange: "N50M - N120M",
+      status: 'Active',
+      lastUpdated: '8 hours ago',
+      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop',
     },
     {
       id: 5,
-      title: "Family Home in Lekki Phase 1",
-      location: "Lekki Phase 1",
-      status: "active",
-      propertyCount: 12,
+      title: 'Family House in Ikeja GRA',
+      location: 'Ikeja GRA, Lagos',
+      price: '₦85,000,000',
+      bedrooms: '3',
+      bathrooms: '2',
+      area: '250m²',
       propertyType: "House",
-      priceRange: "N100M - N250M",
+      status: 'Active',
+      lastUpdated: '1 day ago',
+      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=250&fit=crop',
     },
     {
       id: 6,
-      title: "Affordable Apartments in Yaba",
-      location: "Yaba",
-      status: "paused",
-      propertyCount: 12,
+      title: 'Studio Apartment in Surulere',
+      location: 'Surulere, Lagos',
+      price: '₦45,000,000',
+      bedrooms: '1',
+      bathrooms: '1',
+      area: '120m²',
       propertyType: "Apartment",
-      priceRange: "N20M - N45M",
+      status: 'Active',
+      lastUpdated: '2 days ago',
+      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=250&fit=crop',
+    },
+    {
+      id: 7,
+      title: 'Cozy Short Let Studio in Victoria Island',
+      location: 'Victoria Island, Lagos',
+      price: '₦15,000/night',
+      bedrooms: '1',
+      bathrooms: '1',
+      area: '85m²',
+      propertyType: "Short Let",
+      status: 'Active',
+      lastUpdated: '3 hours ago',
+      image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=250&fit=crop',
+    },
+    {
+      id: 8,
+      title: 'Luxury Short Let Villa in Banana Island',
+      location: 'Banana Island, Lagos',
+      price: '₦85,000/night',
+      bedrooms: '3',
+      bathrooms: '2',
+      area: '280m²',
+      propertyType: "Short Let",
+      status: 'Active',
+      lastUpdated: '5 hours ago',
+      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop',
     },
   ];
 
@@ -106,11 +156,11 @@ const PropertyAlertsMapFallback = ({ selectedTab }) => {
     }
   };
 
-  const filteredAlerts = alertData.filter(alert => {
+  const filteredAlerts = alerts.filter(alert => {
     if (selectedTab === 'all') return true;
-    if (selectedTab === 'active') return alert.status === 'active';
-    if (selectedTab === 'paused') return alert.status === 'paused';
-    if (selectedTab === 'custom') return alert.status === 'custom';
+    if (selectedTab === 'active') return alert.status === 'Active';
+    if (selectedTab === 'paused') return alert.status === 'Paused';
+    if (selectedTab === 'custom') return alert.status === 'Custom';
     return true;
   });
 

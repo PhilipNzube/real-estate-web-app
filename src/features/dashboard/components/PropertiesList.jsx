@@ -77,6 +77,40 @@ const PropertiesList = () => {
       label: 'Exclusive',
       labelColor: '#3b82f6',
     },
+    {
+      id: 4,
+      title: 'Cozy Short Let Studio in Victoria Island',
+      location: 'Victoria Island, Lagos',
+      price: '₦15,000/night',
+      bedrooms: '1',
+      bathrooms: '1',
+      area: '85m²',
+      description: 'Modern and cozy studio apartment perfect for short stays. Fully furnished with all amenities, located in the heart of Victoria Island.',
+      images: [
+        'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=250&fit=crop',
+      ],
+      label: 'Short Let',
+      labelColor: '#10b981',
+    },
+    {
+      id: 5,
+      title: 'Luxury Short Let Villa in Banana Island',
+      location: 'Banana Island, Lagos',
+      price: '₦85,000/night',
+      bedrooms: '3',
+      bathrooms: '2',
+      area: '280m²',
+      description: 'Exclusive luxury villa available for short-term rental. Features private pool, beach access, and premium amenities for the ultimate stay.',
+      images: [
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=250&fit=crop',
+        'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=250&fit=crop',
+      ],
+      label: 'Short Let',
+      labelColor: '#10b981',
+    },
   ];
 
   const handleImageChange = (propertyId, direction) => {

@@ -16,6 +16,7 @@ import InvestmentPage from "../../features/dashboard/pages/InvestmentPage";
 import InvestmentDetailsPage from "../../features/dashboard/pages/InvestmentDetailsPage";
 import InquiriesPage from "../../features/dashboard/pages/InquiriesPage";
 import PropertyAlertsPage from "../../features/dashboard/pages/PropertyAlertsPage";
+import MessagesPage from "../../features/dashboard/pages/MessagesPage";
 import NotFoundPage from "../../shared/components/NotFoundPage";
 
 const router = createBrowserRouter([
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
           {
             path: "alerts",
             element: <PropertyAlertsPage />,
+          },
+          {
+            path: "messages",
+            element: <MessagesPage />,
           },
         ],
       },

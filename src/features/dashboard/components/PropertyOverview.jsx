@@ -40,6 +40,28 @@ const PropertyOverview = () => {
       tag: 'Premium',
       image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=250&fit=crop',
     },
+    {
+      id: 4,
+      title: 'Cozy Short Let Apartment in Ikeja',
+      location: 'Ikeja GRA, Lagos',
+      price: 'N25,000/night',
+      bedrooms: '2',
+      bathrooms: '1',
+      area: '120m²',
+      tag: 'Short Let',
+      image: '/src/assets/images/House_1.png'
+    },
+    {
+      id: 5,
+      title: 'Luxury Short Let Villa in Banana Island',
+      location: 'Banana Island, Lagos',
+      price: 'N85,000/night',
+      bedrooms: '3',
+      bathrooms: '2',
+      area: '280m²',
+      tag: 'Short Let',
+      image: '/src/assets/images/House_1.png'
+    },
   ];
 
   return (

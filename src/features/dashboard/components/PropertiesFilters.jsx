@@ -8,6 +8,11 @@ import {
   Checkbox,
   FormControlLabel,
   Paper,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Chip,
 } from '@mui/material';
 import {
   Bed as BedIcon,
@@ -15,6 +20,7 @@ import {
   SquareFoot as SquareFootIcon,
   Home as HomeIcon,
   Add as AddIcon,
+  Hotel as HotelIcon,
 } from '@mui/icons-material';
 
 const PropertiesFilters = () => {
@@ -24,6 +30,7 @@ const PropertiesFilters = () => {
   const [selectedBaths, setSelectedBaths] = useState('2+');
   const [selectedSize, setSelectedSize] = useState('200m²+');
   const [selectedAge, setSelectedAge] = useState('any');
+  const [selectedPropertyType, setSelectedPropertyType] = useState('all');
   const [amenities, setAmenities] = useState({
     swimmingPool: false,
     airConditioning: true,
@@ -35,8 +42,23 @@ const PropertiesFilters = () => {
     balcony: false,
   });
 
+  const propertyTypes = [
+    { value: 'all', label: 'All Types', icon: <HomeIcon /> },
+    { value: 'apartment', label: 'Apartment', icon: <HomeIcon /> },
+    { value: 'house', label: 'House', icon: <HomeIcon /> },
+    { value: 'villa', label: 'Villa', icon: <HomeIcon /> },
+    { value: 'penthouse', label: 'Penthouse', icon: <HomeIcon /> },
+    { value: 'townhouse', label: 'Townhouse', icon: <HomeIcon /> },
+    { value: 'land', label: 'Land', icon: <HomeIcon /> },
+    { value: 'shortlet', label: 'Short Let', icon: <HotelIcon /> },
+  ];
+
   const handlePriceChange = (event, newValue) => {
     setPriceRange(newValue);
+  };
+
+  const handlePropertyTypeChange = (event) => {
+    setSelectedPropertyType(event.target.value);
   };
 
   const handleAmenityChange = (amenity) => {
@@ -73,6 +95,67 @@ const PropertiesFilters = () => {
         },
       },
     }}>
+      {/* Property Type Section */}
+      <Box sx={{ mb: { xs: 3, sm: 4 } }}>
+        <Typography
+          variant="h6"
+          sx={{
+            color: '#153C65',
+            fontWeight: 700,
+            fontFamily: '"Poppins", sans-serif',
+            fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
+            mb: { xs: 1.5, sm: 2 },
+          }}
+        >
+          Property Type
+        </Typography>
+        
+        <FormControl fullWidth size="small">
+          <InputLabel sx={{ color: '#333', fontWeight: 500 }}>Select Property Type</InputLabel>
+          <Select
+            value={selectedPropertyType}
+            label="Select Property Type"
+            onChange={handlePropertyTypeChange}
+            MenuProps={{
+              sx: {
+                zIndex: 2000, // Higher than sidebar overlay
+              }
+            }}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 2,
+                backgroundColor: '#f8f9fa',
+                '& fieldset': {
+                  borderColor: '#e0e0e0',
+                },
+                '&:hover fieldset': {
+                  borderColor: '#153C65',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: '#153C65',
+                },
+              },
+              '& .MuiSelect-select': {
+                color: '#333',
+                fontWeight: 500,
+              },
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: '#153C65',
+              },
+            }}
+          >
+            {propertyTypes.map((type) => (
+              <MenuItem key={type.value} value={type.value} sx={{ color: '#333' }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  {type.icon}
+                  {type.label}
+                </Box>
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+
       {/* Price Range Section */}
       <Box sx={{ mb: { xs: 3, sm: 4 } }}>
         <Typography

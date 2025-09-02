@@ -380,6 +380,17 @@ const DashboardHeader = ({ onSidebarToggle, sidebarOpen }) => {
                         '&:hover': { backgroundColor: '#f5f5f5' },
                       }}
                     >
+                      Short Let
+                    </Button>
+                    <Button
+                      fullWidth
+                      sx={{
+                        justifyContent: 'flex-start',
+                        textTransform: 'none',
+                        color: '#333',
+                        '&:hover': { backgroundColor: '#f5f5f5' },
+                      }}
+                    >
                       Investment
                     </Button>
                   </Box>
@@ -460,6 +471,7 @@ const DashboardHeader = ({ onSidebarToggle, sidebarOpen }) => {
           <MenuItem onClick={handlePropertyMenuClose}>Residential</MenuItem>
           <MenuItem onClick={handlePropertyMenuClose}>Commercial</MenuItem>
           <MenuItem onClick={handlePropertyMenuClose}>Land</MenuItem>
+          <MenuItem onClick={handlePropertyMenuClose}>Short Let</MenuItem>
           <MenuItem onClick={handlePropertyMenuClose}>Investment</MenuItem>
         </Menu>
 
@@ -625,6 +637,17 @@ const DashboardHeader = ({ onSidebarToggle, sidebarOpen }) => {
                 }}
               >
                 Land
+              </Button>
+              <Button
+                fullWidth
+                sx={{
+                  justifyContent: 'flex-start',
+                  textTransform: 'none',
+                  color: '#333',
+                  '&:hover': { backgroundColor: '#f5f5f5' },
+                }}
+              >
+                Short Let
               </Button>
               <Button
                 fullWidth

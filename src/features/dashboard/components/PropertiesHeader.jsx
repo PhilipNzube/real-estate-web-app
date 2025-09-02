@@ -98,19 +98,19 @@ const PropertiesHeader = () => {
               },
             }}
           >
-            <MenuItem value="newest" sx={{ color: '#00000080', fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' } }}>
+            <MenuItem value="newest" sx={{ color: '#333', fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' } }}>
               Newest
             </MenuItem>
-            <MenuItem value="oldest" sx={{ color: '#00000080', fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' } }}>
+            <MenuItem value="oldest" sx={{ color: '#333', fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' } }}>
               Oldest
             </MenuItem>
-            <MenuItem value="price-low" sx={{ color: '#00000080', fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' } }}>
+            <MenuItem value="price-low" sx={{ color: '#333', fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' } }}>
               Price: Low to High
             </MenuItem>
-            <MenuItem value="price-high" sx={{ color: '#00000080', fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' } }}>
+            <MenuItem value="price-high" sx={{ color: '#333', fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' } }}>
               Price: High to Low
             </MenuItem>
-            <MenuItem value="popular" sx={{ color: '#00000080', fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' } }}>
+            <MenuItem value="popular" sx={{ color: '#333', fontSize: { xs: '0.8rem', sm: '0.85rem', md: '0.9rem' } }}>
               Most Popular
             </MenuItem>
           </Select>

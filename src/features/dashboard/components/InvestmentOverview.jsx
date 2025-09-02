@@ -61,7 +61,8 @@ const InvestmentOverview = () => {
       gridTemplateColumns: { 
         xs: '1fr', 
         sm: 'repeat(2, 1fr)', 
-        md: 'repeat(4, 1fr)' 
+        md: '1fr',
+        lg: 'repeat(4, 1fr)' 
       },
       gap: { xs: 1.5, sm: 2, md: 3 },
       mb: { xs: 3, sm: 4, md: 5 },

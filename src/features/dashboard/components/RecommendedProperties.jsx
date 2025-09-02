@@ -40,6 +40,28 @@ const RecommendedProperties = () => {
       tag: 'Premium',
       image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop',
     },
+    {
+      id: 4,
+      title: 'Modern Short Let Studio in Victoria Island',
+      location: 'Victoria Island, Lagos',
+      price: 'N15,000/night',
+      bedrooms: '1',
+      bathrooms: '1',
+      area: '85m²',
+      tag: 'Short Let',
+      image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=250&fit=crop',
+    },
+    {
+      id: 5,
+      title: 'Luxury Short Let Penthouse in Ikoyi',
+      location: 'Ikoyi, Lagos',
+      price: 'N65,000/night',
+      bedrooms: '2',
+      bathrooms: '2',
+      area: '160m²',
+      tag: 'Short Let',
+      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop',
+    },
   ];
 
   return (
