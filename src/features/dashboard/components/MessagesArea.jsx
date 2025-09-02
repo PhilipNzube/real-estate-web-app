@@ -33,7 +33,7 @@ const MessagesArea = ({ selectedConversation }) => {
       text: 'Hello John Doe, thank you for your interest in the Luxury 3 Bedroom Apartment in Victoria Island. How can I assist you today?',
       time: '11:25 AM',
       avatar: 'JD',
-      avatarColor: '#153C65'
+      avatarColor: '#0A3A7D'
     },
     {
       id: 2,
@@ -41,7 +41,7 @@ const MessagesArea = ({ selectedConversation }) => {
       text: 'Hi John, I\'m very interested in this property. I\'d like to know if it\'s still available and if there\'s any flexibility on the price.',
       time: '10:25 AM',
       avatar: 'JD',
-      avatarColor: '#153C65'
+      avatarColor: '#0A3A7D'
     }
   ];
 
@@ -108,7 +108,7 @@ const MessagesArea = ({ selectedConversation }) => {
               <Paper
                 sx={{
                   p: { xs: 1.5, sm: 2 },
-                  backgroundColor: message.sender === 'user' ? '#e3f2fd' : '#f5f5f5',
+                  backgroundColor: message.sender === 'user' ? '#E6EDFF' : '#EFF0F2',
                   borderRadius: message.sender === 'user' 
                     ? '18px 18px 4px 18px' 
                     : '18px 18px 18px 4px',

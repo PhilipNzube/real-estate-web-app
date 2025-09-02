@@ -72,13 +72,24 @@ const MessagesSidebar = ({ sidebarOpen, onToggleSidebar, activeTab, onTabChange,
 
       {/* Filter Dropdown */}
       <Box sx={{ px: { xs: 2, sm: 3 }, py: 2, borderBottom: '1px solid #e0e0e0' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <FilterIcon sx={{ color: '#666', fontSize: { xs: 18, sm: 20 } }} />
-          <Typography variant="body2" sx={{ color: '#666', fontWeight: 500, fontSize: { xs: '0.875rem', sm: '1rem' } }}>
-            All Messages
-          </Typography>
-          <ArrowDownIcon sx={{ color: '#666', fontSize: { xs: 14, sm: 16 } }} />
-        </Box>
+        <Button
+          variant="text"
+          startIcon={<FilterIcon />}
+          endIcon={<ArrowDownIcon />}
+          sx={{
+            color: '#333',
+            fontWeight: 500,
+            fontSize: { xs: '0.875rem', sm: '1rem' },
+            textTransform: 'none',
+            p: 0,
+            '&:hover': {
+              backgroundColor: 'transparent',
+              color: '#153C65',
+            }
+          }}
+        >
+          All Messages
+        </Button>
       </Box>
 
       {/* Search */}
@@ -122,17 +133,20 @@ const MessagesSidebar = ({ sidebarOpen, onToggleSidebar, activeTab, onTabChange,
       </Box>
 
       {/* New Message Button */}
-      <Box sx={{ px: { xs: 2, sm: 3 }, pb: 2 }}>
+      <Box sx={{ px: { xs: 2, sm: 3 }, pb: 3 }}>
         <Button
           variant="contained"
           startIcon={<AddIcon />}
           fullWidth
           sx={{
-            backgroundColor: '#1976d2',
-            '&:hover': { backgroundColor: '#1565c0' },
+            backgroundColor: '#153C65',
+            '&:hover': { backgroundColor: '#0d2b4a' },
             borderRadius: 2,
-            py: { xs: 1, sm: 1.5 },
-            fontSize: { xs: '0.875rem', sm: '1rem' },
+            py: 2,
+            fontSize: '0.875rem',
+            fontWeight: 600,
+            textTransform: 'none',
+            boxShadow: '0 2px 4px rgba(21, 60, 101, 0.2)',
           }}
         >
           New Message
@@ -147,15 +161,19 @@ const MessagesSidebar = ({ sidebarOpen, onToggleSidebar, activeTab, onTabChange,
           sx={{
             '& .MuiTab-root': {
               minWidth: 'auto',
-              px: { xs: 1, sm: 2 },
+              px: { xs: 1.5, sm: 2 },
               color: '#666',
               fontSize: { xs: '0.75rem', sm: '0.875rem' },
+              fontWeight: 500,
+              textTransform: 'none',
               '&.Mui-selected': {
-                color: '#1976d2',
+                color: '#153C65',
+                fontWeight: 600,
               }
             },
             '& .MuiTabs-indicator': {
-              backgroundColor: '#1976d2',
+              backgroundColor: '#153C65',
+              height: 3,
             }
           }}
         >
@@ -180,26 +198,27 @@ const MessagesSidebar = ({ sidebarOpen, onToggleSidebar, activeTab, onTabChange,
             sx={{
               display: 'flex',
               alignItems: 'flex-start',
-              p: { xs: 1.5, sm: 2 },
-              mb: { xs: 1.5, sm: 2 },
+              p: { xs: 2, sm: 2.5 },
+              mb: { xs: 2, sm: 2.5 },
               borderRadius: 2,
               cursor: 'pointer',
-              backgroundColor: selectedConversation === index ? '#e3f2fd' : 'transparent',
-              border: selectedConversation === index ? '1px solid #1976d2' : '1px solid transparent',
+              backgroundColor: selectedConversation === index ? '#f0f7ff' : 'transparent',
+              border: selectedConversation === index ? '1px solid #153C65' : '1px solid transparent',
               '&:hover': {
-                backgroundColor: selectedConversation === index ? '#e3f2fd' : '#f5f5f5',
-              }
+                backgroundColor: selectedConversation === index ? '#f0f7ff' : '#f8f9fa',
+              },
+              transition: 'all 0.2s ease',
             }}
           >
-            <Box sx={{ position: 'relative', mr: { xs: 1.5, sm: 2 } }}>
+            <Box sx={{ position: 'relative', mr: { xs: 2, sm: 2.5 } }}>
               <Avatar
                 sx={{
-                  width: { xs: 40, sm: 48 },
-                  height: { xs: 40, sm: 48 },
+                  width: { xs: 48, sm: 56 },
+                  height: { xs: 48, sm: 56 },
                   backgroundColor: conv.avatarColor,
                   color: 'white',
-                  fontWeight: 600,
-                  fontSize: { xs: '0.875rem', sm: '1rem' },
+                  fontWeight: 700,
+                  fontSize: { xs: '1rem', sm: '1.125rem' },
                 }}
               >
                 {conv.avatar}
@@ -210,42 +229,46 @@ const MessagesSidebar = ({ sidebarOpen, onToggleSidebar, activeTab, onTabChange,
                     position: 'absolute',
                     bottom: 2,
                     right: 2,
-                    width: { xs: 10, sm: 12 },
-                    height: { xs: 10, sm: 12 },
+                    width: { xs: 12, sm: 14 },
+                    height: { xs: 12, sm: 14 },
                     backgroundColor: '#4caf50',
                     borderRadius: '50%',
-                    border: '2px solid white'
+                    border: '2px solid white',
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
                   }}
                 />
               )}
             </Box>
             
             <Box sx={{ flex: 1, minWidth: 0 }}>
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
-                <Typography variant="subtitle2" sx={{ 
-                  fontWeight: 600, 
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1.5 }}>
+                <Typography variant="subtitle1" sx={{ 
+                  fontWeight: 700, 
                   color: '#333',
-                  fontSize: { xs: '0.75rem', sm: '0.875rem' }
+                  fontSize: { xs: '0.875rem', sm: '1rem' },
+                  lineHeight: 1.2,
                 }}>
                   {conv.name}
                 </Typography>
                 <Typography variant="caption" sx={{ 
                   color: '#666', 
-                  fontSize: { xs: '0.625rem', sm: '0.75rem' }
+                  fontSize: { xs: '0.75rem', sm: '0.8rem' },
+                  fontWeight: 500,
                 }}>
                   {conv.time}
                 </Typography>
               </Box>
               
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
                 {conv.role === 'Senior Property Agent' ? (
-                  <PersonIcon sx={{ color: '#666', fontSize: { xs: 14, sm: 16 }, mr: 0.5 }} />
+                  <PersonIcon sx={{ color: '#666', fontSize: { xs: 16, sm: 18 }, mr: 1 }} />
                 ) : (
-                  <BusinessIcon sx={{ color: '#666', fontSize: { xs: 14, sm: 16 }, mr: 0.5 }} />
+                  <BusinessIcon sx={{ color: '#666', fontSize: { xs: 16, sm: 18 }, mr: 1 }} />
                 )}
                 <Typography variant="caption" sx={{ 
                   color: '#666',
-                  fontSize: { xs: '0.625rem', sm: '0.75rem' }
+                  fontSize: { xs: '0.75rem', sm: '0.8rem' },
+                  fontWeight: 500,
                 }}>
                   {conv.role}
                 </Typography>
@@ -253,29 +276,40 @@ const MessagesSidebar = ({ sidebarOpen, onToggleSidebar, activeTab, onTabChange,
               
               <Typography variant="body2" sx={{ 
                 color: '#333', 
-                mb: 1, 
-                lineHeight: 1.4,
-                fontSize: { xs: '0.75rem', sm: '0.875rem' }
+                mb: 2, 
+                lineHeight: 1.5,
+                fontSize: { xs: '0.8rem', sm: '0.875rem' },
+                fontWeight: 400,
               }}>
                 {conv.lastMessage}
               </Typography>
               
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box sx={{ 
+                display: 'flex', 
+                alignItems: 'center',
+                backgroundColor: '#f8f9fa',
+                borderRadius: 1.5,
+                p: 1,
+                border: '1px solid #e9ecef',
+              }}>
                 <Box
                   component="img"
                   src={conv.property.image}
                   alt={conv.property.title}
                   sx={{
-                    width: { xs: 32, sm: 40 },
-                    height: { xs: 24, sm: 30 },
+                    width: { xs: 36, sm: 44 },
+                    height: { xs: 28, sm: 34 },
                     borderRadius: 1,
                     objectFit: 'cover',
-                    mr: 1
+                    mr: 1.5,
+                    border: '1px solid #e9ecef',
                   }}
                 />
                 <Typography variant="caption" sx={{ 
-                  color: '#666', 
-                  fontSize: { xs: '0.625rem', sm: '0.7rem' }
+                  color: '#333', 
+                  fontSize: { xs: '0.75rem', sm: '0.8rem' },
+                  fontWeight: 500,
+                  lineHeight: 1.2,
                 }}>
                   {conv.property.title}
                 </Typography>
@@ -286,7 +320,15 @@ const MessagesSidebar = ({ sidebarOpen, onToggleSidebar, activeTab, onTabChange,
               <Badge
                 badgeContent={conv.unread}
                 color="primary"
-                sx={{ ml: 1 }}
+                sx={{ 
+                  ml: 1,
+                  '& .MuiBadge-badge': {
+                    backgroundColor: '#153C65',
+                    color: 'white',
+                    fontWeight: 600,
+                    fontSize: '0.75rem',
+                  }
+                }}
               />
             )}
           </Box>

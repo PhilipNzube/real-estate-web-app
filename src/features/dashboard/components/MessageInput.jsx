@@ -69,45 +69,51 @@ const MessageInput = ({ messageText, onMessageChange, onSendMessage }) => {
         {/* Action Buttons */}
         <Box sx={{ 
           display: 'flex', 
-          gap: 1, 
+          gap: 2, 
           mt: 2, 
           flexWrap: 'wrap',
-          alignItems: 'center'
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          width: '100%',
         }}>
-          <Button
-            variant="outlined"
-            startIcon={<AttachFileIcon />}
-            size="small"
-            sx={{
-              borderColor: '#666',
-              color: '#666',
-              borderRadius: 2,
-              fontSize: { xs: '0.75rem', sm: '0.875rem' },
-              py: { xs: 0.5, sm: 0.75 },
-              px: { xs: 1, sm: 1.5 },
-              '&:hover': {
-                borderColor: '#1976d2',
-                color: '#1976d2',
-              }
-            }}
-          >
-            Attach
-          </Button>
-          <Button
-            variant="contained"
-            startIcon={<CalendarIcon />}
-            size="small"
-            sx={{
-              backgroundColor: '#FF9800',
-              '&:hover': { backgroundColor: '#F57C00' },
-              borderRadius: 2,
-              fontSize: { xs: '0.75rem', sm: '0.875rem' },
-              py: { xs: 0.5, sm: 0.75 },
-              px: { xs: 1, sm: 1.5 }
-            }}
-          >
-            Schedule Viewing
-          </Button>
+          <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+            <Button
+              variant="outlined"
+              startIcon={<AttachFileIcon />}
+              size="small"
+              sx={{
+                borderColor: '#666',
+                color: '#666',
+                borderRadius: 2,
+                fontSize: { xs: '0.75rem', sm: '0.875rem' },
+                py: { xs: 0.5, sm: 0.75 },
+                px: { xs: 1, sm: 1.5 },
+                '&:hover': {
+                  borderColor: '#1976d2',
+                  color: '#1976d2',
+                }
+              }}
+            >
+              Attach
+            </Button>
+            <Button
+              variant="contained"
+              startIcon={<CalendarIcon />}
+              size="small"
+              sx={{
+                color: '#0A3A7D',
+                backgroundColor: '#FFC043',
+                '&:hover': { backgroundColor: '#F57C00' },
+                borderRadius: 2,
+                fontSize: { xs: '0.75rem', sm: '0.875rem' },
+                py: { xs: 0.5, sm: 0.75 },
+                px: { xs: 1, sm: 1.5 }
+              }}
+            >
+              Schedule Viewing
+            </Button>
+          </Box>
+          
           <Button
             variant="contained"
             startIcon={<SendIcon />}
@@ -115,7 +121,7 @@ const MessageInput = ({ messageText, onMessageChange, onSendMessage }) => {
             onClick={onSendMessage}
             disabled={!messageText.trim()}
             sx={{
-              backgroundColor: '#1976d2',
+              backgroundColor: '#0A3A7D',
               '&:hover': { backgroundColor: '#1565c0' },
               borderRadius: 2,
               fontSize: { xs: '0.75rem', sm: '0.875rem' },

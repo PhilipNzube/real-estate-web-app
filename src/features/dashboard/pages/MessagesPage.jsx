@@ -25,7 +25,7 @@ const MessagesPage = () => {
       name: 'John Doe',
       role: 'Senior Property Agent',
       avatar: 'JD',
-      avatarColor: '#153C65',
+      avatarColor: '#0A3A7D',
       online: true,
       time: '11:25 AM',
       lastMessage: 'You: Hi John, I\'m very interested in this property. I\'d like to know more about the payment plans and available units.',

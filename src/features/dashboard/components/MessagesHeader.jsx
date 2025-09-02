@@ -22,12 +22,12 @@ const MessagesHeader = ({ selectedConversation }) => {
 
   return (
     <Box sx={{
-      p: { xs: 1.5, sm: 2 },
+      
       borderBottom: '1px solid #e0e0e0',
       backgroundColor: 'white'
     }}>
       {/* Contact Info and Action Buttons */}
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5, p: { xs: 1.5, sm: 2 }, }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ position: 'relative', mr: 1.5 }}>
             <Avatar
@@ -93,12 +93,13 @@ const MessagesHeader = ({ selectedConversation }) => {
 
       {/* Compact Property Card */}
       <Card sx={{
-        borderRadius: 2,
+        borderRadius: 0,
+        backgroundColor: '#E6EDFF',
         boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-        border: '1px solid #e0e0e0',
-        maxWidth: { xs: '100%', sm: '350px' },
+        border: '0px solid #e0e0e0',
+        maxWidth: { xs: '100%', sm: '100%' },
       }}>
-        <CardContent sx={{ p: 0 }}>
+        <CardContent sx={{ p: { xs: 1.5, sm: 2 }, }}>
           <Box sx={{ display: 'flex' }}>
             <Box
               component="img"
@@ -146,7 +147,7 @@ const MessagesHeader = ({ selectedConversation }) => {
                   startIcon={<CalendarIcon />}
                   size="small"
                   sx={{
-                    backgroundColor: '#1976d2',
+                    backgroundColor: '#0A3A7D',
                     '&:hover': { backgroundColor: '#1565c0' },
                     borderRadius: 2,
                     fontSize: { xs: '0.625rem', sm: '0.75rem' },
@@ -161,11 +162,11 @@ const MessagesHeader = ({ selectedConversation }) => {
                   Schedule Viewing
                 </Button>
                 <Button
-                  variant="outlined"
+                  variant="contained"
                   startIcon={<BusinessIcon />}
                   size="small"
                   sx={{
-                    borderColor: '#666',
+                    backgroundColor: '#FFFFFF',
                     color: '#666',
                     borderRadius: 2,
                     fontSize: { xs: '0.625rem', sm: '0.75rem' },
