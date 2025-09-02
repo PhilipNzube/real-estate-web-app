@@ -156,9 +156,7 @@ const AccountWelcomePage = () => {
       }}>
         <Box sx={{ 
           width: '100%',
-          maxWidth: 'lg',
-          mx: 'auto',
-          px: { xs: 2, sm: 3, md: 4 }
+          px: { xs: 2, sm: 3, md: 4, lg: 6, xl: 8 }
         }}>
           <Box sx={{ 
             display: 'flex', 
@@ -247,9 +245,7 @@ const AccountWelcomePage = () => {
       <Box sx={{ 
         flex: 1,
         width: '100%',
-        maxWidth: 'lg',
-        mx: 'auto',
-        px: { xs: 1, sm: 2, md: 3, lg: 4 },
+        px: { xs: 1, sm: 2, md: 3, lg: 6, xl: 8 },
         py: { xs: 2, sm: 3, md: 4, lg: 6 },
         overflowX: 'hidden'
       }}>
@@ -1072,9 +1068,8 @@ const AccountWelcomePage = () => {
         width: '100%'
       }}>
         <Box sx={{ 
-          maxWidth: 'lg',
-          mx: 'auto',
-          px: { xs: 1, sm: 2, md: 3, lg: 4 }
+          width: '100%',
+          px: { xs: 1, sm: 2, md: 3, lg: 6, xl: 8 }
         }}>
           <Box sx={{ textAlign: 'center' }}>
             {/* Social Media Icons */}
